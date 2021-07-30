@@ -47,7 +47,7 @@ function start(){
 
     document.getElementById("t2a").innerHTML = TEXT.msg2.single
     document.getElementById("bonus").innerHTML = `$${TEXT.bonus._25} BONUS.`
-    // gsap.set('#header', {rotation:0.001, force3D: true, transformPerspective:100, willChange: 'transform'});
+    
 
 	
 	const tl = new TimelineMax()
@@ -67,10 +67,13 @@ function start(){
     tl.from(".proline_new", {duration:.3, opacity:0}, "logo")    
     tl.fromTo(".proline_logo", {maskImage:'linear-gradient(to left, transparent 80%, black 115%)'}, {duration:.6, maskImage:'linear-gradient(to left, transparent 0%, black 10%)'}, "logo")
     
-    tl.set(".proline_plus", {opacity:1})
-    tl.to(".proline_plus", {duration:.3, rotate:90, ease:'power3.out'})
     
-    tl.add(textFX("#t2a"), "+=.3")
+    tl.add("t2", "+=.2")
+    tl.add(textFX("#t2a"), "t2")
+    tl.set(".proline_plus", {opacity:1}, "t2")
+    tl.to(".proline_plus", {duration:.4, rotate:"+=90", ease:'power3.out'}, "t2")
+
+
     tl.to([".proline_new", "#t2a"], {duration:.2, opacity:0}, "+=2.2")
 
 
