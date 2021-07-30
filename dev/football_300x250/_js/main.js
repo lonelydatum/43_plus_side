@@ -47,7 +47,7 @@ function start(){
 
     document.getElementById("t2a").innerHTML = TEXT.msg2.single
     document.getElementById("bonus").innerHTML = `$${TEXT.bonus._25} BONUS.`
-
+    // gsap.set('#header', {rotation:0.001, force3D: true, transformPerspective:100, willChange: 'transform'});
 
 	
 	const tl = new TimelineMax()
@@ -55,17 +55,23 @@ function start(){
 	tl.from(".bg", {opacity:0, scale:.5, duration:.3}, "+=.2")
 	
         
-    tl.add(textFX("#t1a"), "+=.1")
+    tl.add(textFX("#t1a"), "+=.3")
     tl.add(textFX("#t1b"), "+=.5")
-    tl.to(".frame1 .t1", {duration:.2, opacity:0}, "+=2.1")
+    
+    tl.add(playa(), "+=.3")    
 
-    tl.add("playa")
-    tl.add(playa(), "playa")    
-    tl.from([".proline_new", ".proline_logo"], {duration:.4, opacity:0}, "playa")
+    tl.to(".frame1 .t1", {duration:.2, opacity:0}, "+=1.2")
+
+
+    tl.add("logo")
+    tl.from(".proline_new", {duration:.3, opacity:0}, "logo")    
+    tl.fromTo(".proline_logo", {maskImage:'linear-gradient(to left, transparent 80%, black 115%)'}, {duration:.6, maskImage:'linear-gradient(to left, transparent 0%, black 10%)'}, "logo")
     
+    tl.set(".proline_plus", {opacity:1})
+    tl.to(".proline_plus", {duration:.3, rotate:90, ease:'power3.out'})
     
-    tl.add(textFX("#t2a"), "-=.4")
-    tl.to([".proline_new", "#t2a"], {duration:.2, opacity:0}, "+=3")
+    tl.add(textFX("#t2a"), "+=.3")
+    tl.to([".proline_new", "#t2a"], {duration:.2, opacity:0}, "+=2.2")
 
 
 
@@ -84,7 +90,9 @@ function start(){
 
      tl.add(()=>{
         TweenLite.set("#legalBtn", {display:"block"})
-    })
+    }, "+=.3")
+
+     // tl.play("playa")
 }
 
 function playa(){

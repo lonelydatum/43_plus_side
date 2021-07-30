@@ -62,6 +62,12 @@
 	@include pos(100, 181);
 }
 
+.proline_plus{
+	transform-origin: 50% 50%;
+	opacity: 0;
+	@include pos-scale-rotate(190, 38, .5, 0);
+}
+
 .bg{
 	transform-origin: 50% 50%;
 	@include pos-scale(-150, -125, .5);

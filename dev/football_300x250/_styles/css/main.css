@@ -363,6 +363,21 @@ img {
   position: absolute;
 }
 
+.proline_plus {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transform: translate(190px, 38px) scale(0.5) rotate(0deg);
+  -ms-transform: translate(190px, 38px) scale(0.5) rotate(0deg);
+  transform: translate(190px, 38px) scale(0.5) rotate(0deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 .bg {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
