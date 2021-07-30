@@ -1,0 +1,73 @@
+@import '../../../_common/styles/common.scss';
+
+.frame1 {
+	// opacity: 0;
+}
+
+.frame1 .title{
+	font-size: 20px;
+	letter-spacing: 0px;
+}	
+
+
+.playa{
+	transform-origin: 340px 380px; 
+	// @include pos-scale(-170, -190, .5);
+	@include pos-scale(-60, -160, .1);
+	// @include pos-scale(-10, -100, .1);
+	&.foot{
+		opacity: 0;
+	}
+}
+
+#t1a{
+	@include pos(0, 34);
+}
+
+#t1b{
+	@include pos(0, 54);
+}
+
+#t2a{
+	@include pos(0, 73);
+}
+
+#banner{
+	font-size: 20px;
+	color: #333;
+	width: 300px;
+	height: 250px;
+}
+
+
+.logo1 {
+	width: 136px;
+	height: 69px;
+	@include pos(0, 180);
+}
+
+#legalBtn{
+	@include pos(260, 210);
+	// opacity: 1;
+}
+
+.flare{
+	// background-color: rgba(255, 0,0,.2);
+}
+.flare1{
+	@include pos(10, 138);
+}
+
+.flare2{
+	@include pos(100, 181);
+}
+
+.bg{
+	transform-origin: 50% 50%;
+	@include pos-scale(-150, -125, .5);
+}
+
+
+#container * {
+	  position: absolute;
+  }
