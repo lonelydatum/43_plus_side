@@ -92,12 +92,13 @@ Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
+var _plusHelperJs = require('./plusHelper.js');
+
 var _dcJs = require('./dc.js');
 
 var _helpersBannerHelpers = require('./helpers/bannerHelpers');
 
 _dcJs.creative.dynamicDataAvailable = function () {
-
     // Dynamic Content variables and sample values
     Enabler.setProfileId(10660348);
     var devDynamicContent = {};
@@ -122,6 +123,110 @@ _dcJs.creative.dynamicDataAvailable = function () {
     };
 };
 
+var _config = undefined;
+
+function initCommon(config) {
+    _config = config;
+    var msg2 = (0, _plusHelperJs.addBR)(config, config.msg2);
+    document.getElementById("t2").innerHTML = msg2;
+    document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
+    var tl = new TimelineMax();
+    tl.set(".frame1", { opacity: 1 });
+    tl.set(".playa", { transformOrigin: config.playa.x + 'px ' + config.playa.y + 'px' });
+
+    tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
+    tl.add((0, _plusHelperJs.textFX)("#t1b"), "+=.5");
+    tl.add((0, _plusHelperJs.playa)(config.playa), "+=.3");
+    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
+
+    tl.add("logo");
+    tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
+    tl.from(".proline_logo", { duration: .6, maskImage: 'linear-gradient(to left, transparent 100%, black 100%)' }, "logo");
+
+    tl.add("t2", "+=.2");
+    tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
+    tl.set(".proline_plus", { opacity: 1 }, "t2");
+
+    // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
+    return tl;
+}
+
+function initHorizonal(config) {
+    var tl = initCommon(config);
+
+    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
+    return tl;
+}
+
+function init(config) {
+    var tl = initCommon(config);
+
+    return tl;
+}
+
+function endHorizontal(tl, shift) {
+    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
+    tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
+    tl.from("#cta", { duration: .3, opacity: 0 });
+    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
+    tl.add("shift");
+    tl.to(".proline", { duration: .2, x: '+=' + shift.logo }, "shift");
+    tl.to("#cta", { duration: .2, scale: .5, x: shift.cta.x, y: shift.cta.y }, "shift");
+    endFooter(tl);
+}
+
+function endVertical(tl) {
+    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
+    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
+    tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
+    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
+    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
+    tl.to(".proline", { duration: .2, y: "+=25" });
+    endFooter(tl);
+}
+
+function endBB(tl) {
+    tl.to([".proline_new", "#t2"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
+    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
+    tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
+    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
+    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
+    endFooter(tl);
+}
+
+function endFooter(tl) {
+    tl.add("footer", "+=.3");
+    tl.from("#legal-btn", { duration: .2, x: "+=80" }, "footer");
+    tl.add((0, _plusHelperJs.olg)(), "footer");
+    tl.add(function () {
+        TweenLite.set("#legalBtn", { display: "block" });
+    }, "+=.3");
+}
+
+var end = {
+    horizontal: endHorizontal,
+    vertical: endVertical,
+    bb: endBB
+};
+
+exports.TXT = _plusHelperJs.TXT;
+exports.olg = _plusHelperJs.olg;
+exports.textFX = _plusHelperJs.textFX;
+exports.flare = _plusHelperJs.flare;
+exports.playa = _plusHelperJs.playa;
+exports.init = init;
+exports.end = end;
+exports.addBR = _plusHelperJs.addBR;
+exports.initHorizonal = initHorizonal;
+
+},{"./dc.js":1,"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+TweenLite.defaultEase = Power2.easeOut;
 var TXT = {
     DYANAMIC: { txt: "DYNAMIC COMPETITIVE ODDS", read: 2 },
     NEW_SPORTS: { txt: "NEW SPORTS, NEW GAMES", read: 2 },
@@ -133,8 +238,6 @@ var TXT = {
     _100: "100",
     _200: "200"
 };
-
-TweenLite.defaultEase = Power2.easeOut;
 
 function olg() {
     var tl = new TimelineMax();
@@ -171,6 +274,11 @@ function textFX(id) {
     return tl;
 }
 
+function flare(id) {
+    var tl = new TimelineMax({ repeat: 30, repeatDelay: .3, yoyo: true });
+    tl.to(id, { duration: 1, opacity: 1 });
+}
+
 function playa(_ref2) {
     var x = _ref2.x;
     var y = _ref2.y;
@@ -189,131 +297,28 @@ function playa(_ref2) {
     return tl;
 }
 
-function flare(id) {
-    var tl = new TimelineMax({ repeat: 30, repeatDelay: .3, yoyo: true });
-    tl.to(id, { duration: 1, opacity: 1 });
-}
-
-CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
-
 function addBR(config, key) {
-
     var str = TXT[key].txt;
     var br = config.br[key];
     if (!br) {
         return str;
     }
-
     var msg2Split = str.split(" ");
     msg2Split[br] += "<br/>";
     return msg2Split.join(" ");
 }
 
-var _config = undefined;
-function init(config) {
-    _config = config;
-    var msg2 = addBR(config, config.msg2);
+CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
 
-    document.getElementById("t2").innerHTML = msg2;
-    document.getElementById("bonus").innerHTML = '$' + TXT[config.bonus] + ' BONUS.';
-
-    var tl = new TimelineMax();
-    tl.set(".frame1", { opacity: 1 });
-    tl.set(".get", { x: TXT[config.bonus].length === 3 ? -4 : 0 });
-    tl.set(".playa", { transformOrigin: config.playa.x + 'px ' + config.playa.y + 'px' });
-
-    // return
-
-    tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
-
-    tl.add(textFX("#t1a"), "+=.3");
-    tl.add(textFX("#t1b"), "+=.5");
-
-    tl.add(playa(config.playa), "+=.3");
-
-    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
-
-    tl.add("logo");
-    tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
-    // tl.fromTo(".proline_logo", {maskImage:'linear-gradient(to left, transparent 80%, black 115%)'}, {duration:.6, maskImage:'linear-gradient(to left, transparent 0%, black 10%)'}, "logo")
-    tl.from(".proline_logo", { duration: .6, maskImage: 'linear-gradient(to left, transparent 100%, black 100%)' }, "logo");
-
-    tl.add("t2", "+=.2");
-    tl.add(textFX("#t2"), "t2");
-    tl.set(".proline_plus", { opacity: 1 }, "t2");
-
-    return tl;
-}
-
-function endHorizontal(tl) {
-    // tl.to("#t2", {duration:.2, opacity:0}, `+=${TXT[_config.msg2].read}`)
-
-    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
-    tl.add(textFX("#bonus", .04), "+=.1");
-
-    tl.from("#cta", { duration: .3, opacity: 0 });
-
-    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
-
-    tl.add("shift");
-    tl.to(".proline", { duration: .2, x: "+=121" }, "shift");
-    tl.to("#cta", { duration: .2, scale: .5, x: -420, y: -45 }, "shift");
-
-    endFooter(tl);
-}
-
-function endVertical(tl) {
-    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + TXT[_config.msg2].read);
-
-    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
-    tl.add(textFX("#bonus", .04), "+=.1");
-
-    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
-
-    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
-    tl.to(".proline", { duration: .2, y: "+=25" });
-
-    endFooter(tl);
-}
-
-function endBB(tl) {
-    tl.to([".proline_new", "#t2"], { duration: .2, opacity: 0 }, '+=' + TXT[_config.msg2].read);
-
-    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
-    tl.add(textFX("#bonus", .04), "+=.1");
-    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
-
-    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
-
-    endFooter(tl);
-}
-
-function endFooter(tl) {
-    tl.add("footer", "+=.3");
-    tl.from("#legal-btn", { duration: .2, x: "+=80" }, "footer");
-    tl.add(olg(), "footer");
-
-    tl.add(function () {
-        TweenLite.set("#legalBtn", { display: "block" });
-    }, "+=.3");
-}
-
-var end = {
-    horizontal: endHorizontal,
-    vertical: endVertical,
-    bb: endBB
-};
-
-exports.TXT = TXT;
 exports.olg = olg;
+exports.shuffle = shuffle;
 exports.textFX = textFX;
 exports.flare = flare;
 exports.playa = playa;
-exports.init = init;
-exports.end = end;
 exports.addBR = addBR;
+exports.TXT = TXT;
 
-},{"./dc.js":1,"./helpers/bannerHelpers":2}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
@@ -349,7 +354,7 @@ function start() {
 
 module.exports = {};
 
-},{"../../_common/js/dc.js":1,"../../_common/js/plus.js":3}]},{},[4])
+},{"../../_common/js/dc.js":1,"../../_common/js/plus.js":3}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map

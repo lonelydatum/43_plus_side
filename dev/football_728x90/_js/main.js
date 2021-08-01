@@ -32,7 +32,12 @@ creative.showAd = ()=>{
 function start(){
     
     const tl = init(config)
-    end.horizontal(tl)
+    const shift = {
+        cta: {x:-420, y:-45},
+        logo: 121
+    }
+
+    end.horizontal(tl, shift)
      // tl.play("playa")
 }
 
