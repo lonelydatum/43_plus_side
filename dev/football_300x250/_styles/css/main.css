@@ -244,37 +244,16 @@ img {
 #bonus {
   text-align: center;
   width: 100%;
-  -webkit-transform: translate(16px, 74px);
-  -ms-transform: translate(16px, 74px);
-  transform: translate(16px, 74px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
 }
 
-.frame1 .title {
+#banner {
+  width: 300px;
+  height: 250px;
+}
+
+.title {
   font-size: 20px;
   letter-spacing: 0px;
-}
-
-.playa {
-  -webkit-transform-origin: 340px 380px;
-  -ms-transform-origin: 340px 380px;
-  transform-origin: 340px 380px;
-  -webkit-transform: translate(-60px, -160px) scale(0.1, 0.1);
-  -ms-transform: translate(-60px, -160px) scale(0.1, 0.1);
-  transform: translate(-60px, -160px) scale(0.1, 0.1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.playa.foot {
-  opacity: 0;
 }
 
 #t1a {
@@ -299,7 +278,7 @@ img {
   position: absolute;
 }
 
-#t2a {
+#t2 {
   -webkit-transform: translate(0px, 73px);
   -ms-transform: translate(0px, 73px);
   transform: translate(0px, 73px);
@@ -310,14 +289,7 @@ img {
   position: absolute;
 }
 
-#banner {
-  font-size: 20px;
-  color: #333;
-  width: 300px;
-  height: 250px;
-}
-
-.logo1 {
+#olg {
   width: 136px;
   height: 69px;
   -webkit-transform: translate(0px, 180px);
@@ -363,6 +335,17 @@ img {
   position: absolute;
 }
 
+#bonus {
+  -webkit-transform: translate(15px, 74px);
+  -ms-transform: translate(15px, 74px);
+  transform: translate(15px, 74px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 .proline_plus {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
@@ -378,21 +361,14 @@ img {
   position: absolute;
 }
 
-.bg {
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transform: translate(-150px, -125px) scale(0.5, 0.5);
-  -ms-transform: translate(-150px, -125px) scale(0.5, 0.5);
-  transform: translate(-150px, -125px) scale(0.5, 0.5);
+.playa {
+  -webkit-transform: translate(-60px, -160px) scale(0.1, 0.1);
+  -ms-transform: translate(-60px, -160px) scale(0.1, 0.1);
+  transform: translate(-60px, -160px) scale(0.1, 0.1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
-  position: absolute;
-}
-
-#container * {
   position: absolute;
 }
 

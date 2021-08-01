@@ -64,97 +64,24 @@ window.addEventListener('load', creative.init.bind(creative));
 //   // add your animation js here
 // };
 
-var TEXT = {
-  msg1: {
-    dynamic: "Dynamic Competitive Odds",
-    'new': "New Sports, New Games",
-    single: "Single Event Betting & More"
-  },
-  msg2: {
-    single: "Single Event Betting & More",
-    'new': "New Ways to Bet",
-    fifty: "$50 first deposit match - v2"
-  },
-  bonus: {
-    _25: 25,
-    _50: 50,
-    _100: 100,
-    _200: 200
-  }
-
-};
-
-TweenLite.defaultEase = Power2.easeOut;
-
-function olg() {
-  var tl = new TimelineMax();
-
-  tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
-  tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0)
-
-  // tl.to("#bluewedge1", {duration: .8, morphSVG: "#bluewedge2", ease: 'power1.inOut'}, 0)
-  // .to("#redwedge1", {duration: .8, morphSVG: "#redwedge2", ease: 'power1.inOut'}, 0)
-
-  .from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
-
-  return tl;
-}
-
-function shuffle(array) {
-  var currentIndex = array.length,
-      randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    var _ref = [array[randomIndex], array[currentIndex]];
-    array[currentIndex] = _ref[0];
-    array[randomIndex] = _ref[1];
-  }
-
-  return array;
-}
-
-function textFX(id) {
-  var stagger = arguments.length <= 1 || arguments[1] === undefined ? .01 : arguments[1];
-
-  var tl = new TimelineMax();
-  var splitText = new SplitText(id, { type: "chars" });
-  splitText = shuffle(splitText.chars);
-  tl.from(splitText, { duration: .08, stagger: stagger, autoAlpha: 0 });
-  return tl;
-}
-
-function flare(id) {
-  var tl = new TimelineMax({ repeat: 30, repeatDelay: .3, yoyo: true });
-  tl.to(id, { duration: 1, opacity: 1 });
-}
-
-CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
+// Dynamic Competitive Odds 
+// Single Event Betting & More
+// New Sports, New Games
+// New Ways to Bet
+// $50 first deposit match - v2
 
 exports.creative = creative;
-exports.TEXT = TEXT;
-exports.olg = olg;
-exports.textFX = textFX;
-exports.flare = flare;
 
 },{}],2:[function(require,module,exports){
 "use strict";
 
-var _commonJsDcJs = require('../../_common/js/dc.js');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-start();
+var _dcJs = require('./dc.js');
 
-_commonJsDcJs.creative.showAd = function () {
-    start();
-};
-
-_commonJsDcJs.creative.dynamicDataAvailable = function () {
+_dcJs.creative.dynamicDataAvailable = function () {
 
     // Dynamic Content variables and sample values
     Enabler.setProfileId(10660348);
@@ -175,74 +102,216 @@ _commonJsDcJs.creative.dynamicDataAvailable = function () {
     devDynamicContent.Profile[0].single_event = 0;
     Enabler.setDevDynamicContent(devDynamicContent);
 
-    _commonJsDcJs.creative.dynamicData = {
+    _dcJs.creative.dynamicData = {
         bonus: dynamicContent.proline_test_sheet_1[0].bonus
     };
 };
 
-function start() {
+var TXT = {
+    DYANAMIC: { txt: "DYNAMIC COMPETITIVE ODDS", read: 2 },
+    NEW_SPORTS: { txt: "NEW SPORTS, NEW GAMES", read: 3 },
+    SINGLE: { txt: "SINGLE EVENT BETTING & MORE", read: 2.2 },
+    NEW_WAY: { txt: "NEW WAYS TO BET", read: 1.5 },
+    FIFTY: { txt: "$50 FIRST DEPOSIT MATCH - V2", read: 3 },
+    _25: "25",
+    _50: "50",
+    _100: "100",
+    _200: "200"
+};
 
-    document.getElementById("t2a").innerHTML = _commonJsDcJs.TEXT.msg2.single;
-    document.getElementById("bonus").innerHTML = "$" + _commonJsDcJs.TEXT.bonus._25 + " BONUS.";
+TweenLite.defaultEase = Power2.easeOut;
+
+function olg() {
+    var tl = new TimelineMax();
+
+    tl.to("#bluewedge1", { duration: .5, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0);
+    tl.to("#redwedge1", { duration: .8, ease: 'power1.inOut', scaleY: 1, scale: 1, x: 0, y: 0 }, 0).from('#group-o', { duration: 1, y: 200, ease: "custom" }, 0).from('#group-l', { duration: 1, y: 200, ease: "custom" }, .1).from('#group-g', { duration: 1, y: 200, ease: "custom" }, .2).from('#group-o', { duration: .8, scale: .4, ease: "power1.out" }, .3).from('#group-l', { duration: .8, scale: .4, ease: "power1.out" }, .4).from('#group-g', { duration: .8, scale: .4, ease: "power1.out" }, .5).from('#letter-o', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '28pt 75pt' }, .9).from('#letter-l', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '55pt 75pt' }, 1).from('#letter-g', { duration: .25, scale: 0, ease: 'back.out(2)', svgOrigin: '80pt 75pt' }, 1.1);
+
+    return tl;
+}
+
+function shuffle(array) {
+    var currentIndex = array.length,
+        randomIndex;
+    while (0 !== currentIndex) {
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        var _ref = [array[randomIndex], array[currentIndex]];
+        array[currentIndex] = _ref[0];
+        array[randomIndex] = _ref[1];
+    }
+
+    return array;
+}
+
+function textFX(id) {
+    var stagger = arguments.length <= 1 || arguments[1] === undefined ? .01 : arguments[1];
+
+    var tl = new TimelineMax();
+    var splitText = new SplitText(id, { type: "chars" });
+    splitText = shuffle(splitText.chars);
+    tl.from(splitText, { duration: .08, stagger: stagger, autoAlpha: 0 });
+    return tl;
+}
+
+function playa(_ref2) {
+    var x = _ref2.x;
+    var y = _ref2.y;
+
+    var tl = new TimelineMax();
+    tl.set([".playa", ".bg_cover"], { opacity: 1 });
+    tl.to(".playa", { duration: .6, x: -x / 2, y: -y / 2, scale: .5, ease: "power3.inOut" });
+    tl.set(".bg_cover", { opacity: 0 }, "=-.25");
+    tl.add(function () {
+        flare(".flare1");
+    });
+
+    tl.add(function () {
+        flare(".flare2");
+    }, "+=.6");
+    return tl;
+}
+
+function flare(id) {
+    var tl = new TimelineMax({ repeat: 30, repeatDelay: .3, yoyo: true });
+    tl.to(id, { duration: 1, opacity: 1 });
+}
+
+CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.4,1.172 0.55,1.172 0.652,1.172 0.722,1.102 0.77,1.024 0.834,0.93 0.89,0.946 0.916,0.946 0.952,0.946 1,1 1,1 ");
+
+function addBR(config, key) {
+
+    var str = TXT[key].txt;
+    var br = config.br[key];
+    if (!br) {
+        return str;
+    }
+
+    var msg2Split = str.split(" ");
+    msg2Split[br] += "<br/>";
+    return msg2Split.join(" ");
+}
+
+function init(config) {
+    var msg2 = addBR(config, config.msg2);
+    var msg2Read = TXT[config.msg2].read;
+
+    document.getElementById("t2").innerHTML = msg2;
+    document.getElementById("bonus").innerHTML = "$" + TXT[config.bonus] + " BONUS.";
 
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
+    tl.set(".get", { x: TXT[config.bonus].length === 3 ? -4 : 0 });
+    tl.set(".playa", { transformOrigin: config.playa.x + "px " + config.playa.y + "px" });
+
+    // return
+
     tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
 
-    tl.add((0, _commonJsDcJs.textFX)("#t1a"), "+=.3");
-    tl.add((0, _commonJsDcJs.textFX)("#t1b"), "+=.5");
+    tl.add(textFX("#t1a"), "+=.3");
+    tl.add(textFX("#t1b"), "+=.5");
 
-    tl.add(playa(), "+=.3");
+    tl.add(playa(config.playa), "+=.3");
 
-    tl.to(".frame1 .t1", { duration: .2, opacity: 0 }, "+=1.2");
+    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
 
     tl.add("logo");
     tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
     tl.fromTo(".proline_logo", { maskImage: 'linear-gradient(to left, transparent 80%, black 115%)' }, { duration: .6, maskImage: 'linear-gradient(to left, transparent 0%, black 10%)' }, "logo");
 
     tl.add("t2", "+=.2");
-    tl.add((0, _commonJsDcJs.textFX)("#t2a"), "t2");
+    tl.add(textFX("#t2"), "t2");
     tl.set(".proline_plus", { opacity: 1 }, "t2");
-    tl.to(".proline_plus", { duration: .4, rotate: "+=90", ease: 'power3.out' }, "t2");
 
-    tl.to([".proline_new", "#t2a"], { duration: .2, opacity: 0 }, "+=2.2");
+    return tl;
+}
 
-    tl.from(".get", { duration: .2, opacity: 0 }, "+=.5");
-    tl.add((0, _commonJsDcJs.textFX)("#bonus", .04));
+function endVertical(tl) {
+    tl.to("#t2", { duration: .2, opacity: 0 }, "+=2.2");
 
+    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
+    tl.add(textFX("#bonus", .04), "+=.1");
+
+    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
+
+    tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
+    tl.to(".proline", { duration: .2, y: "+=25" });
+
+    endFooter(tl);
+}
+
+function endBB(tl) {
+    tl.to([".proline_new", "#t2"], { duration: .2, opacity: 0 }, "+=2.2");
+
+    tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
+    tl.add(textFX("#bonus", .04), "+=.1");
     tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
 
     tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
 
+    endFooter(tl);
+}
+
+function endFooter(tl) {
     tl.add("footer");
-    tl.from("#legal-btn", { duration: .2, x: "+=60" }, "footer");
-    tl.add((0, _commonJsDcJs.olg)(), "footer");
+    tl.from("#legal-btn", { duration: .2, x: "+=80" }, "footer");
+    tl.add(olg(), "footer");
 
     tl.add(function () {
         TweenLite.set("#legalBtn", { display: "block" });
     }, "+=.3");
-
-    // tl.play("playa")
 }
 
-function playa() {
-    var tl = new TimelineMax();
-    tl.set([".playa", ".bg_cover"], { opacity: 1 });
-    tl.to(".playa", { duration: .6, x: -170, y: -190, scale: .5, ease: "power3.inOut" });
-    tl.set(".bg_cover", { opacity: 0 }, "=-.1");
-    tl.add(function () {
-        (0, _commonJsDcJs.flare)(".flare1");
-    });
+var end = {
+    vertical: endVertical,
+    bb: endBB
+};
 
-    tl.add(function () {
-        (0, _commonJsDcJs.flare)(".flare2");
-    }, "+=.6");
-    return tl;
+exports.TXT = TXT;
+exports.olg = olg;
+exports.textFX = textFX;
+exports.flare = flare;
+exports.playa = playa;
+exports.init = init;
+exports.end = end;
+
+},{"./dc.js":1}],3:[function(require,module,exports){
+'use strict';
+
+var _commonJsPlusJs = require('../../_common/js/plus.js');
+
+var _commonJsDcJs = require('../../_common/js/dc.js');
+
+var br = {
+    DYANAMIC: null,
+    NEW_SPORTS: null,
+    SINGLE: null,
+    NEW_WAY: null
+};
+
+var config = {
+    playa: { x: 340, y: 380 },
+    msg2: "NEW_SPORTS",
+    bonus: "_100",
+    br: br
+};
+
+start();
+
+_commonJsDcJs.creative.showAd = function () {
+    // start()   
+};
+
+function start() {
+    var tl = (0, _commonJsPlusJs.init)(config);
+    _commonJsPlusJs.end.bb(tl);
 }
 
 module.exports = {};
 
-},{"../../_common/js/dc.js":1}]},{},[2])
+},{"../../_common/js/dc.js":1,"../../_common/js/plus.js":2}]},{},[3])
 
 
 //# sourceMappingURL=main.js.map

@@ -1,0 +1,57 @@
+
+#banner{	
+	width: 300px;
+	height: 250px;
+}
+
+
+.title{
+	font-size: 20px;
+	letter-spacing: 0px;
+}	
+
+
+#t1a{
+	@include pos(0, 34);
+}
+
+#t1b{
+	@include pos(0, 54);
+}
+
+#t2{
+	@include pos(0, 73);
+}
+
+#olg{
+	width: 136px;
+	height: 69px;
+	@include pos(0, 180);
+}
+
+
+
+#legalBtn{
+	@include pos(260, 210);
+}
+
+
+
+.flare1{
+	@include pos(10, 138);
+}
+
+.flare2{
+	@include pos(100, 181);
+}
+
+#bonus{
+	@include pos(15, 74);
+}
+
+
+.proline_plus{
+	transform-origin: 50% 50%;
+	opacity: 0;
+	@include pos-scale-rotate(190, 38, .5, 0);
+}

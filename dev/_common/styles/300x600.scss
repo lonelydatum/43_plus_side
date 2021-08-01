@@ -1,0 +1,60 @@
+
+#banner{	
+	width: 300px;
+	height: 600px;
+}
+
+
+.title{
+	font-size: 26px;
+	letter-spacing: 0px;	
+	// color: red;
+}	
+
+
+#t1a{
+	@include pos(0, 80);
+}
+
+#t1b{
+	@include pos(0, 108);
+	// width: 200px;
+	// color: red;
+}
+
+#t2{
+	@include pos(0, 129);
+	// color: red;
+}
+
+#olg{
+	width: 136px;
+	height: 69px;
+	@include pos(0, 536);
+}
+
+#legalBtn{
+	@include pos(253, 540);	
+}
+
+.flare1{
+	@include pos(-80, 268);
+
+}
+
+.flare2{
+	@include pos(50, 346);
+	
+}
+
+#bonus{
+	font-size: 29px;
+	@include pos(28, 129);
+}
+
+
+.proline_plus{
+	transform-origin: 50% 50%;
+	opacity: 0;
+	@include pos-scale-rotate(207, 75, .5, 0);
+}
