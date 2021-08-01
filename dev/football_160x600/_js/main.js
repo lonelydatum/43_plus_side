@@ -28,6 +28,8 @@ creative.showAd = ()=>{
 
 
 function start(){
+    
+    document.getElementById("t1b").innerHTML = "OF SPORTS<br/> BETTING IS HERE"
     const tl = init(config)
     tl.set(".get", {x: 0 })
     end.vertical(tl)

@@ -246,6 +246,10 @@ img {
   width: 100%;
 }
 
+.proline_logo {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%);
+}
+
 #banner {
   width: 160px;
   height: 600px;
@@ -306,9 +310,9 @@ img {
 }
 
 #legalBtn {
-  -webkit-transform: translate(253px, 540px);
-  -ms-transform: translate(253px, 540px);
-  transform: translate(253px, 540px);
+  -webkit-transform: translate(123px, 555px);
+  -ms-transform: translate(123px, 555px);
+  transform: translate(123px, 555px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -360,10 +364,6 @@ img {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
-}
-
-.frame1 {
-  opacity: 1;
 }
 
 .playa {

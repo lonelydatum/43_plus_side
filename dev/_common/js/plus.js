@@ -1,4 +1,5 @@
 import {creative} from './dc.js'
+import {transformOrigin} from './helpers/bannerHelpers'
 
 
 
@@ -35,10 +36,10 @@ creative.dynamicDataAvailable = function() {
 
 const TXT = {
   DYANAMIC: {txt:"DYNAMIC COMPETITIVE ODDS", read:2},
-  NEW_SPORTS: {txt:"NEW SPORTS, NEW GAMES", read:3},
+  NEW_SPORTS: {txt:"NEW SPORTS, NEW GAMES", read:2},
   SINGLE: {txt:"SINGLE EVENT BETTING & MORE", read:2.2},
-  NEW_WAY: {txt:"NEW WAYS TO BET", read:1.5},
-  FIFTY: {txt:"$50 FIRST DEPOSIT MATCH - V2", read:3},
+  NEW_WAY: {txt:"NEW WAYS TO BET", read:1.8},
+  FIFTY: {txt:"$50 FIRST DEPOSIT MATCH - V2", read:2.5},
   _25: "25",
   _50: "50",
   _100: "100",
@@ -131,12 +132,14 @@ function addBR(config, key){
     return msg2Split.join(" ")
 }
 
+let _config
 function init(config){
+    _config = config
     const msg2 = addBR(config, config.msg2)
-    const msg2Read = TXT[config.msg2].read
     
     
-    
+
+
 	document.getElementById("t2").innerHTML = msg2
     document.getElementById("bonus").innerHTML = `$${TXT[config.bonus]} BONUS.`
 
@@ -162,7 +165,8 @@ function init(config){
 
     tl.add("logo")
     tl.from(".proline_new", {duration:.3, opacity:0}, "logo")    
-    tl.fromTo(".proline_logo", {maskImage:'linear-gradient(to left, transparent 80%, black 115%)'}, {duration:.6, maskImage:'linear-gradient(to left, transparent 0%, black 10%)'}, "logo")
+    // tl.fromTo(".proline_logo", {maskImage:'linear-gradient(to left, transparent 80%, black 115%)'}, {duration:.6, maskImage:'linear-gradient(to left, transparent 0%, black 10%)'}, "logo")
+    tl.from(".proline_logo", {duration:.6, maskImage:'linear-gradient(to left, transparent 100%, black 100%)'}, "logo")
     
     
     tl.add("t2", "+=.2")
@@ -179,8 +183,28 @@ function init(config){
     return tl
 }
 
+
+function endHorizontal(tl) {
+    // tl.to("#t2", {duration:.2, opacity:0}, `+=${TXT[_config.msg2].read}`)
+
+    tl.from(".get", {duration:.2, opacity:0}, "+=.2")
+    tl.add(textFX("#bonus", .04), "+=.1")
+    
+
+    tl.from("#cta", {duration:.3, opacity:0})
+
+    
+    tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    
+    tl.add("shift")
+    tl.to(".proline", {duration:.2, x:"+=121"}, "shift")
+    tl.to("#cta", {duration:.2, scale:.5, x:-420, y:-45}, "shift")
+
+    endFooter(tl)
+}
+
 function endVertical(tl) {
-    tl.to("#t2", {duration:.2, opacity:0}, "+=2.2")
+    tl.to("#t2", {duration:.2, opacity:0}, `+=${TXT[_config.msg2].read}`)
 
     tl.from(".get", {duration:.2, opacity:0}, "+=.2")
     tl.add(textFX("#bonus", .04), "+=.1")
@@ -198,7 +222,8 @@ function endVertical(tl) {
 
 
 function endBB(tl) {
-    tl.to([".proline_new", "#t2"], {duration:.2, opacity:0}, "+=2.2")
+    tl.to([".proline_new", "#t2"], {duration:.2, opacity:0}, `+=${TXT[_config.msg2].read}`)
+    
 
     tl.from(".get", {duration:.2, opacity:0}, "+=.2")
     tl.add(textFX("#bonus", .04), "+=.1")
@@ -212,7 +237,7 @@ function endBB(tl) {
 }
 
 function endFooter(tl){
-    tl.add("footer")
+    tl.add("footer", "+=.3")
     tl.from("#legal-btn", {duration:.2, x:"+=80"}, "footer")
     tl.add( olg(), "footer" )
 
@@ -223,9 +248,10 @@ function endFooter(tl){
 }
 
 const end = {
+    horizontal: endHorizontal,
     vertical: endVertical,
     bb: endBB
 }
 
-export {TXT, olg, textFX, flare, playa, init, end}
+export {TXT, olg, textFX, flare, playa, init, end, addBR}
 

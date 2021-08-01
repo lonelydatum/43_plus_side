@@ -28,6 +28,7 @@ creative.showAd = ()=>{
 
 
 function start(){
+    document.getElementById("t1b").innerHTML = "OF SPORTS BETTING<br/> IS HERE"
     const tl = init(config)
     end.vertical(tl)
      // tl.play("playa")

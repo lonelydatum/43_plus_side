@@ -31,7 +31,6 @@ creative.showAd = ()=>{
 function start(){
     const tl = init(config)
     end.bb(tl)
-
 }
 
 

@@ -1,0 +1,75 @@
+
+#banner{	
+	width: 728px;
+	height: 90px;
+}
+
+
+.title{
+	letter-spacing: .5px;	
+	font-size: 25px;
+	// color: red;
+}	
+
+
+#t1a{
+	@include pos(-240, 34);
+	
+}
+
+#t1b{
+	letter-spacing: .6px;	
+	@include pos(-28, 34);	
+	
+}
+
+#t2{
+	@include pos(-22, 34);
+}
+
+#olg{
+	width: 84px;
+	height: 44px;
+	@include pos(0, 45);
+}
+
+#legalBtn{
+	@include pos(685, 45);
+}
+
+.flare1{
+	@include pos(-80, 268);
+
+}
+
+.flare2{
+	@include pos(50, 346);
+	
+}
+
+#bonus{
+	
+	@include pos(-63, 35);
+	// opacity: 1 !important;
+	// color: red;
+}
+
+.proline_logo{
+	// -webkit-mask-image: linear-gradient(to left, transparent 100%, black 100%);
+	-webkit-mask-image: linear-gradient(to left, transparent 50%, black 70%);	
+}
+
+
+.proline_plus{
+	transform-origin: 50% 50%;
+	opacity: 0;
+	@include pos-scale-rotate(162, 33, .5, 0);
+}
+
+
+#cta{
+	// opacity: .2 !important;	
+	transform-origin: 840px 90px;
+	@include pos-scale(-385, -43, .411);
+	// @include pos-scale(-420, -45, .5);
+}
