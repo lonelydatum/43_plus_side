@@ -341,14 +341,15 @@ img {
 }
 
 #bonus {
-  -webkit-transform: translate(-63px, 35px);
-  -ms-transform: translate(-63px, 35px);
-  transform: translate(-63px, 35px);
+  -webkit-transform: translate(242px, 35px);
+  -ms-transform: translate(242px, 35px);
+  transform: translate(242px, 35px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
+  text-align: left;
 }
 
 .proline_logo {

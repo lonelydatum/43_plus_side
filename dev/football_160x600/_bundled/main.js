@@ -147,22 +147,18 @@ function initCommon(config) {
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
     tl.set(".proline_plus", { opacity: 1 }, "t2");
-
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
     return tl;
 }
 
 function initHorizonal(config) {
     var tl = initCommon(config);
-
     tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
     return tl;
 }
 
 function init(config) {
-    var tl = initCommon(config);
-
-    return tl;
+    return initCommon(config);
 }
 
 function endHorizontal(tl, shift) {
@@ -335,7 +331,7 @@ var br = {
 var config = {
     playa: { x: 220, y: 700 },
     msg2: "NEW_WAY",
-    bonus: "_100",
+    bonus: "_200",
     br: br
 };
 

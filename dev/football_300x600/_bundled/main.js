@@ -147,22 +147,18 @@ function initCommon(config) {
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
     tl.set(".proline_plus", { opacity: 1 }, "t2");
-
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
     return tl;
 }
 
 function initHorizonal(config) {
     var tl = initCommon(config);
-
     tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
     return tl;
 }
 
 function init(config) {
-    var tl = initCommon(config);
-
-    return tl;
+    return initCommon(config);
 }
 
 function endHorizontal(tl, shift) {
@@ -347,6 +343,10 @@ _commonJsDcJs.creative.showAd = function () {
 
 function start() {
     document.getElementById("t1b").innerHTML = "OF SPORTS BETTING<br/> IS HERE";
+    var len = _commonJsPlusJs.TXT[config.bonus].length;
+    if (len >= 3) {
+        TweenLite.set([".get", "#bonus"], { x: "-=5" });
+    }
     var tl = (0, _commonJsPlusJs.init)(config);
     _commonJsPlusJs.end.vertical(tl);
     // tl.play("playa")

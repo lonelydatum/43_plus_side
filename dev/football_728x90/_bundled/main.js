@@ -147,22 +147,18 @@ function initCommon(config) {
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
     tl.set(".proline_plus", { opacity: 1 }, "t2");
-
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
     return tl;
 }
 
 function initHorizonal(config) {
     var tl = initCommon(config);
-
     tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
     return tl;
 }
 
 function init(config) {
-    var tl = initCommon(config);
-
-    return tl;
+    return initCommon(config);
 }
 
 function endHorizontal(tl, shift) {
@@ -337,7 +333,7 @@ var br = {
 var config = {
     playa: { x: 1260, y: 120 },
     msg2: "DYANAMIC",
-    bonus: "_25",
+    bonus: "_200",
     br: br
 };
 
@@ -348,55 +344,15 @@ _commonJsDcJs.creative.showAd = function () {
 };
 
 function start() {
-
-    var tl = init(config);
+    var tl = (0, _commonJsPlusJs.initHorizonal)(config);
     var shift = {
         cta: { x: -420, y: -45 },
         logo: 121
     };
-
     _commonJsPlusJs.end.horizontal(tl, shift);
-    // tl.play("playa")
 }
 
 var _config = undefined;
-function init(config) {
-    _config = config;
-    var msg2 = (0, _commonJsPlusJs.addBR)(config, config.msg2);
-    var msg2Read = _commonJsPlusJs.TXT[config.msg2].read;
-
-    document.getElementById("t2").innerHTML = msg2;
-    document.getElementById("bonus").innerHTML = '$' + _commonJsPlusJs.TXT[config.bonus] + ' BONUS.';
-
-    var tl = new TimelineMax();
-    tl.set(".frame1", { opacity: 1 });
-    tl.set(".get", { x: _commonJsPlusJs.TXT[config.bonus].length === 3 ? -4 : 0 });
-    tl.set(".playa", { transformOrigin: config.playa.x + 'px ' + config.playa.y + 'px' });
-
-    // return
-
-    tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
-
-    tl.add((0, _commonJsPlusJs.textFX)("#t1a"), "+=.3");
-    tl.add((0, _commonJsPlusJs.textFX)("#t1b"), "+=.5");
-
-    tl.add((0, _commonJsPlusJs.playa)(config.playa), "+=.3");
-
-    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
-
-    tl.add("logo");
-    tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
-
-    tl.from(".proline_logo", { duration: .6, maskImage: 'linear-gradient(to left, transparent 100%, black 100%)' }, "logo");
-
-    tl.add("t2", "+=.2");
-    tl.add((0, _commonJsPlusJs.textFX)("#t2"), "t2");
-    tl.set(".proline_plus", { opacity: 1 }, "t2");
-
-    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _commonJsPlusJs.TXT[config.msg2].read);
-
-    return tl;
-}
 
 module.exports = {};
 

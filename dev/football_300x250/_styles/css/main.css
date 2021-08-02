@@ -340,9 +340,10 @@ img {
 }
 
 #bonus {
-  -webkit-transform: translate(15px, 74px);
-  -ms-transform: translate(15px, 74px);
-  transform: translate(15px, 74px);
+  text-align: left;
+  -webkit-transform: translate(121px, 74px);
+  -ms-transform: translate(121px, 74px);
+  transform: translate(121px, 74px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

@@ -49,7 +49,11 @@
 
 #bonus{
 	font-size: 29px;
-	@include pos(28, 129);
+	text-align: left;
+	letter-spacing: .4px;
+	@include pos(112, 129);
+	// opacity: 1 !important;
+	// color: red;
 }
 
 

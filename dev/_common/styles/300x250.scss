@@ -46,7 +46,16 @@
 }
 
 #bonus{
-	@include pos(15, 74);
+	text-align: left;
+	@include pos(121, 74);
+	// @include pos(116, 74);
+	// color: red;
+	// opacity: 1 !important;
+}
+
+.get{
+	// opacity: 1 !important;
+	// @include pos-scale(-5, 4, .5);
 }
 
 

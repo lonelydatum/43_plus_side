@@ -341,9 +341,11 @@ img {
 
 #bonus {
   font-size: 29px;
-  -webkit-transform: translate(28px, 129px);
-  -ms-transform: translate(28px, 129px);
-  transform: translate(28px, 129px);
+  text-align: left;
+  letter-spacing: .4px;
+  -webkit-transform: translate(112px, 129px);
+  -ms-transform: translate(112px, 129px);
+  transform: translate(112px, 129px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

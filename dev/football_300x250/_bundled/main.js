@@ -147,22 +147,18 @@ function initCommon(config) {
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
     tl.set(".proline_plus", { opacity: 1 }, "t2");
-
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
     return tl;
 }
 
 function initHorizonal(config) {
     var tl = initCommon(config);
-
     tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
     return tl;
 }
 
 function init(config) {
-    var tl = initCommon(config);
-
-    return tl;
+    return initCommon(config);
 }
 
 function endHorizontal(tl, shift) {
@@ -323,6 +319,8 @@ exports.TXT = TXT;
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
+// import {TXT} from '../../_common/js/bannerHelpers'
+
 var _commonJsDcJs = require('../../_common/js/dc.js');
 
 var br = {
@@ -335,7 +333,7 @@ var br = {
 var config = {
     playa: { x: 340, y: 380 },
     msg2: "NEW_SPORTS",
-    bonus: "_100",
+    bonus: "_25",
     br: br
 };
 
@@ -346,6 +344,10 @@ _commonJsDcJs.creative.showAd = function () {
 };
 
 function start() {
+    var len = _commonJsPlusJs.TXT[config.bonus].length;
+    if (len >= 3) {
+        TweenLite.set([".get", "#bonus"], { x: "-=5" });
+    }
     var tl = (0, _commonJsPlusJs.init)(config);
     _commonJsPlusJs.end.bb(tl);
 }
