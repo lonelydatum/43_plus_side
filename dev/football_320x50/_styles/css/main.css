@@ -250,6 +250,20 @@ img {
   -webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%);
 }
 
+.star {
+  -webkit-transform-origin: 600px 90px;
+  -ms-transform-origin: 600px 90px;
+  transform-origin: 600px 90px;
+  opacity: 0;
+}
+
+.proline_plus {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+
 #banner {
   width: 320px;
   height: 50px;
@@ -283,7 +297,7 @@ img {
   position: absolute;
 }
 
-#t2 {
+#t2, #t3 {
   -webkit-transform: translate(90px, 18px);
   -ms-transform: translate(90px, 18px);
   transform: translate(90px, 18px);
@@ -357,11 +371,21 @@ img {
   -webkit-mask-image: linear-gradient(to left, transparent 50%, black 70%);
 }
 
+#cta {
+  -webkit-transform-origin: 270px 35px;
+  -ms-transform-origin: 270px 35px;
+  transform-origin: 270px 35px;
+  -webkit-transform: translate(-89px, -16px) scale(0.411, 0.411);
+  -ms-transform: translate(-89px, -16px) scale(0.411, 0.411);
+  transform: translate(-89px, -16px) scale(0.411, 0.411);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 .proline_plus {
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  opacity: 0;
   -webkit-transform: translate(72px, 18px) scale(0.5) rotate(0deg);
   -ms-transform: translate(72px, 18px) scale(0.5) rotate(0deg);
   transform: translate(72px, 18px) scale(0.5) rotate(0deg);
@@ -372,13 +396,10 @@ img {
   position: absolute;
 }
 
-#cta {
-  -webkit-transform-origin: 270px 35px;
-  -ms-transform-origin: 270px 35px;
-  transform-origin: 270px 35px;
-  -webkit-transform: translate(-89px, -16px) scale(0.411, 0.411);
-  -ms-transform: translate(-89px, -16px) scale(0.411, 0.411);
-  transform: translate(-89px, -16px) scale(0.411, 0.411);
+.star {
+  -webkit-transform: translate(-520px, -65px) scale(0.2, 0.2);
+  -ms-transform: translate(-520px, -65px) scale(0.2, 0.2);
+  transform: translate(-520px, -65px) scale(0.2, 0.2);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

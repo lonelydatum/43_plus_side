@@ -250,6 +250,20 @@ img {
   -webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%);
 }
 
+.star {
+  -webkit-transform-origin: 600px 90px;
+  -ms-transform-origin: 600px 90px;
+  transform-origin: 600px 90px;
+  opacity: 0;
+}
+
+.proline_plus {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+
 #banner {
   width: 160px;
   height: 600px;
@@ -284,7 +298,7 @@ img {
   width: 130px;
 }
 
-#t2 {
+#t2, #t3 {
   -webkit-transform: translate(16px, 142px);
   -ms-transform: translate(16px, 142px);
   transform: translate(16px, 142px);
@@ -355,10 +369,20 @@ img {
 }
 
 .proline_plus {
-  opacity: 0;
-  -webkit-transform: translate(124px, 114px) scale(0.5, 0.5);
-  -ms-transform: translate(124px, 114px) scale(0.5, 0.5);
-  transform: translate(124px, 114px) scale(0.5, 0.5);
+  -webkit-transform: translate(119px, 108px) scale(0.5, 0.5);
+  -ms-transform: translate(119px, 108px) scale(0.5, 0.5);
+  transform: translate(119px, 108px) scale(0.5, 0.5);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.star {
+  -webkit-transform: translate(-470px, 30px) scale(0.4, 0.4);
+  -ms-transform: translate(-470px, 30px) scale(0.4, 0.4);
+  transform: translate(-470px, 30px) scale(0.4, 0.4);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

@@ -22,7 +22,7 @@
 	// color: red;
 }
 
-#t2{
+#t2, #t3{
 	@include pos(0, 129);
 	// color: red;
 }
@@ -57,8 +57,11 @@
 }
 
 
-.proline_plus{
-	transform-origin: 50% 50%;
-	opacity: 0;
-	@include pos-scale-rotate(207, 75, .5, 0);
+.proline_plus{	
+	@include pos-scale-rotate(208, 76, .5, 0);
+}
+
+.star{	
+	// opacity: 1;
+	@include pos-scale(-375, 4, .4);
 }

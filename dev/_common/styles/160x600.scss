@@ -23,7 +23,7 @@
 	// color: red;
 }
 
-#t2{
+#t2, #t3{
 	@include pos(16, 142);
 	width: 130px;
 	// color: red;
@@ -55,8 +55,11 @@
 }
 
 
-.proline_plus{
-	// transform-origin: 50% 50%;
-	opacity: 0;
-	@include pos-scale(124, 114, .5);
+.proline_plus{	
+	@include pos-scale(119, 108, .5);
+}
+
+.star{	
+	// opacity: 1;
+	@include pos-scale(-470, 30, .4);
 }

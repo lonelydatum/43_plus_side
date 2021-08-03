@@ -4,7 +4,7 @@ import {creative} from '../../_common/js/dc.js'
 
 
 const br = {
-    DYANAMIC: 1,
+    DYANAMIC: 0,
     NEW_SPORTS: 1,
     SINGLE: 1,
     NEW_WAY: null
@@ -13,6 +13,7 @@ const br = {
 const config = {
     playa: {x:380, y:720},
     msg2: "NEW_SPORTS",
+    msg3: "DYANAMIC",
     bonus: "_100",
     br
 }

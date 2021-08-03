@@ -198,3 +198,13 @@ img{
 	-webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%);
 	
 }
+
+.star{
+	transform-origin: 600px 90px;
+	opacity: 0;
+}
+
+.proline_plus{
+	transform-origin: 50% 50%;
+	opacity: 0;	
+}

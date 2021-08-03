@@ -128,7 +128,10 @@ var _config = undefined;
 function initCommon(config) {
     _config = config;
     var msg2 = (0, _plusHelperJs.addBR)(config, config.msg2);
+    var msg3 = (0, _plusHelperJs.addBR)(config, config.msg3);
+    console.log(msg3);
     document.getElementById("t2").innerHTML = msg2;
+    document.getElementById("t3").innerHTML = msg3;
     document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
@@ -143,17 +146,33 @@ function initCommon(config) {
     tl.add("logo");
     tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
     tl.from(".proline_logo", { duration: .6, maskImage: 'linear-gradient(to left, transparent 100%, black 100%)' }, "logo");
+    tl.set(".proline_plus", { opacity: 1 }, "logo+=.6");
+    tl.to(".proline_plus", { duration: .4, scale: "+=.4", ease: 'power1.inOut' }, "logo+=.6");
+
+    tl.from('.proline_plus', { duration: .2, rotation: 90, ease: 'power1.inOut' }, 'logo+=.7');
+    tl.to('.proline_plus', { duration: .6, scale: .5, ease: 'power1.inOut' }, 'logo+=1.3');
+    tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.3');
+    tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.4');
+    tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 2 }, 'logo+=1.5');
+
+    tl.add(function () {
+        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 5 });
+    });
 
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
-    tl.set(".proline_plus", { opacity: 1 }, "t2");
+    tl.to("#t2", { duration: .3, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
+    tl.add((0, _plusHelperJs.textFX)("#t3"));
+
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
+
+    // tl.play("logo")
     return tl;
 }
 
 function initHorizonal(config) {
     var tl = initCommon(config);
-    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg2].read);
+    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[config.msg3].read);
     return tl;
 }
 
@@ -173,7 +192,7 @@ function endHorizontal(tl, shift) {
 }
 
 function endVertical(tl) {
-    tl.to("#t2", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
+    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
     tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
@@ -183,7 +202,7 @@ function endVertical(tl) {
 }
 
 function endBB(tl) {
-    tl.to([".proline_new", "#t2"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
+    tl.to([".proline_new", "#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
     tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
@@ -261,12 +280,12 @@ function shuffle(array) {
 }
 
 function textFX(id) {
-    var stagger = arguments.length <= 1 || arguments[1] === undefined ? .01 : arguments[1];
+    var stagger = arguments.length <= 1 || arguments[1] === undefined ? .021 : arguments[1];
 
     var tl = new TimelineMax();
     var splitText = new SplitText(id, { type: "chars" });
     splitText = shuffle(splitText.chars);
-    tl.from(splitText, { duration: .08, stagger: stagger, autoAlpha: 0 });
+    tl.from(splitText, { duration: .08, stagger: .021, autoAlpha: 0 });
     return tl;
 }
 
@@ -296,7 +315,8 @@ function playa(_ref2) {
 function addBR(config, key) {
     var str = TXT[key].txt;
     var br = config.br[key];
-    if (!br) {
+
+    if (br == null || br == undefined) {
         return str;
     }
     var msg2Split = str.split(" ");
@@ -332,7 +352,8 @@ var br = {
 
 var config = {
     playa: { x: 1260, y: 120 },
-    msg2: "DYANAMIC",
+    msg2: "NEW_SPORTS",
+    msg3: "DYANAMIC",
     bonus: "_200",
     br: br
 };

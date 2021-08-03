@@ -19,9 +19,11 @@
 	@include pos(0, 54);
 }
 
-#t2{
+#t2, #t3{
 	@include pos(0, 73);
 }
+
+
 
 #olg{
 	width: 136px;
@@ -58,9 +60,10 @@
 	// @include pos-scale(-5, 4, .5);
 }
 
+.star{	
+	@include pos-scale(-397, -39, .4);
+}
 
-.proline_plus{
-	transform-origin: 50% 50%;
-	opacity: 0;
-	@include pos-scale-rotate(190, 38, .5, 0);
+.proline_plus{	
+	@include pos-scale-rotate(190, 39, .5, 0);
 }

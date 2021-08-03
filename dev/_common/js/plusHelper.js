@@ -51,11 +51,11 @@ function shuffle(array) {
 
 
 
-function textFX(id, stagger=.01){    
+function textFX(id, stagger=.021){    
     const tl = new TimelineMax()
     var splitText = new SplitText(id, {type: "chars"})
     splitText = shuffle(splitText.chars)
-    tl.from(splitText, {duration:.08, stagger, autoAlpha: 0})
+    tl.from(splitText, {duration:.08, stagger:.021, autoAlpha: 0})
     return tl
 }
 
@@ -85,7 +85,8 @@ function playa({x, y}){
 function addBR(config, key){
     const str = TXT[key].txt
     const br = config.br[key]
-    if(!br){
+    
+    if(br==null || br==undefined){
      return str   
     }
     const msg2Split = str.split(" ")

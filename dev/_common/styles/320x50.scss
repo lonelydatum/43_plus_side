@@ -20,7 +20,7 @@
 	@include pos(90, 18);		
 }
 
-#t2{
+#t2, #t3{
 	@include pos(90, 18);
 	letter-spacing: .2px;	
 	// color: red;
@@ -61,11 +61,7 @@
 }
 
 
-.proline_plus{
-	transform-origin: 50% 50%;
-	opacity: 0;
-	@include pos-scale-rotate(72, 18, .5, 0);
-}
+
 
 
 #cta{
@@ -73,4 +69,14 @@
 	transform-origin: 270px 35px;
 	@include pos-scale(-89, -16, .411);
 	// @include pos-scale(-420, -45, .5);
+}
+
+.proline_plus{	
+	// opacity: 1;	
+	@include pos-scale-rotate(72, 18, .5, 0);
+}
+
+.star{	
+	// opacity: 1;
+	@include pos-scale(-520, -65, .2);
 }

@@ -250,6 +250,20 @@ img {
   -webkit-mask-image: linear-gradient(to left, transparent 0%, black 15%);
 }
 
+.star {
+  -webkit-transform-origin: 600px 90px;
+  -ms-transform-origin: 600px 90px;
+  transform-origin: 600px 90px;
+  opacity: 0;
+}
+
+.proline_plus {
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+
 #banner {
   width: 728px;
   height: 90px;
@@ -283,7 +297,7 @@ img {
   position: absolute;
 }
 
-#t2 {
+#t2, #t3 {
   -webkit-transform: translate(-22px, 34px);
   -ms-transform: translate(-22px, 34px);
   transform: translate(-22px, 34px);
@@ -356,11 +370,21 @@ img {
   -webkit-mask-image: linear-gradient(to left, transparent 50%, black 70%);
 }
 
+#cta {
+  -webkit-transform-origin: 840px 90px;
+  -ms-transform-origin: 840px 90px;
+  transform-origin: 840px 90px;
+  -webkit-transform: translate(-385px, -43px) scale(0.411, 0.411);
+  -ms-transform: translate(-385px, -43px) scale(0.411, 0.411);
+  transform: translate(-385px, -43px) scale(0.411, 0.411);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 .proline_plus {
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  opacity: 0;
   -webkit-transform: translate(162px, 33px) scale(0.5) rotate(0deg);
   -ms-transform: translate(162px, 33px) scale(0.5) rotate(0deg);
   transform: translate(162px, 33px) scale(0.5) rotate(0deg);
@@ -371,13 +395,10 @@ img {
   position: absolute;
 }
 
-#cta {
-  -webkit-transform-origin: 840px 90px;
-  -ms-transform-origin: 840px 90px;
-  transform-origin: 840px 90px;
-  -webkit-transform: translate(-385px, -43px) scale(0.411, 0.411);
-  -ms-transform: translate(-385px, -43px) scale(0.411, 0.411);
-  transform: translate(-385px, -43px) scale(0.411, 0.411);
+.star {
+  -webkit-transform: translate(-423px, -42px) scale(0.4, 0.4);
+  -ms-transform: translate(-423px, -42px) scale(0.4, 0.4);
+  transform: translate(-423px, -42px) scale(0.4, 0.4);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
