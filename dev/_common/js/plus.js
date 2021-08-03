@@ -1,39 +1,6 @@
 import {olg, shuffle, textFX, flare, playa, addBR, TXT} from './plusHelper.js'
-import {creative} from './dc.js'
+// import {creative} from './dc.js'
 import {transformOrigin} from './helpers/bannerHelpers'
-
-
-window.creative = creative
-creative.dynamicDataAvailable = function() {
-    // Dynamic Content variables and sample values
-    Enabler.setProfileId(10660348);
-    var devDynamicContent = {};
-
-    devDynamicContent.proline_test_sheet_1 = [{}];
-    devDynamicContent.proline_test_sheet_1[0]._id = 0;
-    devDynamicContent.proline_test_sheet_1[0].Unique_ID = 1;
-    devDynamicContent.proline_test_sheet_1[0].Reporting_Label = "label 1";
-    devDynamicContent.proline_test_sheet_1[0].single_event = true;
-    devDynamicContent.proline_test_sheet_1[0].message1 = "Single Event Wagering";
-    devDynamicContent.proline_test_sheet_1[0].message2 = "Live Betting";
-    devDynamicContent.proline_test_sheet_1[0].bonus = 25;
-    devDynamicContent.proline_test_sheet_1[0].Default = true;
-    devDynamicContent.proline_test_sheet_1[0].Active = true;
-    devDynamicContent.Profile = [{}];
-    devDynamicContent.Profile[0]._id = 0;
-    devDynamicContent.Profile[0].single_event = 0;
-    Enabler.setDevDynamicContent(devDynamicContent);
-
-    creative.dynamicData = {
-        bonus: dynamicContent.proline_test_sheet_1[0].bonus,
-        isSingleEvent: true
-    }
-
-    // creative.dynamicExitUrl = "https://google.com";
-
-    console.log(dynamicContent);
-    
-};
 
 let _config
 
@@ -45,14 +12,30 @@ function initCommon(config) {
     document.getElementById("t2").innerHTML = msg2
     document.getElementById("t3").innerHTML = msg3
     document.getElementById("bonus").innerHTML = `$${TXT[config.bonus]} BONUS.`
+
+    document.getElementById("cta").addEventListener("mouseover", ()=>{    
+        document.getElementById("cta").classList.add("shadow");
+    })
+
+    document.getElementById("cta").addEventListener("mouseout", ()=>{    
+        document.getElementById("cta").classList.remove("shadow");
+    })
+
+
     const tl = new TimelineMax()
     tl.set(".frame1", {opacity:1})
-    tl.set(".playa", {transformOrigin:`${config.playa.x}px ${config.playa.y}px`})
+    
 
-    tl.from(".bg", {opacity:0, scale:.5, duration:.3}, "+=.2")
+    tl.from([".bg", ".bg_border"], {opacity:0, scale:.5, duration:.3}, "+=.2")
+    tl.add(()=>{
+        TweenLite.to(".bg_border", {duration:1, opacity:.3, repeat:9, repeatDelay:1, yoyo:true})
+        // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
+    })
+
     tl.add(textFX("#t1a"), "+=.3")
     tl.add(textFX("#t1b"), "+=.5")
-    tl.add(playa(config.playa), "+=.3")   
+    tl.add("playa")   
+    tl.add(playa(config.playa), "-=.2")   
     tl.to(".t1", {duration:.2, opacity:0}, "+=1.2")
 
     tl.add("logo")
@@ -68,20 +51,26 @@ function initCommon(config) {
     tl.to('.proline_plus', {duration: .02, opacity:0, yoyo: true, repeat: 1},'logo+=1.4')
     tl.to('.proline_plus', {duration: .02, opacity:0, yoyo: true, repeat: 2},'logo+=1.5')
 
-    tl.add(()=>{
-        TweenMax.to('.star', {duration: 1, opacity:1, yoyo: true, repeat: 5})    
-    })
+    
 
     
 
     tl.add("t2", "+=.2")
     tl.add(textFX("#t2"), "t2")
+    tl.add(()=>{
+        TweenMax.to('.star', {duration:1, opacity:1, yoyo: true, repeat: 1})    
+    }, "t2")
     tl.to("#t2", {duration:.3, opacity:0}, `+=${TXT[_config.msg2].read}`)
-    tl.add(textFX("#t3"))
+    
+    tl.add("t3")
+    tl.add(textFX("#t3"), "t3")
+    tl.add(()=>{
+        TweenMax.to('.star', {duration:1, opacity:1, yoyo: true, repeat: 1})    
+    }, "t3")
     
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
-    // tl.play("logo")
+    
     return tl
 }
 
@@ -135,6 +124,8 @@ function endFooter(tl){
     tl.add(()=>{
         TweenLite.set("#legalBtn", {display:"block"})
     }, "+=.3")
+
+    // tl.play("footer")
 }
 
 const end = {

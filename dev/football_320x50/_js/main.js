@@ -13,7 +13,7 @@ const br = {
 }
 
 const config = {
-    playa: {x:1260, y:120},
+    playa: {x:585, y:63},
     msg2: "DYANAMIC",
     msg3: "SINGLE",
     bonus: "_200",
@@ -38,6 +38,7 @@ function start(){
     }
     
     end.horizontal(tl, shift)
+    // tl.play("playa")
 }
 
 let _config

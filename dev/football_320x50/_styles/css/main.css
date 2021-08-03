@@ -264,12 +264,10 @@ img {
   opacity: 0;
 }
 
-#bg-exit {
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  position: absolute;
+.shadow {
+  transition: .5s;
+  -webkit-filter: drop-shadow(0px 0px 9px #3aa43c);
+  filter: drop-shadow(0px 0px 9px #3aa43c);
 }
 
 #banner {
@@ -416,9 +414,9 @@ img {
 }
 
 .playa {
-  -webkit-transform: translate(-580px, -60px) scale(0.1, 0.1);
-  -ms-transform: translate(-580px, -60px) scale(0.1, 0.1);
-  transform: translate(-580px, -60px) scale(0.1, 0.1);
+  -webkit-transform: translate(-280px, -25px) scale(0.3, 0.3);
+  -ms-transform: translate(-280px, -25px) scale(0.3, 0.3);
+  transform: translate(-280px, -25px) scale(0.3, 0.3);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

@@ -95,40 +95,9 @@ Object.defineProperty(exports, '__esModule', {
 
 var _plusHelperJs = require('./plusHelper.js');
 
-var _dcJs = require('./dc.js');
+// import {creative} from './dc.js'
 
 var _helpersBannerHelpers = require('./helpers/bannerHelpers');
-
-window.creative = _dcJs.creative;
-_dcJs.creative.dynamicDataAvailable = function () {
-    // Dynamic Content variables and sample values
-    Enabler.setProfileId(10660348);
-    var devDynamicContent = {};
-
-    devDynamicContent.proline_test_sheet_1 = [{}];
-    devDynamicContent.proline_test_sheet_1[0]._id = 0;
-    devDynamicContent.proline_test_sheet_1[0].Unique_ID = 1;
-    devDynamicContent.proline_test_sheet_1[0].Reporting_Label = "label 1";
-    devDynamicContent.proline_test_sheet_1[0].single_event = true;
-    devDynamicContent.proline_test_sheet_1[0].message1 = "Single Event Wagering";
-    devDynamicContent.proline_test_sheet_1[0].message2 = "Live Betting";
-    devDynamicContent.proline_test_sheet_1[0].bonus = 25;
-    devDynamicContent.proline_test_sheet_1[0].Default = true;
-    devDynamicContent.proline_test_sheet_1[0].Active = true;
-    devDynamicContent.Profile = [{}];
-    devDynamicContent.Profile[0]._id = 0;
-    devDynamicContent.Profile[0].single_event = 0;
-    Enabler.setDevDynamicContent(devDynamicContent);
-
-    _dcJs.creative.dynamicData = {
-        bonus: dynamicContent.proline_test_sheet_1[0].bonus,
-        isSingleEvent: true
-    };
-
-    // creative.dynamicExitUrl = "https://google.com";
-
-    console.log(dynamicContent);
-};
 
 var _config = undefined;
 
@@ -140,14 +109,28 @@ function initCommon(config) {
     document.getElementById("t2").innerHTML = msg2;
     document.getElementById("t3").innerHTML = msg3;
     document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
+
+    document.getElementById("cta").addEventListener("mouseover", function () {
+        document.getElementById("cta").classList.add("shadow");
+    });
+
+    document.getElementById("cta").addEventListener("mouseout", function () {
+        document.getElementById("cta").classList.remove("shadow");
+    });
+
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
-    tl.set(".playa", { transformOrigin: config.playa.x + 'px ' + config.playa.y + 'px' });
 
-    tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.from([".bg", ".bg_border"], { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.add(function () {
+        TweenLite.to(".bg_border", { duration: 1, opacity: .3, repeat: 9, repeatDelay: 1, yoyo: true });
+        // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
+    });
+
     tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
     tl.add((0, _plusHelperJs.textFX)("#t1b"), "+=.5");
-    tl.add((0, _plusHelperJs.playa)(config.playa), "+=.3");
+    tl.add("playa");
+    tl.add((0, _plusHelperJs.playa)(config.playa), "-=.2");
     tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
 
     tl.add("logo");
@@ -162,18 +145,21 @@ function initCommon(config) {
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.4');
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 2 }, 'logo+=1.5');
 
-    tl.add(function () {
-        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 5 });
-    });
-
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
+    tl.add(function () {
+        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 1 });
+    }, "t2");
     tl.to("#t2", { duration: .3, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
-    tl.add((0, _plusHelperJs.textFX)("#t3"));
+
+    tl.add("t3");
+    tl.add((0, _plusHelperJs.textFX)("#t3"), "t3");
+    tl.add(function () {
+        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 1 });
+    }, "t3");
 
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
-    // tl.play("logo")
     return tl;
 }
 
@@ -224,6 +210,8 @@ function endFooter(tl) {
     tl.add(function () {
         TweenLite.set("#legalBtn", { display: "block" });
     }, "+=.3");
+
+    // tl.play("footer")
 }
 
 var end = {
@@ -242,7 +230,7 @@ exports.end = end;
 exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 
-},{"./dc.js":1,"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+},{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -306,9 +294,13 @@ function playa(_ref2) {
     var y = _ref2.y;
 
     var tl = new TimelineMax();
-    tl.set([".playa", ".bg_cover"], { opacity: 1 });
-    tl.to(".playa", { duration: .6, x: -x / 2, y: -y / 2, scale: .5, ease: "power3.inOut" });
-    tl.set(".bg_cover", { opacity: 0 }, "=-.25");
+    tl.set(".playa", { transformOrigin: x + "px " + y + "px" });
+    tl.to(".playa", { duration: .8, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
+    tl.set(".bg_cover", { opacity: 0 }, "=-.3");
+    tl.add(function () {
+        TweenLite.to(".playa", { duration: 5, scale: .53, ease: "linear.easeNone" });
+    });
+
     tl.add(function () {
         flare(".flare1");
     });

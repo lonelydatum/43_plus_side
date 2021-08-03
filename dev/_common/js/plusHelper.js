@@ -69,9 +69,14 @@ function flare(id){
 
 function playa({x, y}){
     const tl = new TimelineMax()
-    tl.set([".playa", ".bg_cover"], {opacity:1})
-    tl.to(".playa", {duration:.6, x:-x/2, y:-y/2, scale:.5, ease:"power3.inOut"})    
-    tl.set(".bg_cover", {opacity:0}, "=-.25")
+    tl.set(".playa", {transformOrigin:`${x}px ${y}px`})    
+    tl.to(".playa", {duration:.8, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
+    tl.set(".bg_cover", {opacity:0}, "=-.3")
+    tl.add(()=>{
+        TweenLite.to(".playa", {duration:5, scale:.53, ease:"linear.easeNone"})        
+    })
+    
+    
     tl.add(()=>{
         flare(".flare1")
     })

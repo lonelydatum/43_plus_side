@@ -1,79 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// function bgExitHandler(e) {
-//   Enabler.exit('Background Exit');
-// }
-
-// document.getElementById('banner').addEventListener('click', bgExitHandler, false);
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var creative = {};
-
-creative.init = function () {
-
-  creative.setupDOMElements();
-
-  // Check if Enabler is initialized.
-  if (Enabler.isInitialized()) {
-    // Check if ad is visible to user.
-    if (Enabler.isVisible()) {
-      creative.enablerInitHandler();
-    } else {
-      Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, creative.enablerInitHandler);
-    }
-  } else {
-    Enabler.addEventListener(studio.events.StudioEvent.INIT, creative.enablerInitHandler);
-  }
-};
-
-creative.setupDOMElements = function () {
-  creative.domElements = {};
-  creative.domElements.exit_button = document.getElementById("bg-exit");
-  creative.domElements.title = document.getElementById("dynamicContent_title");
-};
-
-creative.enablerInitHandler = function (event) {
-  creative.dynamicDataAvailable();
-
-  creative.domElements.exit_button.addEventListener("click", creative.exitClickHandler);
-
-  if (Enabler.isPageLoaded()) {
-    creative.pageLoadHandler();
-  } else {
-    Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, creative.pageLoadHandler);
-  }
-};
-
-creative.exitClickHandler = function (event) {
-  // Enabler.exit("exit", "creative.dynamicExitUrl");
-  Enabler.exit('Background Exit');
-};
-
-creative.pageLoadHandler = function (event) {
-  console.log(creative.dynamicData);
-  // creative.domElements.title.innerHTML = creative.dynamicData.bonus;
-  // creative.showAd();
-};
-
-window.addEventListener('load', creative.init.bind(creative));
-
-// Handle Animation
-// creative.showAd = function() {
-//   // add your animation js here
-// };
-
-// Dynamic Competitive Odds 
-// Single Event Betting & More
-// New Sports, New Games
-// New Ways to Bet
-// $50 first deposit match - v2
-
-exports.creative = creative;
-
-},{}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86,7 +11,7 @@ function transformOrigin(id, xy) {
 
 exports.transformOrigin = transformOrigin;
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -95,40 +20,9 @@ Object.defineProperty(exports, '__esModule', {
 
 var _plusHelperJs = require('./plusHelper.js');
 
-var _dcJs = require('./dc.js');
+// import {creative} from './dc.js'
 
 var _helpersBannerHelpers = require('./helpers/bannerHelpers');
-
-window.creative = _dcJs.creative;
-_dcJs.creative.dynamicDataAvailable = function () {
-    // Dynamic Content variables and sample values
-    Enabler.setProfileId(10660348);
-    var devDynamicContent = {};
-
-    devDynamicContent.proline_test_sheet_1 = [{}];
-    devDynamicContent.proline_test_sheet_1[0]._id = 0;
-    devDynamicContent.proline_test_sheet_1[0].Unique_ID = 1;
-    devDynamicContent.proline_test_sheet_1[0].Reporting_Label = "label 1";
-    devDynamicContent.proline_test_sheet_1[0].single_event = true;
-    devDynamicContent.proline_test_sheet_1[0].message1 = "Single Event Wagering";
-    devDynamicContent.proline_test_sheet_1[0].message2 = "Live Betting";
-    devDynamicContent.proline_test_sheet_1[0].bonus = 25;
-    devDynamicContent.proline_test_sheet_1[0].Default = true;
-    devDynamicContent.proline_test_sheet_1[0].Active = true;
-    devDynamicContent.Profile = [{}];
-    devDynamicContent.Profile[0]._id = 0;
-    devDynamicContent.Profile[0].single_event = 0;
-    Enabler.setDevDynamicContent(devDynamicContent);
-
-    _dcJs.creative.dynamicData = {
-        bonus: dynamicContent.proline_test_sheet_1[0].bonus,
-        isSingleEvent: true
-    };
-
-    // creative.dynamicExitUrl = "https://google.com";
-
-    console.log(dynamicContent);
-};
 
 var _config = undefined;
 
@@ -140,14 +34,28 @@ function initCommon(config) {
     document.getElementById("t2").innerHTML = msg2;
     document.getElementById("t3").innerHTML = msg3;
     document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
+
+    document.getElementById("cta").addEventListener("mouseover", function () {
+        document.getElementById("cta").classList.add("shadow");
+    });
+
+    document.getElementById("cta").addEventListener("mouseout", function () {
+        document.getElementById("cta").classList.remove("shadow");
+    });
+
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
-    tl.set(".playa", { transformOrigin: config.playa.x + 'px ' + config.playa.y + 'px' });
 
-    tl.from(".bg", { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.from([".bg", ".bg_border"], { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.add(function () {
+        TweenLite.to(".bg_border", { duration: 1, opacity: .3, repeat: 9, repeatDelay: 1, yoyo: true });
+        // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
+    });
+
     tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
     tl.add((0, _plusHelperJs.textFX)("#t1b"), "+=.5");
-    tl.add((0, _plusHelperJs.playa)(config.playa), "+=.3");
+    tl.add("playa");
+    tl.add((0, _plusHelperJs.playa)(config.playa), "-=.2");
     tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
 
     tl.add("logo");
@@ -162,18 +70,21 @@ function initCommon(config) {
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.4');
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 2 }, 'logo+=1.5');
 
-    tl.add(function () {
-        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 5 });
-    });
-
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
+    tl.add(function () {
+        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 1 });
+    }, "t2");
     tl.to("#t2", { duration: .3, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg2].read);
-    tl.add((0, _plusHelperJs.textFX)("#t3"));
+
+    tl.add("t3");
+    tl.add((0, _plusHelperJs.textFX)("#t3"), "t3");
+    tl.add(function () {
+        TweenMax.to('.star', { duration: 1, opacity: 1, yoyo: true, repeat: 1 });
+    }, "t3");
 
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
-    // tl.play("logo")
     return tl;
 }
 
@@ -224,6 +135,8 @@ function endFooter(tl) {
     tl.add(function () {
         TweenLite.set("#legalBtn", { display: "block" });
     }, "+=.3");
+
+    // tl.play("footer")
 }
 
 var end = {
@@ -242,7 +155,7 @@ exports.end = end;
 exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 
-},{"./dc.js":1,"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+},{"./helpers/bannerHelpers":1,"./plusHelper.js":3}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -306,9 +219,13 @@ function playa(_ref2) {
     var y = _ref2.y;
 
     var tl = new TimelineMax();
-    tl.set([".playa", ".bg_cover"], { opacity: 1 });
-    tl.to(".playa", { duration: .6, x: -x / 2, y: -y / 2, scale: .5, ease: "power3.inOut" });
-    tl.set(".bg_cover", { opacity: 0 }, "=-.25");
+    tl.set(".playa", { transformOrigin: x + "px " + y + "px" });
+    tl.to(".playa", { duration: .8, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
+    tl.set(".bg_cover", { opacity: 0 }, "=-.3");
+    tl.add(function () {
+        TweenLite.to(".playa", { duration: 5, scale: .53, ease: "linear.easeNone" });
+    });
+
     tl.add(function () {
         flare(".flare1");
     });
@@ -341,48 +258,129 @@ exports.playa = playa;
 exports.addBR = addBR;
 exports.TXT = TXT;
 
-},{}],5:[function(require,module,exports){
-'use strict';
+},{}],4:[function(require,module,exports){
+"use strict";
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 // import {TXT} from '../../_common/js/bannerHelpers'
-
-var _commonJsDcJs = require('../../_common/js/dc.js');
+// import {creative} from '../../_common/js/dc.js'
 
 var br = {
-    DYANAMIC: null,
-    NEW_SPORTS: null,
-    SINGLE: null,
-    NEW_WAY: null
+  DYANAMIC: null,
+  NEW_SPORTS: null,
+  SINGLE: null,
+  NEW_WAY: null
 };
 
 var config = {
-    playa: { x: 340, y: 380 },
-    msg2: "DYANAMIC",
-    msg3: "SINGLE",
-    bonus: "_200",
-    br: br
+  playa: { x: 340, y: 380 },
+  msg2: "DYANAMIC",
+  msg3: "SINGLE",
+  bonus: "_200",
+  br: br
 };
 
 start();
 
-_commonJsDcJs.creative.showAd = function () {
-    // start()   
-};
+// creative.showAd = ()=>{
+//     // start()   
+// }
 
 function start() {
-    var len = _commonJsPlusJs.TXT[config.bonus].length;
-    if (len >= 3) {
-        TweenLite.set([".get", "#bonus"], { x: "-=5" });
-    }
-    var tl = (0, _commonJsPlusJs.init)(config);
-    _commonJsPlusJs.end.bb(tl);
+  var len = _commonJsPlusJs.TXT[config.bonus].length;
+  if (len >= 3) {
+    TweenLite.set([".get", "#bonus"], { x: "-=5" });
+  }
+  var tl = (0, _commonJsPlusJs.init)(config);
+  _commonJsPlusJs.end.bb(tl);
 }
+
+var creative = {};
+
+creative.init = function () {
+
+  creative.setupDOMElements();
+
+  // Check if Enabler is initialized.
+  if (Enabler.isInitialized()) {
+    // Check if ad is visible to user.
+    if (Enabler.isVisible()) {
+      creative.enablerInitHandler();
+    } else {
+      Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, creative.enablerInitHandler);
+    }
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.INIT, creative.enablerInitHandler);
+  }
+};
+
+creative.setupDOMElements = function () {
+  creative.domElements = {};
+  creative.domElements.exit_button = document.getElementById("bg-exit");
+  creative.domElements.title = document.getElementById("dynamicContent_title");
+};
+
+creative.enablerInitHandler = function (event) {
+  creative.dynamicDataAvailable();
+
+  creative.domElements.exit_button.addEventListener("click", creative.exitClickHandler);
+
+  if (Enabler.isPageLoaded()) {
+    creative.pageLoadHandler();
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, creative.pageLoadHandler);
+  }
+};
+
+creative.exitClickHandler = function (event) {
+  // Enabler.exit("exit", "creative.dynamicExitUrl");
+  Enabler.exit('Background Exit');
+};
+
+creative.pageLoadHandler = function (event) {
+  console.log(creative.dynamicData);
+  // creative.domElements.title.innerHTML = creative.dynamicData.bonus;
+  // creative.showAd();
+};
+
+window.creative = creative;
+creative.dynamicDataAvailable = function () {
+  // Dynamic Content variables and sample values
+  Enabler.setProfileId(10660348);
+  var devDynamicContent = {};
+
+  devDynamicContent.proline_test_sheet_1 = [{}];
+  devDynamicContent.proline_test_sheet_1[0]._id = 0;
+  devDynamicContent.proline_test_sheet_1[0].Unique_ID = 1;
+  devDynamicContent.proline_test_sheet_1[0].Reporting_Label = "label 1";
+  devDynamicContent.proline_test_sheet_1[0].single_event = true;
+  devDynamicContent.proline_test_sheet_1[0].message1 = "Single Event Wagering";
+  devDynamicContent.proline_test_sheet_1[0].message2 = "Live Betting";
+  devDynamicContent.proline_test_sheet_1[0].bonus = 25;
+  devDynamicContent.proline_test_sheet_1[0].Default = true;
+  devDynamicContent.proline_test_sheet_1[0].Active = true;
+  devDynamicContent.Profile = [{}];
+  devDynamicContent.Profile[0]._id = 0;
+  devDynamicContent.Profile[0].single_event = 55;
+  devDynamicContent.Profile[0].gar = "\"hello\"";
+  Enabler.setDevDynamicContent(devDynamicContent);
+
+  creative.dynamicData = {
+    bonus: dynamicContent.proline_test_sheet_1[0].bonus,
+    isSingleEvent: true
+  };
+
+  // creative.dynamicExitUrl = "https://google.com";
+
+  console.log(dynamicContent);
+};
+
+window.addEventListener('load', creative.init.bind(creative));
 
 module.exports = {};
 
-},{"../../_common/js/dc.js":1,"../../_common/js/plus.js":3}]},{},[5])
+},{"../../_common/js/plus.js":2}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map

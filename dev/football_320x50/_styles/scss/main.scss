@@ -5,7 +5,10 @@
 	// opacity: 1;
 }
 .playa{	
-	@include pos-scale(-580, -60, .1);		
+	// @include pos-scale(-580, -60, .1);	
+	
+	@include pos-scale(-280, -25, .3);	
+	// opacity: 1;	
 }
 
 
