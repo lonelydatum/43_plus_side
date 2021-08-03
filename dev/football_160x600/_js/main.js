@@ -12,8 +12,8 @@ const br = {
 
 const config = {
     playa: {x:220, y:700},
-    msg2: "NEW_WAY",
-    msg3: "DYANAMIC",
+    msg2: "DYANAMIC",
+    msg3: "SINGLE",
     bonus: "_200",
     br
 }

@@ -1,15 +1,15 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+// function bgExitHandler(e) {
+//   Enabler.exit('Background Exit');
+// }
 
-Object.defineProperty(exports, '__esModule', {
+// document.getElementById('banner').addEventListener('click', bgExitHandler, false);
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-function bgExitHandler(e) {
-  Enabler.exit('Background Exit');
-}
-
-document.getElementById('banner').addEventListener('click', bgExitHandler, false);
-
 var creative = {};
 
 creative.init = function () {
@@ -31,7 +31,7 @@ creative.init = function () {
 
 creative.setupDOMElements = function () {
   creative.domElements = {};
-  creative.domElements.exit_button = document.getElementById("pn-bg-exit");
+  creative.domElements.exit_button = document.getElementById("bg-exit");
   creative.domElements.title = document.getElementById("dynamicContent_title");
 };
 
@@ -48,7 +48,8 @@ creative.enablerInitHandler = function (event) {
 };
 
 creative.exitClickHandler = function (event) {
-  Enabler.exit("exit", creative.dynamicExitUrl);
+  // Enabler.exit("exit", "creative.dynamicExitUrl");
+  Enabler.exit('Background Exit');
 };
 
 creative.pageLoadHandler = function (event) {
@@ -98,6 +99,7 @@ var _dcJs = require('./dc.js');
 
 var _helpersBannerHelpers = require('./helpers/bannerHelpers');
 
+window.creative = _dcJs.creative;
 _dcJs.creative.dynamicDataAvailable = function () {
     // Dynamic Content variables and sample values
     Enabler.setProfileId(10660348);
@@ -119,8 +121,13 @@ _dcJs.creative.dynamicDataAvailable = function () {
     Enabler.setDevDynamicContent(devDynamicContent);
 
     _dcJs.creative.dynamicData = {
-        bonus: dynamicContent.proline_test_sheet_1[0].bonus
+        bonus: dynamicContent.proline_test_sheet_1[0].bonus,
+        isSingleEvent: true
     };
+
+    // creative.dynamicExitUrl = "https://google.com";
+
+    console.log(dynamicContent);
 };
 
 var _config = undefined;
@@ -350,8 +357,8 @@ var br = {
 
 var config = {
     playa: { x: 220, y: 700 },
-    msg2: "NEW_WAY",
-    msg3: "DYANAMIC",
+    msg2: "DYANAMIC",
+    msg3: "SINGLE",
     bonus: "_200",
     br: br
 };

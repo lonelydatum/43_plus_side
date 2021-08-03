@@ -3,7 +3,7 @@ import {creative} from './dc.js'
 import {transformOrigin} from './helpers/bannerHelpers'
 
 
-
+window.creative = creative
 creative.dynamicDataAvailable = function() {
     // Dynamic Content variables and sample values
     Enabler.setProfileId(10660348);
@@ -25,8 +25,14 @@ creative.dynamicDataAvailable = function() {
     Enabler.setDevDynamicContent(devDynamicContent);
 
     creative.dynamicData = {
-        bonus: dynamicContent.proline_test_sheet_1[0].bonus
+        bonus: dynamicContent.proline_test_sheet_1[0].bonus,
+        isSingleEvent: true
     }
+
+    // creative.dynamicExitUrl = "https://google.com";
+
+    console.log(dynamicContent);
+    
 };
 
 let _config

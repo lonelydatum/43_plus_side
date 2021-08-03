@@ -1,8 +1,8 @@
-function bgExitHandler(e) {
-  Enabler.exit('Background Exit');
-}
+// function bgExitHandler(e) {
+//   Enabler.exit('Background Exit');
+// }
 
-document.getElementById('banner').addEventListener('click', bgExitHandler, false);
+// document.getElementById('banner').addEventListener('click', bgExitHandler, false);
 
 
 
@@ -33,7 +33,7 @@ creative.init = function() {
 
 creative.setupDOMElements = function() {
   creative.domElements = {};
-  creative.domElements.exit_button = document.getElementById("pn-bg-exit");
+  creative.domElements.exit_button = document.getElementById("bg-exit");
   creative.domElements.title = document.getElementById("dynamicContent_title");
 };
 
@@ -52,7 +52,8 @@ creative.enablerInitHandler = function(event) {
 };
 
 creative.exitClickHandler = function(event) {
-  Enabler.exit("exit", creative.dynamicExitUrl);
+  // Enabler.exit("exit", "creative.dynamicExitUrl");
+  Enabler.exit('Background Exit');
 };
 
 creative.pageLoadHandler = function(event) {
