@@ -52,6 +52,9 @@ window.plusSettings = {
 var _config = undefined;
 
 function initCommon() {
+    if (plusData.bonus === 0) {
+        TweenLite.set([".get", "#bonus"], { display: 'none' });
+    }
     var config = window.plusSettings[window.plusData.size];
     var isSingle = window.plusData.single === "single";
     var msg = isSingle ? { msg2: "DYANAMIC", msg3: "SINGLE" } : { msg2: "NEW_SPORTS", msg3: "NEW_WAY" };
@@ -126,10 +129,6 @@ function initHorizonal() {
 
 function init() {
 
-    if (plusData.bonus === 0) {
-        TweenLite.set([".get", "#bonus"], { display: 'none' });
-    }
-
     return initCommon();
 }
 
@@ -145,6 +144,7 @@ function endHorizontal(tl, shift) {
     showBonus(tl);
     tl.from("#cta", { duration: .3, opacity: 0 });
     if (plusData.bonus > 0) {
+
         tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
     }
 

@@ -28,6 +28,9 @@ window.plusSettings = {
 let _config
 
 function initCommon() {
+    if(plusData.bonus===0){
+        TweenLite.set([".get", "#bonus"], {display:'none'})
+    }
     let config = window.plusSettings[window.plusData.size]    
     const isSingle = window.plusData.single==="single"
     const msg = isSingle ? {msg2: "DYANAMIC", msg3:"SINGLE"} : {msg2:"NEW_SPORTS", msg3:"NEW_WAY"}
@@ -113,9 +116,7 @@ function init(){
     
     
     
-    if(plusData.bonus===0){
-        TweenLite.set([".get", "#bonus"], {display:'none'})
-    }
+    
 
 
     return initCommon()
@@ -133,6 +134,7 @@ function endHorizontal(tl, shift) {
     showBonus(tl)
     tl.from("#cta", {duration:.3, opacity:0})
     if(plusData.bonus>0){
+
         tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")    
     }
     
