@@ -9,17 +9,21 @@ function buildTemplates(project, browserSync){
 	var splitInfo = project.split('_');
     const len = splitInfo.length
     var type = splitInfo[0];
-    var bonus = splitInfo[1];
-    var single = splitInfo[2];    
-    var size = splitInfo[3];
-
-
+    var bonus = splitInfo[2];
+    var single = splitInfo[3];    
+    var size = splitInfo[1];
+    
     
     
     var wh = size.split("x");
     var width = wh[0];
     var height = wh[1];
-    var obj = {width:width, height:height, type:type, single:single, bonus:bonus, bonusLegal:false, size:size};
+    var obj = {
+        width:width, 
+        height:height, 
+        type:type, 
+        single: single==="SEW"?"single":"new", 
+        bonus:bonus, bonusLegal:false, size:size};
 
     if( bonus.indexOf("-") >= 0 ){
         obj.bonus = bonus.split("-")[0]

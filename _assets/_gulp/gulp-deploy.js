@@ -44,7 +44,7 @@ function log_free(projectName){
     const splited = projectName.split("_")
     
     
-    const size = splited[splited.length-1]
+    const size = splited[1]
 
     const name = splited[0]
     

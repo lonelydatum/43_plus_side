@@ -12,41 +12,45 @@ var zip           = require('gulp-zip');
 
 
 function createSize(folderName) {
-    const types = [
-    "football_0_single",
-    "football_25_single",
-    "football_25_new",
-    "football_50_single",
-    "football_50_new",
-    "football_50-legal_single",
-    "football_50-legal_new",
-    "football_100_single",
-    "football_100_new",
-    "football_200_single",
-    "football_200_new"
-
-    ]
 
     var splits = folderName.split("_")
+    var types = [
+        ["0", "SEW"],
+        ["25", "SEW"],
+        ["25", "NSNG"],
+        ["50", "SEW"],
+        ["50", "NSNG"],
+        ["50-legal", "SEW"],
+        ["50-legal", "NSNG"],
+        ["100", "SEW"],
+        ["100", "NSNG"],
+        ["200", "SEW"],
+        ["200", "NSNG"]
+    ]
+
+    var sport = splits[0]
+    var size = splits[1]
+    
     for(var i=0; i<types.length; i++){        
-        gulp.src('./dev/'+folderName+"/**/*")
-            .pipe(gulp.dest('./_dev/'+types[i]+"_"+splits[splits.length-1]));
+        var fileName = sport+"_"+size+"_"+types[i][0]+"_"+types[i][1]
+        console.log(fileName);
+        gulp.src('./___MASTERS/'+folderName+"/**/*")
+            .pipe(gulp.dest('./___dev/'+fileName));
     }
 }
 
 function plus(){  
-    const sizes = [
-        "football_25_single_160x600",
-        "football_25_single_160x600",
-        "football_25_single_300x250",
-        "football_25_single_300x600",
-        "football_25_single_320x50",
-        "football_25_single_728x90"
+    var masters = [        
+        "football_160x600_25_SEW",
+        "football_300x250_25_SEW",
+        "football_300x600_25_SEW",
+        "football_320x50_25_SEW",
+        "football_728x90_25_SEW"
 
     ]
     
-    for (var i = 0; i < sizes.length; i++) {
-        createSize(sizes[i]);
+    for (var i = 0; i < masters.length; i++) {
+        createSize(masters[i]);
     }
 
 }
