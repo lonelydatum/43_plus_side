@@ -12,6 +12,8 @@ var _SCSS_      = require('./_assets/_gulp/gulp-scss.js');
 var _HTML_      = require('./_assets/_gulp/gulp-html.js');
 var _DEPLOY_    = require('./_assets/_gulp/gulp-deploy.js');
 var _ZIP_       = require('./_assets/_gulp/gulp-zip.js');
+var _PLUS_       = require('./_assets/_gulp/gulp-plus.js');
+
 var _projectName = '';
 
 
@@ -35,7 +37,9 @@ gulp.task('set-project-name', function(done){
 /*--------------------------------------------------------------------*/
 
 
-
+gulp.task('plus', function () {
+    return _PLUS_();
+});
 
 
 /*--------------------------------------------------------------------*/

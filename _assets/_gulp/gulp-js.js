@@ -11,7 +11,7 @@ function buildJS(name, browserSync){
     var entry = './dev/'+name+'/_js/main.js';
     var output = './dev/'+name+'/_bundled/main.js';
     var b = browserify({ entries: [entry], debug:true }).transform(babel);           
-
+    
     
     return b.bundle()
         .on('error', notify.onError({message:"<%= error.message %>", wait: false}))    

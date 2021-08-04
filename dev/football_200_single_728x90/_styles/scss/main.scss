@@ -1,0 +1,15 @@
+@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/728x90.scss';
+
+.frame1{
+	// opacity: 1;
+}
+.playa{	
+	@include pos-scale(-624, -60, .2);		
+	// opacity: 1;
+}
+
+
+
+
+

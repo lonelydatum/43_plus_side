@@ -2,9 +2,37 @@ import {olg, shuffle, textFX, flare, playa, addBR, TXT} from './plusHelper.js'
 // import {creative} from './dc.js'
 import {transformOrigin} from './helpers/bannerHelpers'
 
+window.plusSettings = {
+    "160x600": {
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: 1 }, 
+        playa: {x:220, y:700},
+    },
+    "300x250": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
+        playa: {x:340, y:380},     
+    },
+    "300x600": {
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: null }, 
+        playa: {x:380, y:720},     
+    },
+    "320x50": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
+        playa: {x:585, y:63},     
+    },
+    "728x90": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
+        playa: {x:1260, y:120},     
+    },
+}
+
 let _config
 
-function initCommon(config) {
+function initCommon() {
+    let config = window.plusSettings[window.plusData.size]    
+    const isSingle = window.plusData.single==="single"
+    const msg = isSingle ? {msg2: "DYANAMIC", msg3:"SINGLE"} : {msg2:"NEW_SPORTS", msg3:"NEW_WAY"}
+    config = {...config, ...msg, bonus: `_${window.plusData.bonus}`}
+
     _config = config
     const msg2 = addBR(config, config.msg2)
     const msg3 = addBR(config, config.msg3)
@@ -74,23 +102,40 @@ function initCommon(config) {
     return tl
 }
 
-function initHorizonal(config){
-    const tl = initCommon(config)            
-    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[config.msg3].read}`)
+function initHorizonal(){
+    const tl = initCommon()            
+    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     return tl
 }
 
 
-function init(config){
-    return initCommon(config)
+function init(){
+    
+    
+    
+    if(plusData.bonus===0){
+        TweenLite.set([".get", "#bonus"], {display:'none'})
+    }
+
+
+    return initCommon()
 }
 
+function showBonus(tl){
+    if(plusData.bonus>0){
+        tl.from(".get", {duration:.2, opacity:0}, "+=.2")
+        tl.add(textFX("#bonus", .04), "+=.1")    
+    }
+    return tl
+}
 
 function endHorizontal(tl, shift) {
-    tl.from(".get", {duration:.2, opacity:0}, "+=.2")
-    tl.add(textFX("#bonus", .04), "+=.1")
+    showBonus(tl)
     tl.from("#cta", {duration:.3, opacity:0})
-    tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")    
+    if(plusData.bonus>0){
+        tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")    
+    }
+    
     tl.add("shift")
     tl.to(".proline", {duration:.2, x:`+=${shift.logo}`}, "shift")
     tl.to("#cta", {duration:.2, scale:.5, x:shift.cta.x, y:shift.cta.y}, "shift")
@@ -99,10 +144,15 @@ function endHorizontal(tl, shift) {
 
 function endVertical(tl) {
     tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
-    tl.from(".get", {duration:.2, opacity:0}, "+=.2")
-    tl.add(textFX("#bonus", .04), "+=.1")
+    
+
+    showBonus(tl)
+    
     tl.from("#cta", {duration:.2, opacity:0}, "+=.3")
-    tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    if(plusData.bonus>0){
+        tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    }
+    
     tl.to(".proline", {duration:.2, y:"+=25"})
     endFooter(tl)
 }
@@ -110,9 +160,11 @@ function endVertical(tl) {
 
 function endBB(tl) {
     tl.to([".proline_new", "#t3"], {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
-    tl.from(".get", {duration:.2, opacity:0}, "+=.2")
-    tl.add(textFX("#bonus", .04), "+=.1")
-    tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    showBonus(tl)
+    if(plusData.bonus>0){
+        tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    }
+    
     tl.from("#cta", {duration:.2, opacity:0}, "+=.3")
     endFooter(tl)
 }

@@ -5,6 +5,7 @@ const TXT = {
   SINGLE: {txt:"SINGLE EVENT BETTING & MORE", read:2.2},
   NEW_WAY: {txt:"NEW WAYS TO BET", read:1.8},
   FIFTY: {txt:"$50 FIRST DEPOSIT MATCH - V2", read:2.5},
+  _0: "0",
   _25: "25",
   _50: "50",
   _100: "100",
@@ -88,6 +89,7 @@ function playa({x, y}){
 }
 
 function addBR(config, key){
+    console.log(config, key);
     const str = TXT[key].txt
     const br = config.br[key]
     
