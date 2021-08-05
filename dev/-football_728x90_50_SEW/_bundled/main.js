@@ -149,7 +149,7 @@ function initCommon() {
 
     // makeSmoke(".cloud1", 0) 
 
-    TweenLite.fromTo(".cloud1", { scale: 1, opacity: 1 }, { opacity: .7, scale: "+=1.5", duration: 18, ease: 'linear.easeNone' });
+    TweenLite.fromTo(".cloud1", { scale: 1, opacity: 1 }, { opacity: .7, scale: "+=1.5", duration: 22, ease: 'power.in' });
 
     return tl;
 }
@@ -319,7 +319,7 @@ function playa(_ref2) {
     tl.to(".playa", { duration: 1, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
 
     tl.add(function () {
-        TweenLite.to(".playa", { duration: 15, scale: .55, ease: "linear.easeNone" });
+        TweenLite.to(".playa", { duration: 15, scale: .58, ease: "linear.easeNone" });
     });
 
     tl.add(function () {

@@ -109,7 +109,7 @@ function initCommon() {
 
     // makeSmoke(".cloud1", 0)  
 
-    TweenLite.fromTo(".cloud1", {scale:1, opacity:1}, {opacity:.7, scale:"+=1.5", duration:18, ease:'linear.easeNone'})
+    TweenLite.fromTo(".cloud1", {scale:1, opacity:1}, {opacity:.7, scale:"+=1.5", duration:22, ease:'power.in'})
 
     
     return tl
