@@ -71,10 +71,10 @@ function flare(id){
 function playa({x, y}){
     const tl = new TimelineMax()
     tl.set(".playa", {transformOrigin:`${x}px ${y}px`})    
-    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
+    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.4, ease:"power3.inOut"})
     
     tl.add(()=>{
-        TweenLite.to(".playa", {duration:15, scale:.58, ease:"linear.easeNone"})        
+        TweenLite.to(".playa", {duration:20, scale:.53, ease:"linear.easeNone"})        
     })
     
     
