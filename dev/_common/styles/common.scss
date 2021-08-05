@@ -212,9 +212,19 @@ img{
 
 
 .shadow{	
-	transition: .5s;
+	
 	-webkit-filter: drop-shadow(0px 0px 9px #3aa43c);
 	filter: drop-shadow(0px 0px 9px #3aa43c);
+}
+
+.bg_border{	
+	
+	-webkit-filter: drop-shadow(0px 0px 11px #3aa43c);
+	filter: drop-shadow(0px 0px 11px #3aa43c);
+}
+
+.bg-border-always-there{
+	opacity: 1;
 }
 
 

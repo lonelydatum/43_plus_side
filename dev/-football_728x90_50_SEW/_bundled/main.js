@@ -102,9 +102,9 @@ function initCommon() {
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
 
-    tl.from([".bg", ".bg_border"], { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.from([".bg", ".cloud1", ".bg_border"], { opacity: 0, scale: .5, duration: .3 }, "+=.2");
     tl.add(function () {
-        TweenLite.to(".bg_border", { duration: 1, opacity: .3, repeat: 9, repeatDelay: 1, yoyo: true });
+        TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
         // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
     });
 
@@ -141,11 +141,15 @@ function initCommon() {
 
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
-    var total = 4;
-    for (var i = 1; i <= total; i++) {
-        // TweenLite.set(".cloud"+i, {x:Math.random()*50})
-        makeSmoke(".cloud" + i, (i - 1) / total);
-    }
+    // const total = 4
+    // for(let i=1; i<=total; i++){
+    //     // TweenLite.set(".cloud"+i, {x:Math.random()*50})
+    //     makeSmoke(".cloud"+i, (i-1)/total) 
+    // }
+
+    // makeSmoke(".cloud1", 0) 
+
+    TweenLite.fromTo(".cloud1", { scale: 1 }, { opacity: .7, scale: "+=1.5", duration: 18, ease: 'linear.easeNone' });
 
     return tl;
 }
@@ -154,9 +158,8 @@ function makeSmoke(id, delay) {
     var scale = arguments.length <= 2 || arguments[2] === undefined ? 1.5 : arguments[2];
 
     var smoke = new TimelineMax({ repeat: 0 });
-    var time = 3;
-    console.log((delay + 1) * time);
-    smoke.fromTo(id, { duration: time, scale: 1, opacity: 0 }, { scale: "+=.3", opacity: .7, ease: "power1.in" }, delay * (time + 1));
+    var time = 6;
+    smoke.fromTo(id, { scale: 1, opacity: 0 }, { duration: 2, scale: "+=.1", opacity: .7, ease: "power1.in" });
     smoke.to(id, { duration: 1, scale: "+=.7", opacity: 0, ease: "power1.out" });
 
     return smoke;
@@ -303,7 +306,7 @@ function textFX(id) {
 }
 
 function flare(id) {
-    var tl = new TimelineMax({ repeat: 30, repeatDelay: .3, yoyo: true });
+    var tl = new TimelineMax({ repeat: 20, repeatDelay: .3, yoyo: true });
     tl.to(id, { duration: 1, opacity: 1 });
 }
 
@@ -313,10 +316,10 @@ function playa(_ref2) {
 
     var tl = new TimelineMax();
     tl.set(".playa", { transformOrigin: x + "px " + y + "px" });
-    tl.to(".playa", { duration: .8, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
-    tl.set(".bg_cover", { opacity: 0 }, "=-.3");
+    tl.to(".playa", { duration: 1, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
+
     tl.add(function () {
-        TweenLite.to(".playa", { duration: 5, scale: .53, ease: "linear.easeNone" });
+        TweenLite.to(".playa", { duration: 15, scale: .55, ease: "linear.easeNone" });
     });
 
     tl.add(function () {

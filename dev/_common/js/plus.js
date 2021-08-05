@@ -57,9 +57,9 @@ function initCommon() {
     tl.set(".frame1", {opacity:1})
     
 
-    tl.from([".bg", ".bg_border"], {opacity:0, scale:.5, duration:.3}, "+=.2")
+    tl.from([".bg", ".cloud1", ".bg_border"], {opacity:0, scale:.5, duration:.3}, "+=.2")
     tl.add(()=>{
-        TweenLite.to(".bg_border", {duration:1, opacity:.3, repeat:9, repeatDelay:1, yoyo:true})
+        TweenLite.to(".bg_border", {duration:1, opacity:0, repeat:9, repeatDelay:1, yoyo:true})
         // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
     })
 
@@ -101,11 +101,16 @@ function initCommon() {
     
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
-    const total = 4
-    for(let i=1; i<=total; i++){
-        // TweenLite.set(".cloud"+i, {x:Math.random()*50})
-        makeSmoke(".cloud"+i, (i-1)/total)  
-    }
+    // const total = 4
+    // for(let i=1; i<=total; i++){
+    //     // TweenLite.set(".cloud"+i, {x:Math.random()*50})
+    //     makeSmoke(".cloud"+i, (i-1)/total)  
+    // }
+
+    // makeSmoke(".cloud1", 0)  
+
+    TweenLite.fromTo(".cloud1", {scale:1}, {opacity:.7, scale:"+=1.5", duration:18, ease:'linear.easeNone'})
+
     
     return tl
 }
@@ -115,9 +120,8 @@ function initCommon() {
 function makeSmoke(id, delay, scale=1.5) {
     
     const smoke = new TimelineMax({repeat:0})
-    const time = 3
-    console.log((delay+1)*time);
-    smoke.fromTo(id, {duration:time, scale:1, opacity:0}, {scale:"+=.3", opacity:.7, ease:"power1.in"}, (delay)*(time+1))
+    const time = 6
+    smoke.fromTo(id, {scale:1, opacity:0}, {duration:2, scale:"+=.1", opacity:.7, ease:"power1.in"})
     smoke.to(id, {duration:1, scale:"+=.7", opacity:0, ease:"power1.out"})
     
     return smoke

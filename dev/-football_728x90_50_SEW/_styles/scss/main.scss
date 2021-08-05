@@ -13,3 +13,14 @@
 
 
 
+.flare1{
+	// opacity: 1;
+	@include pos-scale(430, 20, .7);
+
+}
+
+.flare2{
+	// opacity: 1;
+	@include pos-scale(490, 52, .7);
+	
+}

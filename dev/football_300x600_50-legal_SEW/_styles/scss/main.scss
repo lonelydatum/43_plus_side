@@ -12,3 +12,14 @@
 
 
 
+.flare1{
+	// opacity: 1;
+	@include pos(-83, 255);
+
+}
+
+.flare2{
+	// opacity: 1;
+	@include pos(44, 345);
+	
+}

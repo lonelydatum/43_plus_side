@@ -62,7 +62,7 @@ function textFX(id, stagger=.021){
 
 
 function flare(id){
-    const tl = new TimelineMax({repeat:30, repeatDelay:.3, yoyo:true})
+    const tl = new TimelineMax({repeat:20, repeatDelay:.3, yoyo:true})
     tl.to(id, {duration:1, opacity:1})
 }
 
@@ -71,10 +71,10 @@ function flare(id){
 function playa({x, y}){
     const tl = new TimelineMax()
     tl.set(".playa", {transformOrigin:`${x}px ${y}px`})    
-    tl.to(".playa", {duration:.8, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
-    tl.set(".bg_cover", {opacity:0}, "=-.3")
+    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
+    
     tl.add(()=>{
-        TweenLite.to(".playa", {duration:5, scale:.53, ease:"linear.easeNone"})        
+        TweenLite.to(".playa", {duration:15, scale:.55, ease:"linear.easeNone"})        
     })
     
     

@@ -39,14 +39,6 @@
 
 
 
-.flare1{
-	@include pos(10, 138);
-}
-
-.flare2{
-	@include pos(100, 181);
-}
-
 #bonus{
 	text-align: left;
 	@include pos(121, 74);

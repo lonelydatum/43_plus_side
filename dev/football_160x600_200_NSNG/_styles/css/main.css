@@ -265,9 +265,17 @@ img {
 }
 
 .shadow {
-  transition: .5s;
   -webkit-filter: drop-shadow(0px 0px 9px #3aa43c);
   filter: drop-shadow(0px 0px 9px #3aa43c);
+}
+
+.bg_border {
+  -webkit-filter: drop-shadow(0px 0px 11px #3aa43c);
+  filter: drop-shadow(0px 0px 11px #3aa43c);
+}
+
+.bg-border-always-there {
+  opacity: 1;
 }
 
 #banner {
@@ -340,28 +348,6 @@ img {
   position: absolute;
 }
 
-.flare1 {
-  -webkit-transform: translate(-80px, 268px);
-  -ms-transform: translate(-80px, 268px);
-  transform: translate(-80px, 268px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.flare2 {
-  -webkit-transform: translate(50px, 346px);
-  -ms-transform: translate(50px, 346px);
-  transform: translate(50px, 346px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
 #bonus {
   font-size: 23px;
   -webkit-transform: translate(0px, 159px);
@@ -414,6 +400,28 @@ img {
   -webkit-transform: translate(-108px, -354px) scale(0.18, 0.18);
   -ms-transform: translate(-108px, -354px) scale(0.18, 0.18);
   transform: translate(-108px, -354px) scale(0.18, 0.18);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.flare1 {
+  -webkit-transform: translate(-41px, 272px);
+  -ms-transform: translate(-41px, 272px);
+  transform: translate(-41px, 272px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.flare2 {
+  -webkit-transform: translate(25px, 338px);
+  -ms-transform: translate(25px, 338px);
+  transform: translate(25px, 338px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

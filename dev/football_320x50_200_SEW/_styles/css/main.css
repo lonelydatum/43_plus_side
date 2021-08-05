@@ -265,9 +265,17 @@ img {
 }
 
 .shadow {
-  transition: .5s;
   -webkit-filter: drop-shadow(0px 0px 9px #3aa43c);
   filter: drop-shadow(0px 0px 9px #3aa43c);
+}
+
+.bg_border {
+  -webkit-filter: drop-shadow(0px 0px 11px #3aa43c);
+  filter: drop-shadow(0px 0px 11px #3aa43c);
+}
+
+.bg-border-always-there {
+  opacity: 1;
 }
 
 #banner {
@@ -332,28 +340,6 @@ img {
   -webkit-transform: translate(685px, 45px);
   -ms-transform: translate(685px, 45px);
   transform: translate(685px, 45px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.flare1 {
-  -webkit-transform: translate(-80px, 268px);
-  -ms-transform: translate(-80px, 268px);
-  transform: translate(-80px, 268px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.flare2 {
-  -webkit-transform: translate(50px, 346px);
-  -ms-transform: translate(50px, 346px);
-  transform: translate(50px, 346px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -431,6 +417,28 @@ img {
   -webkit-transform: translate(-280px, -25px) scale(0.3, 0.3);
   -ms-transform: translate(-280px, -25px) scale(0.3, 0.3);
   transform: translate(-280px, -25px) scale(0.3, 0.3);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.flare1 {
+  -webkit-transform: translate(120px, 7px) scale(0.39, 0.39);
+  -ms-transform: translate(120px, 7px) scale(0.39, 0.39);
+  transform: translate(120px, 7px) scale(0.39, 0.39);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.flare2 {
+  -webkit-transform: translate(148px, 20px) scale(0.39, 0.39);
+  -ms-transform: translate(148px, 20px) scale(0.39, 0.39);
+  transform: translate(148px, 20px) scale(0.39, 0.39);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
