@@ -28,30 +28,33 @@ var _helpersBannerHelpers = require('./helpers/bannerHelpers');
 
 window.plusSettings = {
     "160x600": {
-        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: 1 },
-        playa: { x: 220, y: 700 }
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: 1 }
     },
     "300x250": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null },
-        playa: { x: 340, y: 380 }
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     },
     "300x600": {
-        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: null },
-        playa: { x: 380, y: 720 }
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: null }
     },
     "320x50": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null },
-        playa: { x: 585, y: 63 }
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     },
     "728x90": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null },
-        playa: { x: 1260, y: 120 }
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     }
 };
 
 var _config = undefined;
 
-function initCommon() {
+function initCommon(sports) {
+
+    var sportItem = sports[plusData.type];
+
+    sportItem.flares.map(function (item, i) {
+        var scale = item[2] || 1;
+        TweenLite.set('.flare' + (i + 1), { x: item[0], y: item[1], scale: scale });
+    });
+
     if (plusData.bonus === 0) {
         TweenLite.set([".get", "#bonus"], { display: 'none' });
     }
@@ -63,7 +66,7 @@ function initCommon() {
     _config = config;
     var msg2 = (0, _plusHelperJs.addBR)(config, config.msg2);
     var msg3 = (0, _plusHelperJs.addBR)(config, config.msg3);
-    console.log(msg3);
+
     document.getElementById("t2").innerHTML = msg2;
     document.getElementById("t3").innerHTML = msg3;
     document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
@@ -82,13 +85,15 @@ function initCommon() {
     tl.from([".bg", ".cloudMain", ".bg_border"], { opacity: 0, duration: .3 }, "+=.2");
     tl.add(function () {
         TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
-        // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
     });
 
     tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
+    tl.add(function () {
+        (0, _plusHelperJs.playa)(sportItem.playa);
+    }, "-=.2");
+
     tl.add((0, _plusHelperJs.textFX)("#t1b"), "+=.5");
-    tl.add("playa");
-    tl.add((0, _plusHelperJs.playa)(config.playa), "-=.2");
+
     tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
 
     tl.add("logo");
@@ -142,15 +147,15 @@ function makeSmoke(id, delay) {
     return smoke;
 }
 
-function initHorizonal() {
-    var tl = initCommon();
+function initHorizonal(sports) {
+    var tl = initCommon(sports);
     tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     return tl;
 }
 
-function init() {
+function init(sports) {
 
-    return initCommon();
+    return initCommon(sports);
 }
 
 function showBonus(tl) {
@@ -247,6 +252,12 @@ var TXT = {
     _200: "200"
 };
 
+function configSize(sport) {
+    sport.flares.map(function (item, i) {
+        TweenLite.set(".flare" + (i + 1), { x: item[0], y: item[1] });
+    });
+}
+
 function olg() {
     var tl = new TimelineMax();
 
@@ -293,7 +304,7 @@ function playa(_ref2) {
 
     var tl = new TimelineMax();
     tl.set(".playa", { transformOrigin: x + "px " + y + "px" });
-    tl.to(".playa", { duration: 1, x: -x / 2, y: -y / 2, opacity: 1, scale: .4, ease: "power3.inOut" });
+    tl.to(".playa", { duration: 1, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
 
     tl.add(function () {
         TweenLite.to(".playa", { duration: 20, scale: .53, ease: "linear.easeNone" });
@@ -331,16 +342,28 @@ exports.flare = flare;
 exports.playa = playa;
 exports.addBR = addBR;
 exports.TXT = TXT;
+exports.configSize = configSize;
 
 },{}],4:[function(require,module,exports){
 'use strict';
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
+var sports = {
+    baseball: {
+        playa: { x: 585, y: 63 },
+        flares: [[120, 7, .4], [148, 20, .4]]
+    },
+    football: {
+        playa: { x: 585, y: 63 },
+        flares: [[120, 7, .4], [148, 20, .4]]
+    }
+};
+
 start();
 
 function start() {
-    var tl = (0, _commonJsPlusJs.initHorizonal)();
+    var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
     var shift = {
         cta: { x: -135, y: -17.5 },
         logo: 39

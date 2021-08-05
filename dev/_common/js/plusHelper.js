@@ -12,6 +12,12 @@ const TXT = {
   _200: "200"
 }
 
+function configSize(sport) {
+    sport.flares.map((item, i)=>{
+        TweenLite.set(`.flare${i+1}`, {x:item[0], y:item[1]})
+    })
+}
+
 
 function olg(){
     const tl = new TimelineMax()
@@ -71,7 +77,7 @@ function flare(id){
 function playa({x, y}){
     const tl = new TimelineMax()
     tl.set(".playa", {transformOrigin:`${x}px ${y}px`})    
-    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.4, ease:"power3.inOut"})
+    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
     
     tl.add(()=>{
         TweenLite.to(".playa", {duration:20, scale:.53, ease:"linear.easeNone"})        
@@ -106,4 +112,4 @@ CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.
 
 
 
-export {olg, shuffle, textFX, flare, playa, addBR, TXT}
+export {olg, shuffle, textFX, flare, playa, addBR, TXT, configSize}

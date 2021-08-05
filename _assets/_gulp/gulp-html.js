@@ -13,7 +13,12 @@ function buildTemplates(project, browserSync){
 
     var bonus = splitInfo[2];
     var single = splitInfo[3];    
-    type = type.replace("-", "")
+    if(project.charAt(0)==="-"){
+        type = type.replace("-", "")
+        type = "football"
+    }
+    
+    
     
     
     var wh = size.split("x");

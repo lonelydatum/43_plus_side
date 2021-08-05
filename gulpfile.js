@@ -44,7 +44,7 @@ gulp.task('set-project-name', function(done){
 // });
 
 function item(name_og, name_new, end){
-    var srcName = "-"+name_og+end
+    var srcName = name_og+end
     
 
   var stream = gulp.src('./dev/'+srcName+"/**/*")
@@ -63,11 +63,12 @@ gulp.task('plus-clone', function () {
     
     
     for(var a=0; a<sizes.length; a++){
-        var name_og = "football_"+sizes[a]
+        var size = sizes[a]
+        var name_og = "-aaa_"+size
         for(var b=0; b<types.length; b++){
             var bonus = types[b][0]
             var single = types[b][1]
-            var name_new = name_og+"_"+bonus+"_"+single
+            var name_new = "football_"+size+"_"+bonus+"_"+single
             item(name_og, name_new, "_50_SEW")
         }
 

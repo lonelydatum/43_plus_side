@@ -4,30 +4,34 @@ import {transformOrigin} from './helpers/bannerHelpers'
 
 window.plusSettings = {
     "160x600": {
-        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: 1 }, 
-        playa: {x:220, y:700},
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: 1 }        
     },
     "300x250": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
-        playa: {x:340, y:380},     
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
     },
     "300x600": {
-        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: null }, 
-        playa: {x:380, y:720},     
+        br: { DYANAMIC: 0, NEW_SPORTS: 1, SINGLE: 1, NEW_WAY: null }        
     },
     "320x50": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
-        playa: {x:585, y:63},     
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
     },
     "728x90": {
-        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }, 
-        playa: {x:1260, y:120},     
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
     },
 }
 
 let _config
 
-function initCommon() {
+function initCommon(sports) {
+    
+    const sportItem = sports[plusData.type]
+
+
+    sportItem.flares.map((item, i)=>{
+        const scale = item[2] || 1
+        TweenLite.set(`.flare${i+1}`, {x:item[0], y:item[1], scale})
+    })
+    
     if(plusData.bonus===0){
         TweenLite.set([".get", "#bonus"], {display:'none'})
     }
@@ -39,7 +43,7 @@ function initCommon() {
     _config = config
     const msg2 = addBR(config, config.msg2)
     const msg3 = addBR(config, config.msg3)
-    console.log(msg3);
+    
     document.getElementById("t2").innerHTML = msg2
     document.getElementById("t3").innerHTML = msg3
     document.getElementById("bonus").innerHTML = `$${TXT[config.bonus]} BONUS.`
@@ -60,13 +64,16 @@ function initCommon() {
     tl.from([".bg", ".cloudMain", ".bg_border"], {opacity:0, duration:.3}, "+=.2")
     tl.add(()=>{
         TweenLite.to(".bg_border", {duration:1, opacity:0, repeat:9, repeatDelay:1, yoyo:true})
-        // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
     })
 
     tl.add(textFX("#t1a"), "+=.3")
+    tl.add(()=>{
+        playa(sportItem.playa)
+    }, "-=.2")   
+
     tl.add(textFX("#t1b"), "+=.5")
-    tl.add("playa")   
-    tl.add(playa(config.playa), "-=.2")   
+    
+    
     tl.to(".t1", {duration:.2, opacity:0}, "+=1.2")
 
     tl.add("logo")
@@ -127,21 +134,16 @@ function makeSmoke(id, delay, scale=1.5) {
     return smoke
 }
 
-function initHorizonal(){
-    const tl = initCommon()            
+function initHorizonal(sports){
+    const tl = initCommon(sports)            
     tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     return tl
 }
 
 
-function init(){
-    
-    
-    
-    
+function init(sports){
 
-
-    return initCommon()
+    return initCommon(sports)
 }
 
 function showBonus(tl){

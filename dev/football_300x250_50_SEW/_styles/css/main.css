@@ -404,26 +404,4 @@ img {
   position: absolute;
 }
 
-.flare1 {
-  -webkit-transform: translate(8px, 146px);
-  -ms-transform: translate(8px, 146px);
-  transform: translate(8px, 146px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.flare2 {
-  -webkit-transform: translate(90px, 183px);
-  -ms-transform: translate(90px, 183px);
-  transform: translate(90px, 183px);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
 /*# sourceMappingURL=main.css.map */

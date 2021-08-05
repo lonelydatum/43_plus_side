@@ -428,26 +428,4 @@ img {
   position: absolute;
 }
 
-.flare1 {
-  -webkit-transform: translate(120px, 7px) scale(0.39, 0.39);
-  -ms-transform: translate(120px, 7px) scale(0.39, 0.39);
-  transform: translate(120px, 7px) scale(0.39, 0.39);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
-.flare2 {
-  -webkit-transform: translate(148px, 20px) scale(0.39, 0.39);
-  -ms-transform: translate(148px, 20px) scale(0.39, 0.39);
-  transform: translate(148px, 20px) scale(0.39, 0.39);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  position: absolute;
-}
-
 /*# sourceMappingURL=main.css.map */
