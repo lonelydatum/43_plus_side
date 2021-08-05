@@ -407,9 +407,9 @@ img {
 }
 
 .flare1 {
-  -webkit-transform: translate(-83px, 255px);
-  -ms-transform: translate(-83px, 255px);
-  transform: translate(-83px, 255px);
+  -webkit-transform: translate(-83px, 258px);
+  -ms-transform: translate(-83px, 258px);
+  transform: translate(-83px, 258px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

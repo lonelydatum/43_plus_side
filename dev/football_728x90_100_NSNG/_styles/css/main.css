@@ -445,6 +445,10 @@ img {
   position: absolute;
 }
 
+.cloudMain {
+  opacity: .65;
+}
+
 .playa {
   -webkit-transform: translate(-624px, -60px) scale(0.2, 0.2);
   -ms-transform: translate(-624px, -60px) scale(0.2, 0.2);

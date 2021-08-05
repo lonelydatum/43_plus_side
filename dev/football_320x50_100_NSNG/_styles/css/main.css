@@ -413,6 +413,10 @@ img {
   transform-origin: 75% 100%;
 }
 
+.cloudMain {
+  opacity: .65;
+}
+
 .playa {
   -webkit-transform: translate(-280px, -25px) scale(0.3, 0.3);
   -ms-transform: translate(-280px, -25px) scale(0.3, 0.3);

@@ -126,7 +126,7 @@ function initCommon() {
 
     // makeSmoke(".cloud1", 0) 
 
-    TweenLite.fromTo(".cloud1", { scale: 1 }, { opacity: .7, scale: "+=1.5", duration: 18, ease: 'linear.easeNone' });
+    TweenLite.fromTo(".cloud1", { scale: 1, opacity: 1 }, { opacity: .7, scale: "+=1.5", duration: 18, ease: 'linear.easeNone' });
 
     return tl;
 }
@@ -283,7 +283,7 @@ function textFX(id) {
 }
 
 function flare(id) {
-    var tl = new TimelineMax({ repeat: 20, repeatDelay: .3, yoyo: true });
+    var tl = new TimelineMax({ repeat: 8, repeatDelay: .3, yoyo: true });
     tl.to(id, { duration: 1, opacity: 1 });
 }
 

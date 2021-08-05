@@ -62,7 +62,7 @@ function textFX(id, stagger=.021){
 
 
 function flare(id){
-    const tl = new TimelineMax({repeat:20, repeatDelay:.3, yoyo:true})
+    const tl = new TimelineMax({repeat:8, repeatDelay:.3, yoyo:true})
     tl.to(id, {duration:1, opacity:1})
 }
 
