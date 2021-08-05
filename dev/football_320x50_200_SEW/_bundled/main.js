@@ -1,23 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-var _commonJsPlusJs = require('../../_common/js/plus.js');
-
-start();
-
-function start() {
-    var tl = (0, _commonJsPlusJs.initHorizonal)();
-    var shift = {
-        cta: { x: -135, y: -17.5 },
-        logo: 39
-    };
-
-    _commonJsPlusJs.end.horizontal(tl, shift);
-}
-
-module.exports = {};
-
-},{"../../_common/js/plus.js":3}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30,7 +11,7 @@ function transformOrigin(id, xy) {
 
 exports.transformOrigin = transformOrigin;
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -243,7 +224,7 @@ exports.end = end;
 exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 
-},{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+},{"./helpers/bannerHelpers":1,"./plusHelper.js":3}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -348,7 +329,26 @@ exports.playa = playa;
 exports.addBR = addBR;
 exports.TXT = TXT;
 
-},{}]},{},[1])
+},{}],4:[function(require,module,exports){
+'use strict';
+
+var _commonJsPlusJs = require('../../_common/js/plus.js');
+
+start();
+
+function start() {
+    var tl = (0, _commonJsPlusJs.initHorizonal)();
+    var shift = {
+        cta: { x: -135, y: -17.5 },
+        logo: 39
+    };
+
+    _commonJsPlusJs.end.horizontal(tl, shift);
+}
+
+module.exports = {};
+
+},{"../../_common/js/plus.js":2}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map

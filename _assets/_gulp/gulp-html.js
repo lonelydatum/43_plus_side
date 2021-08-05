@@ -11,10 +11,9 @@ function buildTemplates(project, browserSync){
     var type = splitInfo[0];
     var size = splitInfo[1];
 
-    var bonus = splitInfo[2] || "25";
-    var single = splitInfo[3] || "SEW";    
+    var bonus = splitInfo[2];
+    var single = splitInfo[3];    
     type = type.replace("-", "")
-    
     
     
     var wh = size.split("x");

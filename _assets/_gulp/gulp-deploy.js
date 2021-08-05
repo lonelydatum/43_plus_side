@@ -78,8 +78,8 @@ function log_free(projectName){
             }
         })
         .pipe(gulp.dest('./docs/deploy/'+projectName))     
-        .pipe(zip(projectName+'.zip'))
-        .pipe(gulp.dest('./docs/zips'));
+        // .pipe(zip(projectName+'.zip'))
+        // .pipe(gulp.dest('./docs/zips'));
 
         return stream;   
 
