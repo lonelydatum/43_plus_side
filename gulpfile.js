@@ -14,6 +14,7 @@ var _DEPLOY_    = require('./_assets/_gulp/gulp-deploy.js');
 var _ZIP_       = require('./_assets/_gulp/gulp-zip.js');
 var _PLUS_       = require('./_assets/_gulp/gulp-plus.js');
 var _PLUS_DEPLOY_    = require('./_assets/_gulp/plus-deploy.js');
+var _PLUS_DATA_    = require('./_assets/_gulp/plus-data.js');
 
 var _projectName = '';
 
@@ -42,8 +43,36 @@ gulp.task('plus-dev', function () {
     return _PLUS_();
 });
 
+function item(name_og, name_new){
+  var stream = gulp.src('./dev/'+name_og+"/**/*")
+        .pipe(gulp.dest('./dev/'+name_new))
+        .on("end", function(){
+            console.log(name_new);
+            _PLUS_DEPLOY_(name_new);
+        })
+}
+
 gulp.task('plus-deploy', function () {
-    return _PLUS_DEPLOY_();
+    
+    var types = _PLUS_DATA_.types
+    var sizes = _PLUS_DATA_.sizes
+    
+    
+    for(var a=0; a<sizes.length; a++){
+        var name_og = "football_"+sizes[a]
+        for(var b=0; b<types.length; b++){
+            var bonus = types[b][0]
+            var single = types[b][1]
+            var name_new = name_og+"_"+bonus+"_"+single
+            item("-"+name_og, name_new)
+        }
+
+    }
+
+    
+    
+
+    // return 
 });
 
 

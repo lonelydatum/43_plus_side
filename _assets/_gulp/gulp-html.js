@@ -9,9 +9,11 @@ function buildTemplates(project, browserSync){
 	var splitInfo = project.split('_');
     const len = splitInfo.length
     var type = splitInfo[0];
-    var bonus = splitInfo[2];
-    var single = splitInfo[3];    
     var size = splitInfo[1];
+
+    var bonus = splitInfo[2] || "25";
+    var single = splitInfo[3] || "SEW";    
+    type = type.replace("-", "")
     
     
     

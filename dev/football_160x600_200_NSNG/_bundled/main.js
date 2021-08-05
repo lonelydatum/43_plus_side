@@ -1,6 +1,42 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+var _commonJsPlusJs = require('../../_common/js/plus.js');
+
+// import {creative} from '../../_common/js/dc.js'
+
+var br = {
+    DYANAMIC: 0,
+    NEW_SPORTS: 1,
+    SINGLE: 1,
+    NEW_WAY: 1
+};
+
+var config = {
+    playa: { x: 220, y: 700 },
+    // msg2: "DYANAMIC",
+    // msg3: "SINGLE",
+    bonus: "_200",
+    br: br
+};
+
+start();
+
+function start() {
+
+    document.getElementById("t1b").innerHTML = "OF SPORTS<br/> BETTING IS HERE";
+
+    var tl = (0, _commonJsPlusJs.init)(config);
+    tl.set(".get", { x: 0 });
+    _commonJsPlusJs.end.vertical(tl);
+    // tl.play("playa")
+}
+
+module.exports = {};
+
+},{"../../_common/js/plus.js":3}],2:[function(require,module,exports){
+"use strict";
+
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -11,7 +47,7 @@ function transformOrigin(id, xy) {
 
 exports.transformOrigin = transformOrigin;
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -118,7 +154,25 @@ function initCommon() {
 
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
+    var total = 4;
+    for (var i = 1; i <= total; i++) {
+        // TweenLite.set(".cloud"+i, {x:Math.random()*50})
+        makeSmoke(".cloud" + i, (i - 1) / total);
+    }
+
     return tl;
+}
+
+function makeSmoke(id, delay) {
+    var scale = arguments.length <= 2 || arguments[2] === undefined ? 1.5 : arguments[2];
+
+    var smoke = new TimelineMax({ repeat: 0 });
+    var time = 3;
+    console.log((delay + 1) * time);
+    smoke.fromTo(id, { duration: time, scale: 1, opacity: 0 }, { scale: "+=.3", opacity: .7, ease: "power1.in" }, delay * (time + 1));
+    smoke.to(id, { duration: 1, scale: "+=.7", opacity: 0, ease: "power1.out" });
+
+    return smoke;
 }
 
 function initHorizonal() {
@@ -206,7 +260,7 @@ exports.end = end;
 exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 
-},{"./helpers/bannerHelpers":1,"./plusHelper.js":3}],3:[function(require,module,exports){
+},{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -311,43 +365,7 @@ exports.playa = playa;
 exports.addBR = addBR;
 exports.TXT = TXT;
 
-},{}],4:[function(require,module,exports){
-"use strict";
-
-var _commonJsPlusJs = require('../../_common/js/plus.js');
-
-// import {creative} from '../../_common/js/dc.js'
-
-var br = {
-    DYANAMIC: 0,
-    NEW_SPORTS: 1,
-    SINGLE: 1,
-    NEW_WAY: 1
-};
-
-var config = {
-    playa: { x: 220, y: 700 },
-    // msg2: "DYANAMIC",
-    // msg3: "SINGLE",
-    bonus: "_200",
-    br: br
-};
-
-start();
-
-function start() {
-
-    document.getElementById("t1b").innerHTML = "OF SPORTS<br/> BETTING IS HERE";
-
-    var tl = (0, _commonJsPlusJs.init)(config);
-    tl.set(".get", { x: 0 });
-    _commonJsPlusJs.end.vertical(tl);
-    // tl.play("playa")
-}
-
-module.exports = {};
-
-},{"../../_common/js/plus.js":2}]},{},[4])
+},{}]},{},[1])
 
 
 //# sourceMappingURL=main.js.map

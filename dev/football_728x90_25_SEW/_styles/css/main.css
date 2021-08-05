@@ -412,6 +412,53 @@ img {
   position: absolute;
 }
 
+.cloud {
+  -webkit-transform: translate(0px, 0px) scale(1, 1);
+  -ms-transform: translate(0px, 0px) scale(1, 1);
+  transform: translate(0px, 0px) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+  -webkit-transform-origin: 75% 100%;
+  -ms-transform-origin: 75% 100%;
+  transform-origin: 75% 100%;
+}
+
+.cloud1 {
+  -webkit-transform: translate(40px, 0px) scale(1, 1);
+  -ms-transform: translate(40px, 0px) scale(1, 1);
+  transform: translate(40px, 0px) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.cloud2 {
+  -webkit-transform: translate(-40px, 0px) scale(1, 1);
+  -ms-transform: translate(-40px, 0px) scale(1, 1);
+  transform: translate(-40px, 0px) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+.cloud3 {
+  -webkit-transform: translate(-20px, 0px) scale(1, 1);
+  -ms-transform: translate(-20px, 0px) scale(1, 1);
+  transform: translate(-20px, 0px) scale(1, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
 .playa {
   -webkit-transform: translate(-624px, -60px) scale(0.2, 0.2);
   -ms-transform: translate(-624px, -60px) scale(0.2, 0.2);

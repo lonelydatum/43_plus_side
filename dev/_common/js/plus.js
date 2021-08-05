@@ -101,8 +101,26 @@ function initCommon() {
     
     // tl.set(".get", {x: TXT[config.bonus].length===3 ? -4 : 0 })
 
+    const total = 4
+    for(let i=1; i<=total; i++){
+        // TweenLite.set(".cloud"+i, {x:Math.random()*50})
+        makeSmoke(".cloud"+i, (i-1)/total)  
+    }
     
     return tl
+}
+
+
+
+function makeSmoke(id, delay, scale=1.5) {
+    
+    const smoke = new TimelineMax({repeat:0})
+    const time = 3
+    console.log((delay+1)*time);
+    smoke.fromTo(id, {duration:time, scale:1, opacity:0}, {scale:"+=.3", opacity:.7, ease:"power1.in"}, (delay)*(time+1))
+    smoke.to(id, {duration:1, scale:"+=.7", opacity:0, ease:"power1.out"})
+    
+    return smoke
 }
 
 function initHorizonal(){

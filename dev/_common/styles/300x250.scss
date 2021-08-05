@@ -67,3 +67,8 @@
 .proline_plus{	
 	@include pos-scale-rotate(190, 39, .5, 0);
 }
+
+.cloud{
+	@include pos-scale(0, 0, 1);
+	transform-origin: 50% 100%;
+}

@@ -6,8 +6,8 @@ var inlinesource    = require('gulp-inline-source');
 var stripDebug      = require('gulp-strip-debug');
 var rename          = require('gulp-rename');
 var moment          = require('moment');
-var ghtmlSrc = require('gulp-html-src');
-var zip           = require('gulp-zip');
+var ghtmlSrc        = require('gulp-html-src');
+var zip             = require('gulp-zip');
 
 
 
@@ -15,7 +15,7 @@ var zip           = require('gulp-zip');
 function getImagePaths(projectName, cb){
     
     var images = []
-    const imageStream = gulp.src('./___dev/'+projectName+'/index.html')
+    const imageStream = gulp.src('./dev/'+projectName+'/index.html')
         .pipe(
             ghtmlSrc({                 
                 selector: 'img', 
@@ -23,7 +23,7 @@ function getImagePaths(projectName, cb){
                 getFileName:function(node){
                     var url = node.attr("src")
                     if(url){
-                        url = url.replace("../_common", "___dev/_common")
+                        url = url.replace("../_common", "dev/_common")
                         cb(url)    
                         return url
                     }else{
@@ -41,7 +41,6 @@ function getImagePaths(projectName, cb){
 
 
 function log_free(projectName){  
-    console.log(projectName);
     const splited = projectName.split("_")
     
     
@@ -60,7 +59,7 @@ function log_free(projectName){
     
     
 
-    var entry = './___dev/'+projectName+'/index.html';
+    var entry = './dev/'+projectName+'/index.html';
     var stream =  gulp.src(entry)
         // .pipe(replace("main.js", 'log-free.js'))
         .pipe(htmlmin({removeComments:true, collapseWhitespace:true, preserveLineBreaks:true}))
@@ -79,8 +78,8 @@ function log_free(projectName){
             }
         })
         .pipe(gulp.dest('./docs/deploy/'+projectName))     
-        .pipe(zip(projectName+'.zip'))
-        .pipe(gulp.dest('./docs/zips'));
+        // .pipe(zip(projectName+'.zip'))
+        // .pipe(gulp.dest('./docs/zips'));
 
         return stream;   
 

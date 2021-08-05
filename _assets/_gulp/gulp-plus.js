@@ -9,24 +9,13 @@ var moment          = require('moment');
 var ghtmlSrc = require('gulp-html-src');
 var zip           = require('gulp-zip');
 
-
+var _PLUS_DATA_    = require('./plus-data.js');
 
 function createSize(folderName) {
 
     var splits = folderName.split("_")
-    var types = [
-        ["0", "SEW"],
-        ["25", "SEW"],
-        ["25", "NSNG"],
-        ["50", "SEW"],
-        ["50", "NSNG"],
-        ["50-legal", "SEW"],
-        ["50-legal", "NSNG"],
-        ["100", "SEW"],
-        ["100", "NSNG"],
-        ["200", "SEW"],
-        ["200", "NSNG"]
-    ]
+    var types = _PLUS_DATA_.types
+    
 
     var sport = splits[0]
     var size = splits[1]
