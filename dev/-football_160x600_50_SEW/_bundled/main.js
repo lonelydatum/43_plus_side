@@ -115,7 +115,7 @@ function initCommon() {
     var tl = new TimelineMax();
     tl.set(".frame1", { opacity: 1 });
 
-    tl.from([".bg", ".cloud1", ".bg_border"], { opacity: 0, scale: .5, duration: .3 }, "+=.2");
+    tl.from([".bg", ".cloudMain", ".bg_border"], { opacity: 0, duration: .3 }, "+=.2");
     tl.add(function () {
         TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
         // TweenLite.to(".bg_border", {duration:.3, opacity:.3})
