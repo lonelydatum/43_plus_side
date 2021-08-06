@@ -74,24 +74,36 @@ function flare(id){
 
 
 
-function playa({x, y}){
-    const tl = new TimelineMax()
-    tl.set(".playa", {transformOrigin:`${x}px ${y}px`})    
-    tl.to(".playa", {duration:1, x:-x/2, y:-y/2, opacity:1, scale:.5, ease:"power3.inOut"})
-    
-    tl.add(()=>{
-        TweenLite.to(".playa", {duration:20, scale:.53, ease:"linear.easeNone"})        
-    })
-    
-    
-    tl.add(()=>{
-        flare(".flare1")
+function playa(sportItem){
+   
+
+    sportItem.flares.map((item, i)=>{
+        const scale = item[2] || 1
+        TweenLite.set(`.flare${i+1}`, {x:item[0], y:item[1], scale })
     })
 
+    // return
+
+    const {playa, playaStart} = sportItem
+    const tl = new TimelineMax()
+    tl.set(".playa", {transformOrigin:`${playa.x}px ${playa.y}px`, ...playaStart})    
+    tl.to(".playa", {duration:1, x:-playa.x/2, y:-playa.y/2, opacity:1, scale:.5, ease:"power3.out"})
+    
     tl.add(()=>{
-        flare(".flare2")
-    }, "+=.6")
-    return tl;
+        TweenLite.to(".playa", {duration:20, scale:.53, ease:"linear.easeNone"})
+    })
+    
+
+    sportItem.flares.map((item, i)=>{
+        tl.add(()=>{
+            flare(`.flare${i+1}`)
+        }, `+=${(i/sportItem.flares.length)*.6}`)    
+    })
+
+
+
+    
+
 }
 
 function addBR(config, key){

@@ -5,12 +5,14 @@ var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 var sports = {
     baseball: {
-        playa: { x: 380, y: 720 },
-        flares: [[-83, 258], [44, 345]]
+        playa: { x: 290, y: 840 },
+        playaStart: { x: -117, y: -420, scale: .3 },
+        flares: [[-14, 198], [-23, 198], [44, 342]]
     },
     football: {
         playa: { x: 380, y: 720 },
-        flares: [[-83, 258], [44, 345]]
+        playaStart: { x: -190, y: -360, scale: .2 },
+        flares: [[-83, 262], [44, 345]]
     }
 };
 
@@ -82,11 +84,6 @@ function initCommon(sports) {
 
     var sportItem = sports[plusData.type];
 
-    sportItem.flares.map(function (item, i) {
-        var scale = item[2] || 1;
-        TweenLite.set('.flare' + (i + 1), { x: item[0], y: item[1], scale: scale });
-    });
-
     if (plusData.bonus === 0) {
         TweenLite.set([".get", "#bonus"], { display: 'none' });
     }
@@ -118,13 +115,17 @@ function initCommon(sports) {
     tl.add(function () {
         TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
     });
+    console.log(sportItem);
 
     tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
-    tl.add(function () {
-        (0, _plusHelperJs.playa)(sportItem.playa);
-    }, "-=.2");
 
-    tl.add((0, _plusHelperJs.textFX)("#t1b"), "+=.5");
+    tl.add("playa", "+=.3");
+
+    tl.add(function () {
+        (0, _plusHelperJs.playa)(sportItem);
+    }, "playa");
+
+    tl.add((0, _plusHelperJs.textFX)("#t1b"), "playa");
 
     tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
 
@@ -270,6 +271,9 @@ exports.initHorizonal = initHorizonal;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 TweenLite.defaultEase = Power2.easeOut;
 var TXT = {
     DYANAMIC: { txt: "DYNAMIC COMPETITIVE ODDS", read: 2 },
@@ -330,26 +334,31 @@ function flare(id) {
     tl.to(id, { duration: 1, opacity: 1 });
 }
 
-function playa(_ref2) {
-    var x = _ref2.x;
-    var y = _ref2.y;
+function playa(sportItem) {
+
+    sportItem.flares.map(function (item, i) {
+        var scale = item[2] || 1;
+        TweenLite.set(".flare" + (i + 1), { x: item[0], y: item[1], scale: scale });
+    });
+
+    // return
+
+    var playa = sportItem.playa;
+    var playaStart = sportItem.playaStart;
 
     var tl = new TimelineMax();
-    tl.set(".playa", { transformOrigin: x + "px " + y + "px" });
-    tl.to(".playa", { duration: 1, x: -x / 2, y: -y / 2, opacity: 1, scale: .5, ease: "power3.inOut" });
+    tl.set(".playa", _extends({ transformOrigin: playa.x + "px " + playa.y + "px" }, playaStart));
+    tl.to(".playa", { duration: 1, x: -playa.x / 2, y: -playa.y / 2, opacity: 1, scale: .5, ease: "power3.out" });
 
     tl.add(function () {
         TweenLite.to(".playa", { duration: 20, scale: .53, ease: "linear.easeNone" });
     });
 
-    tl.add(function () {
-        flare(".flare1");
+    sportItem.flares.map(function (item, i) {
+        tl.add(function () {
+            flare(".flare" + (i + 1));
+        }, "+=" + i / sportItem.flares.length * .6);
     });
-
-    tl.add(function () {
-        flare(".flare2");
-    }, "+=.6");
-    return tl;
 }
 
 function addBR(config, key) {

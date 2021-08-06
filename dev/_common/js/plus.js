@@ -27,10 +27,7 @@ function initCommon(sports) {
     const sportItem = sports[plusData.type]
 
 
-    sportItem.flares.map((item, i)=>{
-        const scale = item[2] || 1
-        TweenLite.set(`.flare${i+1}`, {x:item[0], y:item[1], scale})
-    })
+   
     
     if(plusData.bonus===0){
         TweenLite.set([".get", "#bonus"], {display:'none'})
@@ -65,13 +62,18 @@ function initCommon(sports) {
     tl.add(()=>{
         TweenLite.to(".bg_border", {duration:1, opacity:0, repeat:9, repeatDelay:1, yoyo:true})
     })
+    console.log(sportItem);
 
     tl.add(textFX("#t1a"), "+=.3")
-    tl.add(()=>{
-        playa(sportItem.playa)
-    }, "-=.2")   
 
-    tl.add(textFX("#t1b"), "+=.5")
+
+    tl.add("playa", "+=.3")
+    
+    tl.add(()=>{
+        playa(sportItem)
+    }, "playa")   
+
+    tl.add(textFX("#t1b"), "playa")
     
     
     tl.to(".t1", {duration:.2, opacity:0}, "+=1.2")

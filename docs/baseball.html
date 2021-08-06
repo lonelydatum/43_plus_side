@@ -89,5 +89,30 @@
 <script src="vendor.bundle.js"> </script>
 <script src="bundle.js"> </script>
 
+<script type="text/javascript">
+    var sports = [
+        "football",
+        "baseball",
+        "generic"
+    ]
+
+    var div = document.createElement("div");
+    div.id = "sports"
+    div.style.marginBottom = "30px"
+    
+    for(var i=0; i<sports.length; i++){
+        var sport = document.createElement("a");
+        sport.style.display = "block"
+        sport.style.marginBottom = "5px"
+        sport.innerHTML = sports[i]
+        sport.href = "./"+sports[i]+".html"
+        div.appendChild(sport)    
+    }
+    
+
+    
+    document.querySelector(".list").appendChild(div)
+</script>
+
 </body>
 </html>

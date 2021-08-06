@@ -39,9 +39,7 @@ gulp.task('set-project-name', function(done){
 /*--------------------------------------------------------------------*/
 
 
-// gulp.task('plus-dev', function () {
-//     return _PLUS_();
-// });
+
 
 function item(name_og, name_new, end){
     var srcName = name_og+end
@@ -49,11 +47,7 @@ function item(name_og, name_new, end){
 
   var stream = gulp.src('./dev/'+srcName+"/**/*")
         .pipe(gulp.dest('./dev/'+name_new))
-    //     .on("end", function(){
-    //         console.log(name_new);
-    // console.log('--------');
-    //         _PLUS_DEPLOY_(name_new);
-    //     })
+    
 }
 
 gulp.task('plus-clone', function () {
@@ -68,7 +62,7 @@ gulp.task('plus-clone', function () {
         for(var b=0; b<types.length; b++){
             var bonus = types[b][0]
             var single = types[b][1]
-            var name_new = "football_"+size+"_"+bonus+"_"+single
+            var name_new = "baseball_"+size+"_"+bonus+"_"+single
             item(name_og, name_new, "_50_SEW")
         }
 
