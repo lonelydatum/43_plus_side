@@ -13,6 +13,11 @@ var sports = {
         playa: { x: 380, y: 720 },
         playaStart: { x: -190, y: -360, scale: .2 },
         flares: [[-83, 262], [44, 345]]
+    },
+    generic: {
+        playa: { x: 260, y: 640 },
+        playaStart: { x: -60, y: -320, scale: .18 },
+        flares: [[-14, 198], [-23, 198], [44, 342]]
     }
 };
 
