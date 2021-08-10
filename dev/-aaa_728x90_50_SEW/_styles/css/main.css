@@ -172,11 +172,11 @@ img {
   color: white;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 10px;
-  font-size: 10px;
+  font-size: 13px;
   z-index: 90;
   opacity: 0;
   font-weight: normal;
-  line-height: 14px;
+  line-height: 16px;
   transition: opacity 0.3s;
   pointer-events: none;
 }

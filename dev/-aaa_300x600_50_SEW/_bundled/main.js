@@ -80,6 +80,9 @@ window.plusSettings = {
     },
     "728x90": {
         br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
+    },
+    "970x250": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     }
 };
 
@@ -120,6 +123,7 @@ function initCommon(sports) {
     tl.add(function () {
         TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
     });
+
     console.log(sportItem);
 
     tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
@@ -219,6 +223,8 @@ function endHorizontal(tl, shift) {
 }
 
 function endVertical(tl) {
+    var y = arguments.length <= 1 || arguments[1] === undefined ? 25 : arguments[1];
+
     tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
 
     showBonus(tl);
@@ -228,7 +234,7 @@ function endVertical(tl) {
         tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
     }
 
-    tl.to(".proline", { duration: .2, y: "+=25" });
+    tl.to(".proline", { duration: .2, y: '+=' + y });
     endFooter(tl);
 }
 

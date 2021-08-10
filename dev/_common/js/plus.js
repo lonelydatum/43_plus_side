@@ -18,6 +18,9 @@ window.plusSettings = {
     "728x90": {
         br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
     },
+    "970x250": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
+    },
 }
 
 let _config
@@ -40,6 +43,8 @@ function initCommon(sports) {
     _config = config
     const msg2 = addBR(config, config.msg2)
     const msg3 = addBR(config, config.msg3)
+
+
     
     document.getElementById("t2").innerHTML = msg2
     document.getElementById("t3").innerHTML = msg3
@@ -62,6 +67,7 @@ function initCommon(sports) {
     tl.add(()=>{
         TweenLite.to(".bg_border", {duration:1, opacity:0, repeat:9, repeatDelay:1, yoyo:true})
     })
+    
     console.log(sportItem);
 
     tl.add(textFX("#t1a"), "+=.3")
@@ -170,7 +176,7 @@ function endHorizontal(tl, shift) {
     endFooter(tl)
 }
 
-function endVertical(tl) {
+function endVertical(tl, y=25) {
     tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     
 
@@ -181,7 +187,7 @@ function endVertical(tl) {
         tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
     }
     
-    tl.to(".proline", {duration:.2, y:"+=25"})
+    tl.to(".proline", {duration:.2, y:`+=${y}`})
     endFooter(tl)
 }
 
