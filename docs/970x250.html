@@ -16,68 +16,31 @@
 
 
 
+
+
+
     const BB = { type: "BB", title: "300x250" }
     const LB = { type: "LB", title: "728x90" }
-    const SS = { type: "SS", title: "160x600" }
     const M300 = { type: {w:300,h:50}, title: "300x50" }
     const M320 = { type: {w:320,h:50}, title: "320x50" }
     const DBB = { type: "DBB", title: "300x600" }
     const BIG = { type: {w:970,h:250}, title: "970x250" }
 
-    const sizes = [
-        SS, BB, DBB, M320, LB
-    ]
 
-    function makeSize(sport, banner){
-        var types = [
-            ["0", "SEW"],
-            ["25", "SEW"],
-            ["25", "NSNG"],
-            ["50", "SEW"],
-            ["50", "NSNG"],            
-            ["100", "SEW"],
-            ["100", "NSNG"],
-            ["200", "SEW"],
-            ["200", "NSNG"]
-        ]
 
-        
-        var group = {
-            title: banner.title,
-            list:[ ]
-        }
-
-        
-        for(var i=0; i<types.length; i++){
-            
-            var path = sport+"_"+banner.title+"_"+types[i][0]+"_"+types[i][1]
-            
-            group.list.push({
-                path: path,
-                type: banner.type,
-                title: types[i][0]+"  "+types[i][1]
-            })
-            
-        }
-
-        
-        
-        banners.push( group )
-        
-    }
-
-    var banners = []
-    for(var i=0; i<sizes.length; i++){
-        makeSize("baseball", sizes[i])    
-    }
-    
-    
-    
 
 
     var data = {
-        title: "BASEBALL x55",
-        banners: banners
+        title: "Proline Plus Side",
+        banners:[
+             {
+                title:"970x250",
+                list:[
+
+                     { ...BIG, path: "generic_970x250_0_SEW" }                     
+                ]
+            }      
+        ]
     }
 
     </script>
@@ -86,7 +49,6 @@
 
 <script src="vendor.bundle.js"> </script>
 <script src="bundle.js"> </script>
-
 <script type="text/javascript">
     var sports = [
         "football",
@@ -112,6 +74,5 @@
     
     document.querySelector(".list").appendChild(div)
 </script>
-
 </body>
 </html>
