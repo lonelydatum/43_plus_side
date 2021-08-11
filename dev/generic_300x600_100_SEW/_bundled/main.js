@@ -384,7 +384,9 @@ start();
 
 function start() {
 
-    document.getElementById("t1b").innerHTML = "OF SPORTS BETTING<br/> IS HERE";
+    var sportName = window.plusData === "generic" ? "SPORTS" : window.plusData.type;
+    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING<br/> IS HERE";
+
     var len = plusData.bonus;
 
     if (len >= 3) {

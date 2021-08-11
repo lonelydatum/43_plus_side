@@ -29,6 +29,11 @@ start()
 
 
 function start(){    
+
+    const sportName = window.plusData==="generic" ? "SPORTS":window.plusData.type
+    document.getElementById("t1b").innerHTML = `OF ${sportName} BETTING IS HERE`
+
+
     const tl = initHorizonal(sports)
     const shift = {
         cta: {x:-135, y:-17.5},

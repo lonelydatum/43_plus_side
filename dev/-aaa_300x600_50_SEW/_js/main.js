@@ -30,7 +30,11 @@ start()
 
 function start(){
     
-    document.getElementById("t1b").innerHTML = "OF SPORTS BETTING<br/> IS HERE"
+    const sportName = window.plusData==="generic" ? "SPORTS":window.plusData.type
+    document.getElementById("t1b").innerHTML = `OF ${sportName} BETTING<br/> IS HERE`
+
+
+    
     const len = plusData.bonus
     
     if(len>=3){

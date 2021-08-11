@@ -358,7 +358,7 @@ exports.TXT = TXT;
 exports.configSize = configSize;
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
@@ -386,6 +386,9 @@ var sports = {
 };
 
 function start() {
+
+    var sportName = window.plusData === "generic" ? "SPORTS" : window.plusData.type;
+    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
 
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
 
