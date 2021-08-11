@@ -106,6 +106,7 @@ function initCommon(sports) {
     tl.add("logo");
     tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");
     tl.from(".proline_logo", { duration: .6, maskImage: 'linear-gradient(to left, transparent 100%, black 100%)' }, "logo");
+    tl.from(".proline_online", { duration: .3, opacity: 0 }, "logo+=.5");
     tl.set(".proline_plus", { opacity: 1 }, "logo+=.6");
     tl.to(".proline_plus", { duration: .4, scale: "+=.4", ease: 'power1.inOut' }, "logo+=.6");
 
@@ -114,6 +115,8 @@ function initCommon(sports) {
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.3');
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 1 }, 'logo+=1.4');
     tl.to('.proline_plus', { duration: .02, opacity: 0, yoyo: true, repeat: 2 }, 'logo+=1.5');
+
+    tl.to(".proline_online", { duration: .3, opacity: 0 }, "+=.3");
 
     tl.add("t2", "+=.2");
     tl.add((0, _plusHelperJs.textFX)("#t2"), "t2");
@@ -301,7 +304,7 @@ function textFX(id) {
     var tl = new TimelineMax();
     var splitText = new SplitText(id, { type: "chars" });
     splitText = shuffle(splitText.chars);
-    tl.from(splitText, { duration: .08, stagger: .021, autoAlpha: 0 });
+    tl.from(splitText, { duration: .08, stagger: .017, autoAlpha: 0 });
     return tl;
 }
 

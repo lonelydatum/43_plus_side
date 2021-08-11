@@ -40,7 +40,7 @@
 
 #bonus{
 	
-	@include pos(269, 35);
+	@include pos(282, 35);
 	text-align: left;
 	// opacity: 1 !important;
 	// color: red;
@@ -59,7 +59,7 @@
 #cta{
 	// opacity: .2 !important;	
 	transform-origin: 840px 90px;
-	@include pos-scale(-358, -43, .411);
+	@include pos-scale(-350, -43, .4);
 	// @include pos-scale(-420, -45, .5);
 }
 
