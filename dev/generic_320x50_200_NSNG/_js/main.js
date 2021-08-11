@@ -30,7 +30,7 @@ start()
 
 function start(){    
 
-    const sportName = window.plusData==="generic" ? "SPORTS":window.plusData.type
+    const sportName = window.plusData.type==="generic" ? "SPORTS":window.plusData.type
     document.getElementById("t1b").innerHTML = `OF ${sportName} BETTING IS HERE`
 
 

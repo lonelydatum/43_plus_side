@@ -387,7 +387,7 @@ function start() {
         TweenLite.set([".get", "#bonus"], { x: "-=5" });
     }
 
-    var sportName = window.plusData === "generic" ? "SPORTS" : window.plusData.type;
+    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
     document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
 
     var tl = (0, _commonJsPlusJs.init)(sports);

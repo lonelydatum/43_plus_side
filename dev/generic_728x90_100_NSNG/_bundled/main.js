@@ -387,7 +387,7 @@ var sports = {
 
 function start() {
 
-    var sportName = window.plusData === "generic" ? "SPORTS" : window.plusData.type;
+    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
     document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
 
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
