@@ -125,7 +125,11 @@ function initCommon(sports) {
         document.getElementById("cta").classList.remove("shadow");
     });
 
-    var tl = new TimelineMax();
+    var tracker = new Date().getTime();
+    var tl = new TimelineMax({ onComplete: function onComplete() {
+            var d = new Date().getTime();
+            console.log(d - tracker);
+        } });
     tl.set(".frame1", { opacity: 1 });
 
     tl.from([".bg", ".cloudMain", ".bg_border"], { opacity: 0, duration: .3 }, "+=.2");
@@ -133,9 +137,9 @@ function initCommon(sports) {
         TweenLite.to(".bg_border", { duration: 1, opacity: 0, repeat: 9, repeatDelay: 1, yoyo: true });
     });
 
-    console.log(sportItem);
+    // console.log(sportItem);
 
-    tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.3");
+    tl.add((0, _plusHelperJs.textFX)("#t1a"), "+=.1");
 
     tl.add("playa", "+=.3");
 
@@ -145,7 +149,7 @@ function initCommon(sports) {
 
     tl.add((0, _plusHelperJs.textFX)("#t1b"), "playa");
 
-    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.2");
+    tl.to(".t1", { duration: .2, opacity: 0 }, "+=1.5");
 
     tl.add("logo");
     tl.from(".proline_new", { duration: .3, opacity: 0 }, "logo");

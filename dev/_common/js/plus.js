@@ -58,8 +58,11 @@ function initCommon(sports) {
         document.getElementById("cta").classList.remove("shadow");
     })
 
-
-    const tl = new TimelineMax()
+    const tracker = new Date().getTime()
+    const tl = new TimelineMax({onComplete(){
+        const d = new Date().getTime()
+        console.log(d-tracker);
+    }})
     tl.set(".frame1", {opacity:1})
     
 
@@ -68,9 +71,9 @@ function initCommon(sports) {
         TweenLite.to(".bg_border", {duration:1, opacity:0, repeat:9, repeatDelay:1, yoyo:true})
     })
     
-    console.log(sportItem);
+    // console.log(sportItem);
 
-    tl.add(textFX("#t1a"), "+=.3")
+    tl.add(textFX("#t1a"), "+=.1")
 
 
     tl.add("playa", "+=.3")
@@ -82,7 +85,7 @@ function initCommon(sports) {
     tl.add(textFX("#t1b"), "playa")
     
     
-    tl.to(".t1", {duration:.2, opacity:0}, "+=1.2")
+    tl.to(".t1", {duration:.2, opacity:0}, "+=1.5")
 
     tl.add("logo")
     tl.from(".proline_new", {duration:.3, opacity:0}, "logo")        
