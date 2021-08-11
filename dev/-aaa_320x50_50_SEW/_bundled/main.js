@@ -3,6 +3,8 @@
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
+// window.plusData.bonus = 200
+
 var sports = {
     baseball: {
         playa: { x: 570, y: 80 },
@@ -31,6 +33,8 @@ function start() {
     };
 
     _commonJsPlusJs.end.horizontal(tl, shift);
+
+    // tl.play("t3")
 }
 
 module.exports = {};

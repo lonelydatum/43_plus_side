@@ -62,7 +62,7 @@ gulp.task('plus-clone', function () {
         for(var b=0; b<types.length; b++){
             var bonus = types[b][0]
             var single = types[b][1]
-            var name_new = "football_"+size+"_"+bonus+"_"+single
+            var name_new = "generic_"+size+"_"+bonus+"_"+single
             item(name_og, name_new, "_50_SEW")
         }
 

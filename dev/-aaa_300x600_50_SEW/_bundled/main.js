@@ -26,13 +26,14 @@ start();
 function start() {
 
     document.getElementById("t1b").innerHTML = "OF SPORTS BETTING<br/> IS HERE";
-    var len = plusData.size.length;
+    var len = plusData.bonus;
+
     if (len >= 3) {
         TweenLite.set([".get", "#bonus"], { x: "-=5" });
     }
     var tl = (0, _commonJsPlusJs.init)(sports);
     _commonJsPlusJs.end.vertical(tl);
-    // tl.play("playa")
+    // tl.play("t3")
 }
 
 module.exports = {};

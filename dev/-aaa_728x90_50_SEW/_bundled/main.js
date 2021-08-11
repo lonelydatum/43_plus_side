@@ -5,6 +5,8 @@ var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 // import {creative} from '../../_common/js/dc.js'
 
+// window.plusData.bonus = 50
+
 var sports = {
     baseball: {
         playa: { x: 1220, y: 180 },
@@ -34,6 +36,7 @@ function start() {
     };
 
     _commonJsPlusJs.end.horizontal(tl, shift);
+    // tl.play("t3")
 }
 
 start();

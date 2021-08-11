@@ -28,13 +28,12 @@ var sports = {
 start();
 
 function start() {
-
-    document.getElementById("t1b").innerHTML = "OF SPORTS<br/> BETTING IS HERE";
+    var sportName = window.plusData === "generic" ? "SPORTS" : window.plusData.type;
+    document.getElementById("t1b").innerHTML = 'OF ' + sportName + '<br/> BETTING IS HERE';
 
     var tl = (0, _commonJsPlusJs.init)(sports);
     tl.set(".get", { x: 0 });
     _commonJsPlusJs.end.vertical(tl);
-    // tl.play("playa")
 }
 
 module.exports = {};

@@ -172,11 +172,11 @@ img {
   color: white;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 10px;
-  font-size: 13px;
+  font-size: 11px;
   z-index: 90;
   opacity: 0;
   font-weight: normal;
-  line-height: 16px;
+  line-height: 15px;
   transition: opacity 0.3s;
   pointer-events: none;
 }
@@ -244,6 +244,7 @@ img {
 #bonus {
   text-align: center;
   width: 100%;
+  color: white;
 }
 
 .proline_logo {
