@@ -302,9 +302,9 @@ img {
 
 #t1b {
   letter-spacing: .6px;
-  -webkit-transform: translate(-16px, 34px);
-  -ms-transform: translate(-16px, 34px);
-  transform: translate(-16px, 34px);
+  -webkit-transform: translate(-25px, 34px);
+  -ms-transform: translate(-25px, 34px);
+  transform: translate(-25px, 34px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

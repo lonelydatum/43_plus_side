@@ -350,9 +350,9 @@ img {
 
 #bonus {
   text-align: left;
-  -webkit-transform: translate(156px, 19px);
-  -ms-transform: translate(156px, 19px);
-  transform: translate(156px, 19px);
+  -webkit-transform: translate(179px, 19px);
+  -ms-transform: translate(179px, 19px);
+  transform: translate(179px, 19px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
