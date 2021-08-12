@@ -25,7 +25,9 @@
 }
 
 #t2, #t3{
-	@include pos(-22, 32);
+	text-align: left;
+	@include pos(198, 34);
+	// color:red;
 }
 
 #olg{

@@ -5,7 +5,7 @@ var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 // import {creative} from '../../_common/js/dc.js'
 
-// window.plusData.type = "football"
+// window.plusData.bonus = 0
 
 var sports = {
     baseball: {
@@ -33,7 +33,11 @@ function start() {
 
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
 
-    _commonJsPlusJs.end.bonus(tl);
+    var shift = {
+        cta: { x: -490, y: -43 },
+        logo: 69
+    };
+    _commonJsPlusJs.end.bonus(tl, shift);
     // tl.play("t3")
 }
 
@@ -286,12 +290,17 @@ function endFooter(tl) {
     // tl.play("footer")
 }
 
-function endBonus(tl) {
+function endBonus(tl, shift) {
 
     // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     // tl.to("#t3", {duration:.2, opacity:0})
-
+    console.log(shift);
     showBonus(tl);
+    if (shift && plusData.bonus === 0) {
+        tl.add("shift");
+        tl.to(".proline", { duration: .2, x: '' + shift.logo }, "shift");
+        tl.to("#cta", { duration: .3, x: '' + shift.cta.x }, "shift");
+    }
 
     tl.from("#cta", { duration: .2, opacity: 0 });
     endFooter(tl);

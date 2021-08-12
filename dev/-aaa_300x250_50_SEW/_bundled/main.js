@@ -287,12 +287,17 @@ function endFooter(tl) {
     // tl.play("footer")
 }
 
-function endBonus(tl) {
+function endBonus(tl, shift) {
 
     // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     // tl.to("#t3", {duration:.2, opacity:0})
-
+    console.log(shift);
     showBonus(tl);
+    if (shift && plusData.bonus === 0) {
+        tl.add("shift");
+        tl.to(".proline", { duration: .2, x: '' + shift.logo }, "shift");
+        tl.to("#cta", { duration: .3, x: '' + shift.cta.x }, "shift");
+    }
 
     tl.from("#cta", { duration: .2, opacity: 0 });
     endFooter(tl);
