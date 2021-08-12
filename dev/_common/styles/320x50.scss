@@ -28,9 +28,9 @@
 }
 
 #olg{
-	width: 84px;
-	height: 44px;
-	@include pos(0, 45);
+	width: 43px;
+	height: 31px;	
+	@include pos(0, 22);
 }
 
 #legalBtn{
@@ -42,7 +42,7 @@
 #bonus{	
 	// letter-spacing: .5px;	
 	text-align: left;
-	@include pos(150, 19);
+	@include pos(156, 19);
 	// opacity: 1 !important;
 	// color: red;
 }
@@ -60,7 +60,7 @@
 	// opacity: .2 !important;	
 	// transform-origin: 270px 35px;
 	// @include pos-scale(-72, -14, .35);
-	@include pos-scale(-14, 0, .5);
+	// @include pos-scale(-14, 0, .5);
 }
 
 .proline_plus{	

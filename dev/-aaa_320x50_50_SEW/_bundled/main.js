@@ -33,7 +33,7 @@ function start() {
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
     var shift = {
         cta: { x: 0, y: 0 },
-        logo: 10
+        logo: 29
     };
 
     _commonJsPlusJs.end.mobile(tl, shift);

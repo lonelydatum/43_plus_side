@@ -325,9 +325,9 @@ img {
 #olg {
   width: 136px;
   height: 69px;
-  -webkit-transform: translate(0px, 180px);
-  -ms-transform: translate(0px, 180px);
-  transform: translate(0px, 180px);
+  -webkit-transform: translate(0px, 184px);
+  -ms-transform: translate(0px, 184px);
+  transform: translate(0px, 184px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

@@ -37,7 +37,7 @@ function start(){
     const tl = initHorizonal(sports)
     const shift = {
         cta: {x:0, y:0},
-        logo: 10
+        logo: 29
     }
     
     end.mobile(tl, shift)
