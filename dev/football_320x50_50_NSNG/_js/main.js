@@ -42,7 +42,7 @@ function start(){
     
     end.mobile(tl, shift)
 
-    tl.play("t3")
+    // tl.play("t3")
     
 }
 

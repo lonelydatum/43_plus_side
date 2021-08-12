@@ -433,7 +433,7 @@ function start() {
 
     _commonJsPlusJs.end.mobile(tl, shift);
 
-    tl.play("t3");
+    // tl.play("t3")
 }
 
 module.exports = {};
