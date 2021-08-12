@@ -3,7 +3,7 @@
 
 var _commonJsPlusJs = require('../../_common/js/plus.js');
 
-window.plusData.bonus = 200;
+// window.plusData.bonus = 200
 
 var sports = {
     baseball: {
