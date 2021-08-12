@@ -1,51 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-var _commonJsPlusJs = require('../../_common/js/plus.js');
-
-window.plusData.bonus = 200;
-
-var sports = {
-    baseball: {
-        playa: { x: 570, y: 80 },
-        playaStart: { x: -278, y: -40, scale: .3 },
-        flares: [[148, 18, .4]]
-    },
-    football: {
-        playa: { x: 585, y: 63 },
-        playaStart: { x: -280, y: -25, scale: .3 },
-        flares: [[120, 7, .4], [148, 20, .4]]
-    },
-    generic: {
-        playa: { x: 560, y: 50 },
-        playaStart: { x: -261, y: -25, scale: .3 },
-        flares: [[120, 7, .4], [148, 20, .4]]
-    }
-};
-
-start();
-
-function start() {
-
-    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
-    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
-
-    var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
-    var shift = {
-        cta: { x: 0, y: 0 },
-        logo: 29
-    };
-
-    _commonJsPlusJs.end.mobile(tl, shift);
-
-    // tl.play("t3")
-}
-
-module.exports = {};
-
-},{"../../_common/js/plus.js":3}],2:[function(require,module,exports){
-"use strict";
-
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -56,7 +11,7 @@ function transformOrigin(id, xy) {
 
 exports.transformOrigin = transformOrigin;
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -323,7 +278,7 @@ exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 exports.endBonus = endBonus;
 
-},{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+},{"./helpers/bannerHelpers":1,"./plusHelper.js":3}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -443,7 +398,52 @@ exports.addBR = addBR;
 exports.TXT = TXT;
 exports.configSize = configSize;
 
-},{}]},{},[1])
+},{}],4:[function(require,module,exports){
+"use strict";
+
+var _commonJsPlusJs = require('../../_common/js/plus.js');
+
+window.plusData.bonus = 200;
+
+var sports = {
+    baseball: {
+        playa: { x: 570, y: 80 },
+        playaStart: { x: -278, y: -40, scale: .3 },
+        flares: [[148, 18, .4]]
+    },
+    football: {
+        playa: { x: 585, y: 63 },
+        playaStart: { x: -280, y: -25, scale: .3 },
+        flares: [[120, 7, .4], [148, 20, .4]]
+    },
+    generic: {
+        playa: { x: 560, y: 50 },
+        playaStart: { x: -261, y: -25, scale: .3 },
+        flares: [[120, 7, .4], [148, 20, .4]]
+    }
+};
+
+start();
+
+function start() {
+
+    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
+    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
+
+    var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
+    var shift = {
+        cta: { x: 0, y: 0 },
+        logo: 29
+    };
+
+    _commonJsPlusJs.end.mobile(tl, shift);
+
+    // tl.play("t3")
+}
+
+module.exports = {};
+
+},{"../../_common/js/plus.js":2}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map

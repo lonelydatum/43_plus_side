@@ -1,50 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-var _commonJsPlusJs = require('../../_common/js/plus.js');
-
-// window.plusData.bonus = 200
-
-var sports = {
-    baseball: {
-        playa: { x: 290, y: 325 },
-        playaStart: { x: -120, y: -125, scale: .22 },
-        flares: [[58, 101], [80, 101], [90, 183]]
-    },
-    football: {
-        playa: { x: 340, y: 380 },
-        playaStart: { x: -162, y: -192, scale: .22 },
-        flares: [[8, 146], [90, 183]]
-    },
-    generic: {
-        playa: { x: 280, y: 333 },
-        playaStart: { x: -100, y: -160, scale: .22 },
-        flares: [[58, 101], [80, 101], [90, 183]]
-    }
-};
-
-function start() {
-
-    var len = plusData.bonus.toString().length;
-    if (len >= 3) {
-        TweenLite.set([".get", "#bonus"], { x: "-=5" });
-    }
-
-    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
-    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
-
-    var tl = (0, _commonJsPlusJs.init)(sports);
-    _commonJsPlusJs.end.bb(tl);
-    // tl.play("t3")
-}
-
-start();
-
-module.exports = {};
-
-},{"../../_common/js/plus.js":3}],2:[function(require,module,exports){
-"use strict";
-
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -55,7 +11,7 @@ function transformOrigin(id, xy) {
 
 exports.transformOrigin = transformOrigin;
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -322,7 +278,7 @@ exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
 exports.endBonus = endBonus;
 
-},{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
+},{"./helpers/bannerHelpers":1,"./plusHelper.js":3}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -442,7 +398,51 @@ exports.addBR = addBR;
 exports.TXT = TXT;
 exports.configSize = configSize;
 
-},{}]},{},[1])
+},{}],4:[function(require,module,exports){
+"use strict";
+
+var _commonJsPlusJs = require('../../_common/js/plus.js');
+
+// window.plusData.bonus = 200
+
+var sports = {
+    baseball: {
+        playa: { x: 290, y: 325 },
+        playaStart: { x: -120, y: -125, scale: .22 },
+        flares: [[58, 101], [80, 101], [90, 183]]
+    },
+    football: {
+        playa: { x: 340, y: 380 },
+        playaStart: { x: -162, y: -192, scale: .22 },
+        flares: [[8, 146], [90, 183]]
+    },
+    generic: {
+        playa: { x: 280, y: 333 },
+        playaStart: { x: -100, y: -160, scale: .22 },
+        flares: [[58, 101], [80, 101], [90, 183]]
+    }
+};
+
+function start() {
+
+    var len = plusData.bonus.toString().length;
+    if (len >= 3) {
+        TweenLite.set([".get", "#bonus"], { x: "-=5" });
+    }
+
+    var sportName = window.plusData.type === "generic" ? "SPORTS" : window.plusData.type;
+    document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
+
+    var tl = (0, _commonJsPlusJs.init)(sports);
+    _commonJsPlusJs.end.bb(tl);
+    // tl.play("t3")
+}
+
+start();
+
+module.exports = {};
+
+},{"../../_common/js/plus.js":2}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map
