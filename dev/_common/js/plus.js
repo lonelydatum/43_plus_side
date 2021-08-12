@@ -159,6 +159,7 @@ function init(sports){
 }
 
 function showBonus(tl){
+
     if(plusData.bonus>0){
         tl.from(".get", {duration:.2, opacity:0}, "+=.2")
         tl.add(textFX("#bonus", .04), "+=.1")    
@@ -236,14 +237,14 @@ function endFooter(tl){
 
 
 function endBonus(tl) {
-    tl.to(["#t3"], {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    // tl.to("#t3", {duration:.2, opacity:0})
 
     showBonus(tl)
-    if(plusData.bonus>0){
-        // tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
-    }
     
-    tl.from("#cta", {duration:.2, opacity:0}, "+=.3")
+    
+    tl.from("#cta", {duration:.2, opacity:0})
     endFooter(tl)
 }
 

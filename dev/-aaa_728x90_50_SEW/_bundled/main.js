@@ -5,7 +5,7 @@ var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 // import {creative} from '../../_common/js/dc.js'
 
-// window.plusData.bonus = 200
+// window.plusData.type = "football"
 
 var sports = {
     baseball: {
@@ -33,12 +33,7 @@ function start() {
 
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
 
-    var shift = {
-        cta: { x: -420, y: -45 },
-        logo: 121
-    };
-
-    _commonJsPlusJs.end.bonus(tl, shift);
+    _commonJsPlusJs.end.bonus(tl);
     // tl.play("t3")
 }
 
@@ -217,6 +212,7 @@ function init(sports) {
 }
 
 function showBonus(tl) {
+
     if (plusData.bonus > 0) {
         tl.from(".get", { duration: .2, opacity: 0 }, "+=.2");
         tl.add((0, _plusHelperJs.textFX)("#bonus", .04), "+=.1");
@@ -291,14 +287,13 @@ function endFooter(tl) {
 }
 
 function endBonus(tl) {
-    tl.to(["#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    // tl.to("#t3", {duration:.2, opacity:0})
 
     showBonus(tl);
-    if (plusData.bonus > 0) {
-        // tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
-    }
 
-    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
+    tl.from("#cta", { duration: .2, opacity: 0 });
     endFooter(tl);
 }
 

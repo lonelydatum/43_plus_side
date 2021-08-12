@@ -14,17 +14,18 @@
 
 #t1a{
 	@include pos(-240, 34);
-	
+	// text-align: left;
 }
 
 #t1b{
 	letter-spacing: .6px;	
-	@include pos(-25, 34);	
+	text-align: left;
+	@include pos(200, 34);	
 	
 }
 
 #t2, #t3{
-	@include pos(-22, 34);
+	@include pos(-22, 32);
 }
 
 #olg{
