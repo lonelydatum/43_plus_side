@@ -261,7 +261,7 @@ function endMobile(tl, shift) {
 }
 
 function endBB(tl) {
-    tl.to([".proline_new", "#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+    tl.to(["#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     showBonus(tl);
     if (plusData.bonus > 0) {
         tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
