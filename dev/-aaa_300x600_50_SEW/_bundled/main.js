@@ -201,7 +201,7 @@ function makeSmoke(id, delay) {
 
 function initHorizonal(sports) {
     var tl = initCommon(sports);
-    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     return tl;
 }
 
@@ -236,7 +236,7 @@ function endHorizontal(tl, shift) {
 function endVertical(tl) {
     var y = arguments.length <= 1 || arguments[1] === undefined ? 25 : arguments[1];
 
-    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
 
     showBonus(tl);
 
@@ -287,7 +287,7 @@ function endFooter(tl) {
 
 function endBonus(tl, shift) {
 
-    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     // tl.to("#t3", {duration:.2, opacity:0})
     console.log(shift);
     showBonus(tl);

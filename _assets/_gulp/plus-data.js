@@ -3,6 +3,7 @@ var data = {
 }
 var types = [
         ["0", "SEW"],
+        ["0", "NSNG"],
         ["25", "SEW"],
         ["25", "NSNG"],
         ["50", "SEW"],

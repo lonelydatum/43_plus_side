@@ -148,7 +148,7 @@ function makeSmoke(id, delay, scale=1.5) {
 
 function initHorizonal(sports){
     const tl = initCommon(sports)            
-    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     return tl
 }
 
@@ -182,7 +182,7 @@ function endHorizontal(tl, shift) {
 }
 
 function endVertical(tl, y=25) {
-    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     
 
     showBonus(tl)
@@ -238,7 +238,7 @@ function endFooter(tl){
 
 function endBonus(tl, shift) {
 
-    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     // tl.to("#t3", {duration:.2, opacity:0})
     console.log(shift);
     showBonus(tl)
