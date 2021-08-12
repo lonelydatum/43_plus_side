@@ -33,7 +33,7 @@ function start() {
 
     var tl = (0, _commonJsPlusJs.init)(sports);
     tl.set(".get", { x: 0 });
-    _commonJsPlusJs.end.vertical(tl);
+    _commonJsPlusJs.end.bonus(tl);
 }
 
 module.exports = {};
@@ -107,7 +107,7 @@ function initCommon(sports) {
 
     document.getElementById("t2").innerHTML = msg2;
     document.getElementById("t3").innerHTML = msg3;
-    document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS.';
+    document.getElementById("bonus").innerHTML = '$' + _plusHelperJs.TXT[config.bonus] + ' BONUS';
 
     document.getElementById("cta").addEventListener("mouseover", function () {
         document.getElementById("cta").classList.add("shadow");
@@ -246,6 +246,20 @@ function endVertical(tl) {
     endFooter(tl);
 }
 
+function endMobile(tl, shift) {
+    showBonus(tl);
+
+    if (plusData.bonus > 0) {
+        tl.to(["#bonus", ".get"], { duration: .2, opacity: 0 }, "+=2");
+    }
+
+    tl.add("shift");
+    tl.to(".proline", { duration: .2, x: '+=' + shift.logo }, "shift");
+    tl.from("#cta", { duration: .3, opacity: 0 }, "shift+=.2");
+    // tl.to("#cta", {duration:.2, scale:.5, x:shift.cta.x, y:shift.cta.y}, "shift")
+    endFooter(tl);
+}
+
 function endBB(tl) {
     tl.to([".proline_new", "#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
     showBonus(tl);
@@ -268,7 +282,21 @@ function endFooter(tl) {
     // tl.play("footer")
 }
 
+function endBonus(tl) {
+    tl.to(["#t3"], { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+
+    showBonus(tl);
+    if (plusData.bonus > 0) {
+        // tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    }
+
+    tl.from("#cta", { duration: .2, opacity: 0 }, "+=.3");
+    endFooter(tl);
+}
+
 var end = {
+    mobile: endMobile,
+    bonus: endBonus,
     horizontal: endHorizontal,
     vertical: endVertical,
     bb: endBB
@@ -283,6 +311,7 @@ exports.init = init;
 exports.end = end;
 exports.addBR = _plusHelperJs.addBR;
 exports.initHorizonal = initHorizonal;
+exports.endBonus = endBonus;
 
 },{"./helpers/bannerHelpers":2,"./plusHelper.js":4}],4:[function(require,module,exports){
 "use strict";

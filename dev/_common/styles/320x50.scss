@@ -21,7 +21,7 @@
 }
 
 #t2, #t3{
-	@include pos(90, 18);
+	@include pos(100, 20);
 	letter-spacing: .2px;	
 	// color: red;
 	// opacity: 1 !important;
@@ -42,7 +42,7 @@
 #bonus{	
 	// letter-spacing: .5px;	
 	text-align: left;
-	@include pos(127, 19);
+	@include pos(150, 19);
 	// opacity: 1 !important;
 	// color: red;
 }
@@ -58,19 +58,19 @@
 
 #cta{
 	// opacity: .2 !important;	
-	transform-origin: 270px 35px;
-	@include pos-scale(-75, -14, .38);
-	// @include pos-scale(-420, -45, .5);
+	// transform-origin: 270px 35px;
+	// @include pos-scale(-72, -14, .35);
+	@include pos-scale(-14, 0, .5);
 }
 
 .proline_plus{	
 	// opacity: 1;	
-	@include pos-scale-rotate(72, 18, .5, 0);
+	@include pos-scale-rotate(80, 19, .5, 0);
 }
 
 .star{	
 	// opacity: 1;
-	@include pos-scale(-520, -65, .2);
+	@include pos-scale(-511, -63, .2);
 }
 
 .cloud{

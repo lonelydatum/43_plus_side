@@ -48,7 +48,7 @@ function initCommon(sports) {
     
     document.getElementById("t2").innerHTML = msg2
     document.getElementById("t3").innerHTML = msg3
-    document.getElementById("bonus").innerHTML = `$${TXT[config.bonus]} BONUS.`
+    document.getElementById("bonus").innerHTML = `$${TXT[config.bonus]} BONUS`
 
     document.getElementById("cta").addEventListener("mouseover", ()=>{    
         document.getElementById("cta").classList.add("shadow");
@@ -196,6 +196,22 @@ function endVertical(tl, y=25) {
 }
 
 
+function endMobile(tl, shift) {
+    showBonus(tl)
+    
+    if(plusData.bonus>0){
+        tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")    
+    }
+    
+    
+    tl.add("shift")
+    tl.to(".proline", {duration:.2, x:`+=${shift.logo}`}, "shift")
+    tl.from("#cta", {duration:.3, opacity:0}, "shift+=.2")
+    // tl.to("#cta", {duration:.2, scale:.5, x:shift.cta.x, y:shift.cta.y}, "shift")
+    endFooter(tl)
+}
+
+
 function endBB(tl) {
     tl.to([".proline_new", "#t3"], {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     showBonus(tl)
@@ -218,7 +234,22 @@ function endFooter(tl){
     // tl.play("footer")
 }
 
+
+function endBonus(tl) {
+    tl.to(["#t3"], {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+
+    showBonus(tl)
+    if(plusData.bonus>0){
+        // tl.to(["#bonus", ".get"], {duration:.2, opacity:0}, "+=2")
+    }
+    
+    tl.from("#cta", {duration:.2, opacity:0}, "+=.3")
+    endFooter(tl)
+}
+
 const end = {
+    mobile: endMobile, 
+    bonus: endBonus,
     horizontal: endHorizontal,
     vertical: endVertical,
     bb: endBB
@@ -226,5 +257,5 @@ const end = {
 
 
 
-export {TXT, olg, textFX, flare, playa, init, end, addBR, initHorizonal}
+export {TXT, olg, textFX, flare, playa, init, end, addBR, initHorizonal, endBonus}
 

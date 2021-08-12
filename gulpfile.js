@@ -93,10 +93,10 @@ gulp.task('log-free-single', function () {
 
 
 gulp.task('zip',  function(done){
-    glob('./dev/**/index.html', function(err, files) {        
+    glob('./docs/deploy/**/index.html', function(err, files) {        
         var tasks = files.map(function(entry) {
-            var project = entry.split('/')[2];
-            console.log(project);
+            var project = entry.split('/')[3];
+            console.log(files);
             return _ZIP_(project);
         });
         es.merge(tasks).on('end', done);
