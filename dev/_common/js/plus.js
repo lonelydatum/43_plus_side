@@ -182,7 +182,7 @@ function endHorizontal(tl, shift) {
 }
 
 function endVertical(tl, y=25) {
-    // tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
     
 
     showBonus(tl)
