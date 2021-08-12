@@ -198,6 +198,8 @@ function endVertical(tl, y=25) {
 
 
 function endMobile(tl, shift) {
+    tl.to("#t3", {duration:.2, opacity:0}, `+=${TXT[_config.msg3].read}`)
+    
     showBonus(tl)
     
     if(plusData.bonus>0){

@@ -253,6 +253,8 @@ function endVertical(tl) {
 }
 
 function endMobile(tl, shift) {
+    tl.to("#t3", { duration: .2, opacity: 0 }, '+=' + _plusHelperJs.TXT[_config.msg3].read);
+
     showBonus(tl);
 
     if (plusData.bonus > 0) {
