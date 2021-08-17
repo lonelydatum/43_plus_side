@@ -1,0 +1,65 @@
+@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/728x90.scss';
+
+.frame1{
+	// opacity: 1;
+}
+.playa{	
+	// @include pos-scale(-624, -60, .2);		
+	// opacity: 1;
+}
+
+
+
+.title{
+	text-align: left;
+	// color:red;
+}
+
+#t1a{
+	@include pos(54, 34);	
+}
+
+#t1b{
+	@include pos(192, 34);		
+}
+
+.proline{
+	// @include pos-scale(-56, 0, .5);
+}
+
+.proline_plus{
+	@include pos-scale(255, 33, .5);
+}
+
+.star{
+	@include pos-scale(-387, -41, .38);
+}
+
+#t2{
+	@include pos(228, 19);
+}
+
+#t3{
+	@include pos(228, 35);
+}
+
+
+#cta{
+	@include pos-scale(0, 0, .5);
+	transform-origin: 0 0;
+}
+
+
+// .flare1{
+// 	// opacity: 1;
+// 	@include pos-scale(430, 20, .7);
+
+// }
+
+// .flare2{
+// 	// opacity: 1;
+// 	@include pos-scale(490, 52, .7);
+	
+// }
+
