@@ -1,0 +1,36 @@
+@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/300x250.scss';
+
+.proline_plus{	
+	@include pos-scale-rotate(190, 47, .5, 0);
+}
+
+
+.star{	
+	@include pos-scale(-397, -46, .4);
+}
+
+.title{
+	// 
+	// color:red !important;
+}
+
+#t2, #t3{
+	@include pos(0, 61);
+	font-size: 19px;
+}
+
+
+#t1a, #t1b{
+	// color: red !important;
+}
+
+#t1b{
+	@include pos(0, 52);
+}
+
+.proline{
+	// @include pos-scale(0, 0, .5);
+}
+
+// translate(-143px, -166.5px) scale(0.49)
