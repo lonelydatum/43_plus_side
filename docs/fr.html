@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        a{
+            color:#AAA;
+        }
+    </style>
+    <script>
+
+
+
+
+
+
+
+    const BB = { type: "BB", title: "300x250" }
+    const LB = { type: "LB", title: "728x90" }
+    const M300 = { type: {w:300,h:50}, title: "300x50" }
+    const M320 = { type: {w:320,h:50}, title: "320x50" }
+    const DBB = { type: "DBB", title: "300x600" }
+    const BIG = { type: {w:970,h:250}, title: "970x250" }
+
+
+
+
+
+    var data = {
+        title: "Proline Plus Side",
+        banners:[
+            {
+                title:"300x250",
+                list:[
+
+                     { ...BIG, path: "", title:"SEW" },
+                     { ...BIG, path: "", title:"NSNG" }                     
+                ]
+            },
+            {
+                title:"728x90",
+                list:[
+
+                     { ...BIG, path: "", title:"SEW" },
+                     { ...BIG, path: "", title:"NSNG" }                     
+                ]
+            }      
+        ]
+    }
+
+    </script>
+</head>
+<body>
+
+<script src="vendor.bundle.js"> </script>
+<script src="bundle.js"> </script>
+<script type="text/javascript">
+    var sports = [
+        "football",
+        "baseball",
+        "generic",
+        "970x250"
+    ]
+
+    var div = document.createElement("div");
+    div.id = "sports"
+    div.style.marginBottom = "30px"
+    
+    for(var i=0; i<sports.length; i++){
+        var sport = document.createElement("a");
+        sport.style.display = "block"
+        sport.style.marginBottom = "5px"
+        sport.innerHTML = sports[i]
+        sport.href = "./"+sports[i]+".html"
+        div.appendChild(sport)    
+    }
+    
+
+    
+    document.querySelector(".list").appendChild(div)
+</script>
+</body>
+</html>

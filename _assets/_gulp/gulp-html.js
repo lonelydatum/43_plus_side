@@ -19,7 +19,10 @@ function buildTemplates(project, browserSync){
     }
     
     
-    
+    var lang = "EN"
+    if(splitInfo[4]){
+        lang = splitInfo[4]
+    }
     
     var wh = size.split("x");
     var width = wh[0];
@@ -28,6 +31,7 @@ function buildTemplates(project, browserSync){
         width:width, 
         height:height, 
         type:type, 
+        lang: lang, 
         single: single==="SEW"?"single":"new", 
         bonus:bonus, bonusLegal:false, size:size};
 
