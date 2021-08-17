@@ -12,6 +12,23 @@ const TXT = {
   _200: "200"
 }
 
+
+
+
+
+const TXT_FR = {
+  DYANAMIC: {txt:"DES COTES DYNAMIQUES ET CONCURRENTIELLES", read:2},
+  NEW_SPORTS: {txt:"DE NOUVEAUX SPORTS, DE NOUVEAUX MATCHS", read:2},
+  SINGLE: {txt:"MISES SIMPLES SUR UN ÉVÉNEMENT ET PLUS ENCORE", read:2.2},
+  NEW_WAY: {txt:"DE NOUVELLES FAÇONS DE MISER", read:1.8},
+  FIFTY: {txt:"$50 FIRST DEPOSIT MATCH - V2", read:2.5},
+  _0: "0",
+  _25: "25",
+  _50: "50",
+  _100: "100",
+  _200: "200"
+}
+
 function configSize(sport) {
     sport.flares.map((item, i)=>{
         TweenLite.set(`.flare${i+1}`, {x:item[0], y:item[1]})
@@ -107,8 +124,9 @@ function playa(sportItem){
 }
 
 function addBR(config, key){
-    console.log(config, key);
-    const str = TXT[key].txt
+    
+    const txt = window.plusData.lang==="FR" ? TXT_FR : TXT
+    const str = txt[key].txt
     const br = config.br[key]
     
     if(br==null || br==undefined){
@@ -124,4 +142,4 @@ CustomEase.create("custom", "M0,0 C0.14,0 0.234,0.438 0.264,0.561 0.305,0.728 0.
 
 
 
-export {olg, shuffle, textFX, flare, playa, addBR, TXT, configSize}
+export {olg, shuffle, textFX, flare, playa, addBR, TXT, configSize, TXT_FR}
