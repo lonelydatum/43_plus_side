@@ -148,9 +148,7 @@ function initCommon(sports) {
     
     tl.add("logoShift", "+=.3")
     tl.to([".proline_online", ".proline_new2"], {duration:.3, opacity:0}, "logoShift")        
-    tl.to(".proline_new", {duration:.3, x:-56, opacity:0}, "logoShift")        
-    tl.to(".proline_new_nouveau", {duration:.3, x:-56, opacity:1}, "logoShift")        
-    
+    tl.to(".proline_new", {duration:.3, x:-56}, "logoShift")        
     tl.to(".proline_logo", {duration:.3, x:-56}, "logoShift")        
 
     // return
