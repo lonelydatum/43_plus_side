@@ -11,10 +11,20 @@ var sports = {
         playaStart: { x: -120, y: -125, scale: .22 },
         flares: [[58, 101], [80, 101], [90, 183]]
     },
+    basketball: {
+        playa: { x: 336, y: 410 },
+        playaStart: { x: -162, y: -192, scale: .22 },
+        flares: [[8, 146], [90, 183]]
+    },
     football: {
         playa: { x: 340, y: 380 },
         playaStart: { x: -162, y: -192, scale: .22 },
         flares: [[8, 146], [90, 183]]
+    },
+    hockey: {
+        playa: { x: 340, y: 380 },
+        playaStart: { x: -162, y: -192, scale: .22 },
+        flares: [[8, 139], [90, 184]]
     },
     generic: {
         playa: { x: 280, y: 333 },
