@@ -15,7 +15,7 @@ const sports = {
     basketball: {
         playa: {x:1260, y:120},   
         playaStart: {x:-624, y:-60, scale:.2},
-        flares: [[480, 20],[490, 52]]
+        flares: [[480, 20, .7],[494, 52, .7]]
     },
     football: {
         playa: {x:1260, y:120},   
