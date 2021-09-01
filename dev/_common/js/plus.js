@@ -21,6 +21,9 @@ window.plusSettings = {
     "970x250": {
         br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }        
     },
+     "1000x700": {
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY:null }        
+    }
 }
 
 let _config
@@ -228,7 +231,7 @@ function endBB(tl) {
 
 function endFooter(tl){
     tl.add("footer", "+=.3")
-    tl.from("#legal-btn", {duration:.2, x:"+=80"}, "footer")
+    tl.from("#legal-btn", {duration:.2, x:"+=130"}, "footer")
     tl.add( olg(), "footer" )
     tl.add(()=>{
         TweenLite.set("#legalBtn", {display:"block"})
