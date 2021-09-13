@@ -47,7 +47,9 @@
 
 
 #legalBtn{
-	@include pos(923, 192);	
+	width: 42px;
+	@include pos(895, 562);	
+	// opacity: 1;
 }
 
 

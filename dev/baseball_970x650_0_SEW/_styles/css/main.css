@@ -343,9 +343,10 @@ img {
 }
 
 #legalBtn {
-  -webkit-transform: translate(923px, 192px);
-  -ms-transform: translate(923px, 192px);
-  transform: translate(923px, 192px);
+  width: 42px;
+  -webkit-transform: translate(895px, 562px);
+  -ms-transform: translate(895px, 562px);
+  transform: translate(895px, 562px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
