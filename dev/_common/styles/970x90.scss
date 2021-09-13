@@ -1,0 +1,99 @@
+
+#banner{	
+	width: 970px;
+	height: 90px;
+}
+
+
+.title{
+	letter-spacing: .5px;	
+	font-size: 25px;
+	// color: red;
+}	
+
+
+#t1a{
+	@include pos(-240, 34);
+	// text-align: left;
+}
+
+#t1b{
+	letter-spacing: .6px;	
+	text-align: left;
+	@include pos(200, 34);	
+	
+}
+
+#t2, #t3{
+	text-align: left;
+	@include pos(198, 34);
+	// color:red;
+}
+
+#olg{
+	width: 84px;
+	height: 44px;
+	@include pos(0, 48);
+}
+
+#legalBtn{
+	@include pos(928, 45);
+}
+
+
+#bonus{
+	
+	@include pos(282, 35);
+	text-align: left;
+	// opacity: 1 !important;
+	// color: red;
+}
+
+.proline_logo{
+	
+	// -webkit-mask-image: linear-gradient(to left, transparent 100%, black 100%);
+	-webkit-mask-image: linear-gradient(to left, transparent 50%, black 70%);	
+}
+
+
+
+
+
+#cta{
+	// opacity: .2 !important;	
+	transform-origin: 840px 90px;
+	@include pos-scale(-350, -43, .4);
+	// @include pos-scale(-420, -45, .5);
+}
+
+
+.proline_plus{	
+	// opacity: 1;
+	// @include pos-scale-rotate(162, 33, .5, 0);
+}
+
+.star{	
+	// opacity: 1;
+	@include pos-scale(-423, -42, .4);
+}
+
+.cloud{
+	@include pos-scale(0, 0, 1);
+	transform-origin: 82% 100%;
+}
+
+.cloud1{
+	@include pos-scale(40, 0, 1);	
+}
+
+.cloud2{
+	@include pos-scale(-40, 0, 1);	
+}
+
+.cloud3{
+	@include pos-scale(-20, 0, 1);	
+}
+
+.cloudMain{
+	opacity: .65;
+}

@@ -124,7 +124,7 @@ function playa(sportItem){
 }
 
 function addBR(config, key){
-    
+    console.log(config);
     const txt = window.plusData.lang==="FR" ? TXT_FR : TXT
     const str = txt[key].txt
     const br = config.br[key]

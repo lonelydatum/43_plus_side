@@ -1,0 +1,78 @@
+
+#banner{	
+	width: 970px;
+	height: 650px;
+}
+
+
+
+.title{
+	text-align: left;
+	font-size: 57px;
+	letter-spacing: 1.5px;	
+	// color: red !important;
+}	
+
+
+#t1a{
+	@include pos(89, 65);
+	font-size: 56px;
+}
+
+
+
+#t1b{	
+	@include pos(89, 121);	
+	font-size: 56px;
+	// width: 340px;
+}
+
+#t2, #t3{
+	@include pos(87, 211);
+	
+	// opacity: 1 !important;
+	// color: red !important;
+}
+
+#t2{
+	width: 330px;
+}
+
+#olg{
+	width: 156px;
+	height: 86px;
+	@include pos(0, 571);
+}
+
+
+
+#legalBtn{
+	@include pos(923, 192);	
+}
+
+
+
+#bonus{
+	font-size: 29px;
+	text-align: left;
+	letter-spacing: .4px;
+	@include pos(112, 129);
+	// opacity: 1 !important;
+	// color: red;
+}
+
+
+.proline_plus{	
+	@include pos-scale-rotate(372, 115, .5, 0);
+}
+
+.star{	
+	// opacity: 1;
+	
+	@include pos-scale(-190, 60, .4);
+}
+
+.cloud{
+	@include pos-scale(0, 0, 1);
+	transform-origin: 70% 100%;
+}
