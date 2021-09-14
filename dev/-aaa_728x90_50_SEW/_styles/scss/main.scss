@@ -10,11 +10,12 @@
 }
 
 
-
+.t1, .bg{
+	// display: block;
+}
 
 .proline_online{
 	@include pos-scale(0, 2, .5);
-
 }
 
 

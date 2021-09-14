@@ -29,20 +29,23 @@ const sports = {
     }
 }
 
-
-
-
 function start(){
 
     const sportName = window.plusData.type==="generic" ? "SPORTS":window.plusData.type
     
     
     if(window.plusData.type==="basketball"){
+
         document.getElementById("t1b").innerHTML = `OF NBA ${sportName} BETTING IS HERE`    
     }else{
         document.getElementById("t1b").innerHTML = `OF ${sportName} BETTING IS HERE`
     }
 
+    if(window.plusData.type==="hockey"){
+        TweenLite.set(".t1", {x:"+=45"})        
+    }
+
+    // return
     
     const tl = initHorizonal(sports)
 

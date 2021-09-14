@@ -15,7 +15,7 @@ function buildTemplates(project, browserSync){
     var single = splitInfo[3];    
     if(project.charAt(0)==="-"){
         type = type.replace("-", "")
-        type = "basketball"
+        type = "hockey"
     }
     
     
