@@ -14,14 +14,15 @@
 .title{
 	text-align: left;
 	// color:red;
+	font-size: 32px;
 }
 
 #t1a{
-	@include pos(208, 34);
+	@include pos(114, 34);
 }
 
 #t1b{
-	@include pos(355, 34);		
+	@include pos(300, 34);		
 }
 
 .proline{

@@ -443,12 +443,13 @@ img {
 
 .title {
   text-align: left;
+  font-size: 32px;
 }
 
 #t1a {
-  -webkit-transform: translate(208px, 34px);
-  -ms-transform: translate(208px, 34px);
-  transform: translate(208px, 34px);
+  -webkit-transform: translate(114px, 34px);
+  -ms-transform: translate(114px, 34px);
+  transform: translate(114px, 34px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -457,9 +458,9 @@ img {
 }
 
 #t1b {
-  -webkit-transform: translate(355px, 34px);
-  -ms-transform: translate(355px, 34px);
-  transform: translate(355px, 34px);
+  -webkit-transform: translate(300px, 34px);
+  -ms-transform: translate(300px, 34px);
+  transform: translate(300px, 34px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
