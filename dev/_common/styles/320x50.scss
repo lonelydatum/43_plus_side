@@ -21,7 +21,7 @@
 }
 
 #t2, #t3{
-	@include pos(100, 20);
+	@include pos(100, 21);
 	letter-spacing: .2px;	
 	// color: red;
 	// opacity: 1 !important;
@@ -60,7 +60,7 @@
 	// opacity: .2 !important;	
 	// transform-origin: 270px 35px;
 	// @include pos-scale(-72, -14, .35);
-	// @include pos-scale(-14, 0, .5);
+	@include pos-scale(0, 3, .5);
 }
 
 .proline_plus{	

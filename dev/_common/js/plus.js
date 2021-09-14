@@ -38,7 +38,7 @@ function initCommon(sports) {
     
     const sportItem = sports[plusData.type]
 
-
+    
    
     
     if(plusData.bonus===0){
@@ -53,7 +53,7 @@ function initCommon(sports) {
     const msg2 = addBR(config, config.msg2)
     const msg3 = addBR(config, config.msg3)
 
-
+    
     
     document.getElementById("t2").innerHTML = msg2
     document.getElementById("t3").innerHTML = msg3
@@ -67,6 +67,8 @@ function initCommon(sports) {
         document.getElementById("cta").classList.remove("shadow");
     })
 
+// return
+    
     const tracker = new Date().getTime()
     const tl = new TimelineMax({onComplete(){
         const d = new Date().getTime()

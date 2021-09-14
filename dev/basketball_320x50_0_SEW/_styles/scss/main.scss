@@ -1,0 +1,60 @@
+@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/320x50.scss';
+
+.frame1{
+	// opacity: 1;
+}
+.playa{	
+	// @include pos-scale(-580, -60, .1);	
+	
+	// @include pos-scale(-280, -25, .3);	
+	// opacity: 1;	
+}
+
+
+// .frame1{
+// 	opacity: 1;
+// }
+
+// .frame1 > * {
+// 	display: none;
+// }
+
+.t1{
+	letter-spacing: 0px;	
+	// display: block;
+}
+
+#t1a{
+	@include pos(10, 18);
+}
+
+#t1b{	
+	@include pos(82, 18);		
+}
+
+.proline_logo{
+	display: block;
+}
+
+.proline_online{	
+	@include pos-scale(0, 1, .5);	
+}
+
+#cta{
+	display: block;
+}
+
+
+// .flare1{
+// 	// opacity: 1;
+// 	@include pos-scale(120, 7, .39);
+
+// }
+
+// .flare2{
+// 	// opacity: 1;
+// 	@include pos-scale(148, 20, .39);
+	
+// }
+

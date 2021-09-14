@@ -1,0 +1,33 @@
+@import '../../../_common/styles/common.scss';
+@import '../../../_common/styles/728x90.scss';
+
+.frame1{
+	// opacity: 1;
+}
+
+.frame1 > *{
+	// display: none;
+}
+
+
+
+
+.proline_online{
+	@include pos-scale(0, 2, .5);
+
+}
+
+
+
+// .flare1{
+// 	// opacity: 1;
+// 	@include pos-scale(430, 20, .7);
+
+// }
+
+// .flare2{
+// 	// opacity: 1;
+// 	@include pos-scale(490, 52, .7);
+	
+// }
+

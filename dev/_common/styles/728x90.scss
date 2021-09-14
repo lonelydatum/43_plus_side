@@ -13,21 +13,22 @@
 
 
 #t1a{
-	@include pos(-240, 34);
+	@include pos(-249, 34);
 	// text-align: left;
 }
 
 #t1b{
 	letter-spacing: .6px;	
 	text-align: left;
-	@include pos(200, 34);	
+	@include pos(191, 34);	
 	
 }
 
 #t2, #t3{
 	text-align: left;
-	@include pos(198, 34);
-	// color:red;
+	// @include pos(198, 34);
+	@include pos(198, 35);
+
 }
 
 #olg{
@@ -62,8 +63,8 @@
 #cta{
 	// opacity: .2 !important;	
 	transform-origin: 840px 90px;
-	@include pos-scale(-350, -43, .4);
-	// @include pos-scale(-420, -45, .5);
+	// @include pos-scale(-350, -43, .4);
+	@include pos-scale(-350, -44, .4);
 }
 
 
