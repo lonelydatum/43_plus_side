@@ -285,39 +285,37 @@ img {
 }
 
 .title {
-  text-align: left;
-  font-size: 57px;
-  letter-spacing: 1.5px;
+  text-align: center;
+  font-size: 49px;
+  letter-spacing: 1.7px;
 }
 
 #t1a {
-  -webkit-transform: translate(89px, 65px);
-  -ms-transform: translate(89px, 65px);
-  transform: translate(89px, 65px);
+  -webkit-transform: translate(0px, 89px);
+  -ms-transform: translate(0px, 89px);
+  transform: translate(0px, 89px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
-  font-size: 56px;
 }
 
 #t1b {
-  -webkit-transform: translate(89px, 121px);
-  -ms-transform: translate(89px, 121px);
-  transform: translate(89px, 121px);
+  -webkit-transform: translate(0px, 139px);
+  -ms-transform: translate(0px, 139px);
+  transform: translate(0px, 139px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   position: absolute;
-  font-size: 56px;
 }
 
 #t2, #t3 {
-  -webkit-transform: translate(87px, 211px);
-  -ms-transform: translate(87px, 211px);
-  transform: translate(87px, 211px);
+  -webkit-transform: translate(0px, 183px);
+  -ms-transform: translate(0px, 183px);
+  transform: translate(0px, 183px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -325,16 +323,12 @@ img {
   position: absolute;
 }
 
-#t2 {
-  width: 330px;
-}
-
 #olg {
-  width: 156px;
-  height: 86px;
-  -webkit-transform: translate(0px, 571px);
-  -ms-transform: translate(0px, 571px);
-  transform: translate(0px, 571px);
+  width: 266px;
+  height: 146px;
+  -webkit-transform: translate(0px, 516px);
+  -ms-transform: translate(0px, 516px);
+  transform: translate(0px, 516px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -369,9 +363,9 @@ img {
 }
 
 .proline_plus {
-  -webkit-transform: translate(372px, 115px) scale(0.5) rotate(0deg);
-  -ms-transform: translate(372px, 115px) scale(0.5) rotate(0deg);
-  transform: translate(372px, 115px) scale(0.5) rotate(0deg);
+  -webkit-transform: translate(591px, 88px) scale(0.5) rotate(0deg);
+  -ms-transform: translate(591px, 88px) scale(0.5) rotate(0deg);
+  transform: translate(591px, 88px) scale(0.5) rotate(0deg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -380,9 +374,9 @@ img {
 }
 
 .star {
-  -webkit-transform: translate(-190px, 60px) scale(0.4, 0.4);
-  -ms-transform: translate(-190px, 60px) scale(0.4, 0.4);
-  transform: translate(-190px, 60px) scale(0.4, 0.4);
+  -webkit-transform: translate(-24px, 29px) scale(0.4, 0.4);
+  -ms-transform: translate(-24px, 29px) scale(0.4, 0.4);
+  transform: translate(-24px, 29px) scale(0.4, 0.4);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;

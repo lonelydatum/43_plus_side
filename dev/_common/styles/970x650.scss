@@ -7,41 +7,42 @@
 
 
 .title{
-	text-align: left;
-	font-size: 57px;
-	letter-spacing: 1.5px;	
+	text-align: center;
+	font-size: 49px;
+	letter-spacing: 1.7px;	
 	// color: red !important;
 }	
 
 
 #t1a{
-	@include pos(89, 65);
-	font-size: 56px;
+	
+	@include pos(0, 89);
+	
 }
 
 
 
 #t1b{	
-	@include pos(89, 121);	
-	font-size: 56px;
+	@include pos(0, 139);	
+	// font-size: 56px;
 	// width: 340px;
 }
 
 #t2, #t3{
-	@include pos(87, 211);
+	@include pos(0, 183);
 	
 	// opacity: 1 !important;
 	// color: red !important;
 }
 
 #t2{
-	width: 330px;
+	// width: 330px;
 }
 
 #olg{
-	width: 156px;
-	height: 86px;
-	@include pos(0, 571);
+	width: 266px;
+	height: 146px;
+	@include pos(0, 516);
 }
 
 
@@ -65,16 +66,20 @@
 
 
 .proline_plus{	
-	@include pos-scale-rotate(372, 115, .5, 0);
+	@include pos-scale-rotate(591, 88, .5, 0);
 }
 
 .star{	
 	// opacity: 1;
 	
-	@include pos-scale(-190, 60, .4);
+	@include pos-scale(-24, 29, .4);
 }
 
 .cloud{
 	@include pos-scale(0, 0, 1);
 	transform-origin: 70% 100%;
+}
+
+.proline{
+	// display: none;
 }

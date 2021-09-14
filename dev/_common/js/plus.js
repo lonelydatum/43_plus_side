@@ -28,7 +28,7 @@ window.plusSettings = {
         br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY:null }        
     },
      "970x650": {
-        br: { DYANAMIC: 0, NEW_SPORTS: null, SINGLE: 1, NEW_WAY:null }        
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE:null, NEW_WAY:null }        
     }
 }
 

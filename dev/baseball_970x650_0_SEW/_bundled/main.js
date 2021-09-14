@@ -52,7 +52,7 @@ window.plusSettings = {
         br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     },
     "970x650": {
-        br: { DYANAMIC: 0, NEW_SPORTS: null, SINGLE: 1, NEW_WAY: null }
+        br: { DYANAMIC: null, NEW_SPORTS: null, SINGLE: null, NEW_WAY: null }
     }
 };
 
@@ -431,9 +431,10 @@ var _commonJsPlusJs = require('../../_common/js/plus.js');
 
 var sports = {
     baseball: {
-        playa: { x: 1400, y: 650 },
-        playaStart: { x: -640, y: -168, scale: .1 },
-        flares: [[476, 246], [612, 182], [454, 392]]
+        playa: { x: 1092, y: 1188 },
+
+        playaStart: { x: -549, y: -596, scale: .1 },
+        flares: [[154, 356], [447, 392], [477, 482]]
     },
     football: {
         playa: { x: 380, y: 720 },
@@ -451,7 +452,7 @@ start();
 
 function start() {
 
-    document.getElementById("t1b").innerHTML = "OF BASEBALL<br/> BETTING IS HERE";
+    document.getElementById("t1b").innerHTML = "OF BASEBALL BETTING IS HERE";
     var len = plusData.size.length;
 
     var tl = (0, _commonJsPlusJs.init)(sports);
