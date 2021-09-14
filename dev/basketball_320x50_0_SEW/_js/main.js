@@ -49,6 +49,10 @@ function start(){
         document.getElementById("t1b").innerHTML = `OF ${sportName} BETTING IS HERE`
     }
 
+    if(window.plusData.type==="hockey"){
+        TweenLite.set(".t1", {x:"+=22"})        
+    }
+    
     const tl = initHorizonal(sports)
     const shift = {
         cta: {x:0, y:0},

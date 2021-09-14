@@ -45,6 +45,10 @@ function start() {
         document.getElementById("t1b").innerHTML = "OF " + sportName + " BETTING IS HERE";
     }
 
+    if (window.plusData.type === "hockey") {
+        TweenLite.set(".t1", { x: "+=22" });
+    }
+
     var tl = (0, _commonJsPlusJs.initHorizonal)(sports);
     var shift = {
         cta: { x: 0, y: 0 },
